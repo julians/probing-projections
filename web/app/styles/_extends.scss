@@ -1,0 +1,18 @@
+.listTitle {
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 0;
+}
+.control {
+    background-color: hsla(0, 0%, 100%, 0.9);
+    border-radius: 2;
+    box-shadow: 0px 1px 1px hsla(0, 0%, 0%, 0.15);
+    padding: 0.25em;
+    color: $grey;
+    
+    &:hover {
+        color: opacify($grey, 0.2);
+    }
+}

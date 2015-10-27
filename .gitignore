@@ -1,0 +1,29 @@
+web/dist*
+
+scripts/output
+*.pyc
+
+node_modules
+bower_components
+experiments
+
+.sass-cache
+.tmp
+dist/
+dist-zips/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+*.pyc
+
+# TextMate files
+*.tmproj
+*.tmproject
+.tm_properties
+tmtags
+
+# SublimeText project files
+*.sublime-project
+*.sublime-workspace

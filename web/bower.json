@@ -1,0 +1,20 @@
+{
+  "name": "vizzyviz",
+  "version": "1.0.0",
+  "dependencies": {
+    "requirejs": "latest",
+    "modernizr": "latest",
+    "jquery": "latest",
+    "es5-shim": "latest",
+    "d3": "latest",
+    "handlebars": "latest",
+    "underscore": "~1.7.0",
+    "requirejs-plugins": "latest",
+    "require-handlebars-plugin": "latest",
+    "history.js": "latest",
+    "victor": "~0.2.6"
+  },
+  "devDependencies": {
+    "papaparse": "~4.1.1"
+  }
+}

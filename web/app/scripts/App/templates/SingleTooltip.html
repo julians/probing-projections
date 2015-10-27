@@ -1,0 +1,38 @@
+<div class="displayTooltip singleTooltip">
+    <div class="tooltipHead">
+        <h3{{#if colour}} style="color: {{colour}}"{{/if}}>{{label}}</h3>
+    </div>
+    <div class="tooltipContent">
+        <table>
+            <thead>
+                <tr>
+                    <th></th>
+                    <th colspan="2">Value</th>
+                    <th>Deviation</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each quantitativeDimensions}}
+                <tr class="dimension quantitative" data-dimension="{{dimension.id}}">
+                    <td class="label"><span class="wrapper">{{dimension.label}}</span></td>
+                    <td class="value">{{valueForSample}}</td>
+                    <td class="value stdDeviation" title="Standard deviation">{{zScoreForSample}}&nbsp;<span class="zScoreSymbol">σ</span></td>
+                    <td class="densityPlotCell">
+                        <div class="densityPlotContainer">
+                            <div class="densityPlot" data-dimension="{{dimension.id}}"></div>
+                        </div>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+        {{#unless selection}}
+            <div class="tooltipActions">
+                {{#if displayErrors}}
+                    <p class="errorValueDisplay">Projection error (stress1) for sample: {{stress1}}</p>
+                {{/if}}
+                <span class="correctDistanceAction tooltipAction" data-sampleid="{{sample.id}}" data-action="correctDistance">correct distances</span>
+            </div>
+        {{/unless}}
+    </div>
+</div>

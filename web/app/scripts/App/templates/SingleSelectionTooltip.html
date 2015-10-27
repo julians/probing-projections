@@ -1,0 +1,36 @@
+<div class="displayTooltip singleSelectionTooltip">
+    <div class="tooltipHead">
+        <h3{{#if selection.colour}} style="color: {{selection.colour}}"{{/if}}>{{selection.label}}</h3>
+        <span class="numberOfSamples">{{selection.samples.length}} {{#ifCond samples.length "==" 1}}sample{{else}}samples{{/ifCond}}</span>
+    </div>
+    <div class="tooltipContent">
+        <table>
+            <thead>
+                <tr>
+                    <th></th>
+                    <th colspan="2">Mean</th>
+                    <th>Density</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each quantitativeDimensions}}
+                <tr class="dimension quantitative" data-dimension="{{dimension.id}}">
+                    <td class="label"><span class="wrapper">{{dimension.label}}</span></td>
+                    <td class="value">{{mean}}</td>
+                    <td class="value stdDeviation" title="Standard deviation">{{zScoreForSelection}}&nbsp;<span class="zScoreSymbol">σ</span></td>
+                    <td class="densityPlotCell">
+                        <div class="densityPlotContainer">
+                            <div class="densityPlot" data-dimension="{{dimension.id}}"></div>
+                        </div>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+        <div class="selectionContains">
+            {{#each labels}}
+                {{label}}{{#ifCond count ">" 1}} ({{count}}){{/ifCond}}{{#unless @last}}, {{/unless}}
+            {{/each}}
+        </div>
+    </div>
+</div>

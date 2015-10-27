@@ -1,0 +1,104 @@
+$heatmapThumbSize: 48px;
+
+.dimensionDisplay {
+    color: $grey;
+    cursor: default;
+    
+    ul {
+        overflow: auto;
+        @include transition(height 0.3s);
+    }
+    .dimension {
+        margin: 0 0 6px 0;
+    }
+    .quantitative {
+        min-height: $heatmapThumbSize;
+        position: relative;
+    }
+    .innerContainer {
+        padding-top: 1px;
+        border-bottom: solid 1px #ddd;
+        height: 24px;
+        overflow: visible;
+        padding-left: $heatmapThumbSize + 12px;
+    }
+    .label {
+        font-weight: normal;
+        font-size: 1.5rem;
+        display: inline-block;
+        margin-right: 10px;
+        white-space: nowrap;
+    }
+    .densityContainer {
+        display: inline-block;
+        
+        .range {
+            color: $lightGrey;
+            font-size: 1.3rem;
+            display: inline-block;
+            
+            &.min {
+                text-align: right;
+            }
+        }
+        .densityPlot {
+            width: 130px;
+            height: 22px;
+            display: inline-block;
+            position: relative;
+            top: 3px;
+        }
+    }
+    .heatmapContainer {
+        width: $heatmapThumbSize;
+        height: $heatmapThumbSize;
+        left: 0;
+        top: 0;
+        position: absolute;
+        background: #ddd;
+        
+        canvas {
+            opacity: 0.5;
+            width: $heatmapThumbSize;
+            height: $heatmapThumbSize;
+            position: absolute;
+            left: 0;
+            top: 0;
+            @include border-radius(2px);
+            @include background-clip(padding-box);
+            overflow: hidden;
+        }
+    }
+    .scaleAction {
+        position: absolute;
+        right: 5px;
+        top: 5px;
+        //display: inline-block;
+        //margin-left: 5px;
+        width: 15px;
+        height: 15px;
+        background-image: image-url("scalesymbol.png");
+        @include background-size(cover);
+        cursor: pointer;
+        opacity: 0;
+    }
+    .dimension:hover {
+        background: hsla(0, 0%, 0%, 0.05);
+        
+        .innerContainer {
+            border-bottom: solid 1px #ccc;
+        }
+        .scaleAction {
+            opacity: 0.25;
+            
+            &:hover {
+                opacity: 0.4;
+            }
+        }
+    }
+    .dimension.active {
+        .scaleAction {
+            opacity: 0.6;
+        }
+    }
+}

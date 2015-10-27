@@ -1,0 +1,47 @@
+<div class="displayTooltip singleTooltip">
+    <div class="tooltipHead">
+        <div class="multiContainer">
+            <h3{{#if colour1}} style="color: {{colour1}}"{{/if}}>{{label1}}</h3>
+        </div>
+        <div class="multiContainer">
+            <h3{{#if colour2}} style="color: {{colour2}}"{{/if}}>{{label2}}</h3>
+        </div>
+    </div>
+    <div class="tooltipContent">
+        <table>
+            <thead>
+                <tr>
+                    <th></th>
+                    <th colspan="2">Value</th>
+                    <th>Plot</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each quantitativeDimensions}}
+                <tr class="dimension quantitative" data-dimension="{{dimension.id}}">
+                    <td class="label"><span class="wrapper">{{dimension.label}}</span></td>
+                    <td class="value"{{#if colour1}} style="color: {{colour1}}"{{/if}}>
+                        {{#if sample1Highest}}
+                            <strong>{{valueForSample1}}</strong>
+                        {{else}}
+                            {{valueForSample1}}
+                        {{/if}}
+                    </td>
+                    <td class="value"{{#if colour2}} style="color: {{colour2}}"{{/if}}>
+                        {{#if sample2Highest}}
+                            <strong>{{valueForSample2}}</strong>
+                        {{else}}
+                            {{valueForSample2}}
+                        {{/if}}
+                    </td>
+                    <td class="densityPlotCell">
+                        <div class="densityPlotContainer">
+                            <div class="densityPlot" data-dimension="{{dimension.id}}"></div>
+                        </div>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</div>

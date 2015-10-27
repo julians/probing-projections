@@ -1,0 +1,39 @@
+<div class="container visualisation">
+    <div class="mainContainer flip-container">
+        <div class="flipper">
+            <div class="scatterplot front"></div>
+            <div class="dataEntry back"></div>
+        </div>
+    </div>
+    <div class="sidebar">
+        <div class="panel projectionSettings">
+            <h3>Projection</h3>
+            <button type="button" id="editProjectionButton">Edit projection …</button>
+            <span class="labelledInput dendrogramControls">
+                <input type="checkbox" id="showDendrogram" name="showDendrogram" value="1"> <label for="showDendrogram">Display dendrogram</label> <span class="hoverHelp" data-helpfor="dendrogram">?</span>
+            </span>
+            <span class="labelledInput showErrorDisplayControls">
+                <input type="checkbox" id="showErrorDisplay" name="showErrorDisplay" value="1"> <label for="showErrorDisplay">Display errors</label> <span class="hoverHelp" data-helpfor="errordisplay">?</span>
+            </span>
+            <span class="labelledInput">
+                <input type="checkbox" id="showlabels" name="showlabels" value="1" checked> <label for="showlabels">Display labels</label>
+            </span>
+        </div>
+        <div class="panel userSelectionDisplay" data-selection="user">
+            <h3>Selections</h3>
+            <ul class="selectionListDisplay"></ul>
+        </div>
+        <div class="panel classDisplay" data-selection="classes">
+            <h3>Classes</h3>
+            <ul class="selectionListDisplay"></ul>
+        </div>
+        <div class="panel clusterDisplay" data-selection="clusters">
+            <h3>Clustering</h3>
+            <div class="slider">
+                <span class="label min">Clusters:</span><input id="numberOfClusters" value=1 type="range" name="numberOfClusters" min="1" max="9"><span id="numberOfClustersLabel" class="label max">no clusters</span> <span class="hoverHelp" data-helpfor="clustercontrol">?</span>
+            </div>
+            <ul class="selectionListDisplay"></ul>
+        </div>
+        <div class="panel dimensionDisplay"></div>
+    </div>
+</div>

@@ -1,0 +1,62 @@
+<form>
+    <h3>Projection type</h3>
+    <div class="top">
+        <div class="left">
+            <input type="radio" id="mdsCheckbox" name="drtype" value="mds" checked> <label for="mdsCheckbox">MDS</label>
+            <!--
+            <input type="radio" id="pcaCheckbox" name="drtype" value="pca"> <label for="pcaCheckbox">PCA</label>
+            <input type="radio" id="tsneCheckbox" name="drtype" value="tsne"> <label for="tsneCheckbox">TSNE</label>
+            -->
+            <input type="checkbox" id="metricCheckbox" name="metric" value="1" checked> <label for="metricCheckbox">metric</label>
+        </div>
+        <div class="buttons">
+            <input type="submit" name="cancelEditProjection" value="Cancel" id="cancelEditProjection">
+            <input class="action" type="submit" name="createMDS" value="Recompute" id="createMDS">
+        </div>
+    </div>
+    <h3>Data <small>CSV or TSV with header row</small></h3>
+	<textarea name="csv" rows="20" cols="60">Label	Educational attainment	Employees working very long hours	Life expectancy	Life satisfaction	Self-reported health	Student skills	Time devoted to leisure and personal care	Years in education	mds:x	mds:y
+Australia	74	14.23	82	7.4	85	512	14.41	18.8	0.394703725972125	-0.44354283494884433
+Austria	82	8.61	81.1	7.5	69	500	14.46	16.9	0.2738761445905904	-0.1382755479821583
+Belgium	71	4.41	80.5	7.1	74	509	15.71	18.8	-0.04658745737569123	-0.4480020545535331
+Canada	89	3.98	81	7.6	88	522	14.25	17	0.5698090489746627	-0.3300831026902125
+Chile	72	15.42	78.3	6.6	59	436	14.41	16.4	0.2062738674377487	0.47055181969533194
+Czech Republic	92	7.14	78	6.7	60	500	14.98	17.9	-0.24331341198298131	-0.192462174886222
+Denmark	77	2.06	79.9	7.6	71	498	16.06	19.2	-0.04663067587035981	-0.7056510035545153
+Estonia	89	3.59	76.3	5.4	52	526	14.9	17.5	-0.613767759475242	0.06794739174663914
+Finland	84	3.7	80.6	7.4	69	529	14.89	19.7	-0.12468341300395044	-0.596997302597269
+France	72	8.71	82.2	6.7	68	500	15.33	16.5	0.05562012415522698	-0.005395845537466072
+Germany	86	5.6	80.8	7	65	515	15.31	18.1	-0.10017387877856221	-0.3164463941892556
+Greece	67	5.65	80.8	4.7	76	466	14.91	18.6	-0.32939648877780625	0.5212177718297286
+Hungary	82	2.92	75	4.9	56	487	15.04	17.5	-0.6125423105459071	0.3283780315283958
+Iceland	71	13.73	82.4	7.5	78	484	14.61	19.5	0.3456922500052694	-0.5372658709311666
+Ireland	73	4.17	80.6	6.8	83	516	15.19	17.5	0.09823269571439587	-0.2112245606180898
+Israel	83	18.77	81.8	7.1	82	474	14.48	15.7	0.5312555564755276	0.05598088229522847
+Italy	56	3.7	82.7	6	65	490	14.98	17	-0.04520603133990659	0.2633873422306333
+Japan	93	22.62	82.7	6	30	540	14.93	16.2	-0.9101672085382049	-0.2930919707888521
+Korea	81	27.13	81.1	6	37	542	14.63	17.5	-0.8046051101348742	-0.18341985907670988
+Luxembourg	77	3.18	81.1	7.1	73	490	15.12	14.1	0.5509472844367513	0.20711805543228778
+Mexico	36	28.77	74.4	7.4	66	417	13.89	15.2	0.7939416171956741	0.9272613667359629
+Netherlands	72	0.59	81.3	7.4	76	519	15.44	18.6	0.03607077577313829	-0.5022271306076589
+New Zealand	74	13.07	81.2	7.3	89	509	14.87	18.1	0.31986394076723634	-0.3102559087394826
+Norway	82	3.1	81.4	7.7	73	496	15.56	17.9	0.11389576537563216	-0.4654921111467274
+Poland	89	7.58	76.9	5.7	58	521	14.2	18.3	-0.532704192832974	-0.07648514092498712
+Portugal	35	9.31	80.8	5.2	50	488	14.95	17.8	-0.2726056216390988	0.7824197634418402
+Slovak Republic	91	6.48	76.1	5.9	63	472	14.99	16.4	-0.3488404828056551	0.2028880278386376
+Slovenia	84	5.72	80.1	6	61	499	14.62	18.3	-0.27735351674865477	-0.06061736904709326
+Spain	54	5.95	82.4	6.2	75	490	16.06	17.6	0.07624728284837391	0.30703034329505535
+Sweden	87	1.14	81.9	7.4	80	482	15.11	19.2	0.15840889363633054	-0.5959963951074283
+Switzerland	86	7.3	82.8	7.8	81	518	14.98	17.1	0.41214597838089917	-0.36706330146595145
+Turkey	32	43.29	74.6	4.9	67	462	13.42	16	0.11330351728524646	1.4241322926368725
+United Kingdom	77	12.27	81.1	6.9	78	502	14.83	16.6	0.20416803646388285	-0.05308117414597767
+United States	89	11.44	78.7	7	90	492	14.27	17.1	0.4893247308241028	-0.11075725858264845
+Brazil	43	10.74	73.4	7.2	69	402	14.97	16.3	0.5442083917608409	0.8181011422903683
+Russian Federation	94	0.17	69	5.5	37	481	14.97	15.8	-0.9794120682237866	0.5674200811252663</textarea>
+<div class="exportArea">
+    <h3>Export <small>JSON object of projected points</small></h3>
+    <textarea name="export" rows="5" cols="60">
+    
+    </textarea>
+</div>
+<a href="https://docs.google.com/spreadsheets/d/1nafMwa3Op3woewuH7qyo5GtiWaDUFzNrTtx32VMK7S8/edit?usp=sharing">Google Doc with sample data</a>
+</form>

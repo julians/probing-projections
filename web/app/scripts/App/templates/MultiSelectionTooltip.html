@@ -1,0 +1,42 @@
+<div class="displayTooltip multiSelectionTooltip">
+    <div class="tooltipHead">
+        {{#each selections}}
+            <div class="multiContainer">
+                <h3{{#if colour}} style="color: {{colour}}"{{/if}}>{{label}}</h3>
+                <span class="numberOfSamples">{{samples.length}} {{#ifCond samples.length "==" 1}}sample{{else}}samples{{/ifCond}}</span>
+            </div>
+        {{/each}}
+    </div>
+    <div class="tooltipContent">
+        <table>
+            <thead>
+                <tr>
+                    <th></th>
+                    <th colspan="{{selections.length}}">Mean</th>
+                    <th>Density</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each quantitativeDimensions}}
+                <tr class="dimension quantitative" data-dimension="{{dimension.id}}">
+                    <td class="label"><span class="wrapper">{{dimension.label}}</span></td>
+                    {{#each meanForSelection}}
+                        <td class="value" style="color: {{colour}}">
+                            {{#if highestValue}}
+                                <strong>{{value}}</strong>
+                            {{else}}
+                                {{value}}
+                            {{/if}}
+                        </td>
+                    {{/each}}
+                    <td class="densityPlotCell">
+                        <div class="densityPlotContainer">
+                            <div class="densityPlot" data-dimension="{{dimension.id}}"></div>
+                        </div>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</div>

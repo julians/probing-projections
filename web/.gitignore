@@ -1,0 +1,21 @@
+.sass-cache
+.tmp
+dist-production/
+dist-zips/
+dev/
+temp/
+
+etc/scripts/output
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# TextMate files
+*.tmproj
+*.tmproject
+tmtags
+
+# SublimeText project files
+*.sublime-project
+*.sublime-workspace

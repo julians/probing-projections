@@ -1,0 +1,182 @@
+.displayTooltip {
+    text-align: left;
+    padding: 0.5rem 0.5rem 1rem 0.5rem;
+    
+    .tooltipHead {
+        font-size: 1.5rem;
+        border-bottom: solid 1px $faintGrey;
+        padding-bottom: 0.3rem;
+        
+        h3 {
+            font-style: italic;
+            font-weight: 300;
+            margin: 0;
+            display: inline;
+        }
+        h4 {
+            font-style: italic;
+            font-weight: 500;
+            margin: 0;
+            display: inline;
+            font-size: 1.3rem;
+            color: $grey;
+        }
+        .numberOfSamples {
+            color: $lightGrey;
+            font-size: 1.3rem;
+            font-style: italic;
+            margin-left: 0.3em;
+        }
+    }
+    &.multiSelectionTooltip .tooltipContent .value {
+        font-weight: 300;
+    }
+    .tooltipContent {
+        font-size: 1.3rem;
+        color: $grey;
+        
+        table {
+            cellspacing: 0;
+            border-spacing: 0;
+            vertical-align: top;
+        }
+        thead {
+            color: $veryLightGrey;
+            font-size: 1rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            
+            th:first-child {
+                text-align: right;
+            }
+            th {
+                padding: 0.1rem 0.4rem 0.6rem 0.4rem;
+            }
+        }
+        tbody {
+            td {
+                padding: 0 0.4rem 0.4rem 0.4rem;
+                vertical-align: top;
+                line-height: 1.6rem;
+            }
+            .label {
+                color: $lightGrey;
+                text-align: right;
+                
+                .wrapper {
+                    max-width: 14rem;
+                    display: inline-block;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    overflow: hidden;
+                }
+            }
+            .value {
+                
+            }
+            .stdDeviation {
+                font-size: 1.1rem;
+                padding-left: 0;
+                white-space: nowrap;
+                cursor: help;
+            }
+            .densityPlotContainer {
+                margin: 0 -5px;
+            }
+            .densityPlot {
+                width: 80px;
+                height: 1.5rem;
+                position: relative;
+                margin: 0 auto;
+                
+                .basePath {
+                    stroke: none;
+                    fill: hsla(0, 0%, 0%, 0.15);
+                }
+                .quantileLine {
+                    stroke: white;
+                }
+                .subPlotLayer {
+                    .subPlot {
+                        fill-opacity: 0.5;
+                    }
+                    .subPlotLine {
+                        stroke-width: 1px;
+                    }
+                }
+            }
+        }
+        .selectionContains,
+        .tooltipActions {
+            border-top: solid 1px $faintGrey;
+            padding-top: 0.3rem;
+            margin-top: 1rem;
+        }
+        .tooltipActions .tooltipAction {
+            @extend .control;
+            cursor: pointer;
+            display: inline-block;
+        }
+        //.correctDistanceAction {
+        //    float: right;
+        //}
+        .errorValueDisplay {
+            font-weight: bold;
+            margin: 0 0 0.4rem 0;
+        }
+    }
+}
+.legendTooltip {
+    pointer-events: none;
+}
+.controlLegend {
+    p {
+        margin: 0.75rem 0 0 0;
+    }
+    ul {
+        margin: 0.75rem 0 0 0;
+        padding: 0;
+        list-style-type: none;
+    }
+    li {
+        margin: 0 0 0.75rem 0;
+        padding-left: 2em;
+        position: relative;
+        min-height: 1.5em;
+    }
+    .fakePlot {
+        background: hsl(0, 0%, 94%);
+        width: 1.5em;
+        height: 1.5em;
+        position: absolute;
+        left: 0;
+        top: 0;
+        border-radius: 2px;
+        text-align: center;
+        line-height: 1.5em;
+    }
+    .fakeHalo {
+        display: inline-block;
+        width: 0.35em;
+        height: 0.35em;
+        border-radius: 100%;
+        border: solid 0.35em $defaultColor;
+        background: $defaultColor;
+        vertical-align: middle;
+        
+        &.nearer {
+            border-color: $nearColor;
+        }
+        &.farther {
+            border-color: $farColor;
+        }
+        @keyframes haloSizeLegend {
+          0%   { border-width: 0.1em; }
+          100% { border-width: 0.5em; }
+        }
+        &.sizeAnimated {
+            animation: haloSizeLegend 1s infinite ease-in-out alternate;
+        }
+    }
+}

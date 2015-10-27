@@ -1,0 +1,1360 @@
+{
+    "drInfo": {
+        "metric": true, 
+        "type": "mds", 
+        "stress": 0.017705924769122125, 
+        "rawStress": 2.6558887153683188
+    }, 
+    "rows": [
+        {
+            "mds:y": 0.20065242104505687, 
+            "mds:x": -0.28380311539921821, 
+            "Sepal width": 3.5, 
+            "Petal length": 1.4, 
+            "Petal width": 0.2, 
+            "Sepal length": 5.1, 
+            "Class": "I. setosa"
+        }, 
+        {
+            "mds:y": 0.14133327298019518, 
+            "mds:x": -0.32058620655442965, 
+            "Sepal width": 3.0, 
+            "Petal length": 1.4, 
+            "Petal width": 0.2, 
+            "Sepal length": 4.9, 
+            "Class": "I. setosa"
+        }, 
+        {
+            "mds:y": 0.16148902722153066, 
+            "mds:x": -0.33564876713613301, 
+            "Sepal width": 3.2, 
+            "Petal length": 1.3, 
+            "Petal width": 0.2, 
+            "Sepal length": 4.7, 
+            "Class": "I. setosa"
+        }, 
+        {
+            "mds:y": 0.12911313087101509, 
+            "mds:x": -0.3313431313014919, 
+            "Sepal width": 3.1, 
+            "Petal length": 1.5, 
+            "Petal width": 0.2, 
+            "Sepal length": 4.6, 
+            "Class": "I. setosa"
+        }, 
+        {
+            "mds:y": 0.20732941365008198, 
+            "mds:x": -0.28728489508391525, 
+            "Sepal width": 3.6, 
+            "Petal length": 1.4, 
+            "Petal width": 0.2, 
+            "Sepal length": 5.0, 
+            "Class": "I. setosa"
+        }, 
+        {
+            "mds:y": 0.22738818024242591, 
+            "mds:x": -0.20950455909903665, 
+            "Sepal width": 3.9, 
+            "Petal length": 1.7, 
+            "Petal width": 0.4, 
+            "Sepal length": 5.4, 
+            "Class": "I. setosa"
+        }, 
+        {
+            "mds:y": 0.16721881902152691, 
+            "mds:x": -0.3258024054584267, 
+            "Sepal width": 3.4, 
+            "Petal length": 1.4, 
+            "Petal width": 0.3, 
+            "Sepal length": 4.6, 
+            "Class": "I. setosa"
+        }, 
+        {
+            "mds:y": 0.17902700182230818, 
+            "mds:x": -0.28695968031823066, 
+            "Sepal width": 3.4, 
+            "Petal length": 1.5, 
+            "Petal width": 0.2, 
+            "Sepal length": 5.0, 
+            "Class": "I. setosa"
+        }, 
+        {
+            "mds:y": 0.11243271450237423, 
+            "mds:x": -0.3616681309263593, 
+            "Sepal width": 2.9, 
+            "Petal length": 1.4, 
+            "Petal width": 0.2, 
+            "Sepal length": 4.4, 
+            "Class": "I. setosa"
+        }, 
+        {
+            "mds:y": 0.14714377458179717, 
+            "mds:x": -0.31111350049987813, 
+            "Sepal width": 3.1, 
+            "Petal length": 1.5, 
+            "Petal width": 0.1, 
+            "Sepal length": 4.9, 
+            "Class": "I. setosa"
+        }, 
+        {
+            "mds:y": 0.22902999648174976, 
+            "mds:x": -0.24140193233203819, 
+            "Sepal width": 3.7, 
+            "Petal length": 1.5, 
+            "Petal width": 0.2, 
+            "Sepal length": 5.4, 
+            "Class": "I. setosa"
+        }, 
+        {
+            "mds:y": 0.1619011248005521, 
+            "mds:x": -0.2944220466921218, 
+            "Sepal width": 3.4, 
+            "Petal length": 1.6, 
+            "Petal width": 0.2, 
+            "Sepal length": 4.8, 
+            "Class": "I. setosa"
+        }, 
+        {
+            "mds:y": 0.13883709632873403, 
+            "mds:x": -0.3321968398445353, 
+            "Sepal width": 3.0, 
+            "Petal length": 1.4, 
+            "Petal width": 0.1, 
+            "Sepal length": 4.8, 
+            "Class": "I. setosa"
+        }, 
+        {
+            "mds:y": 0.14384819177345842, 
+            "mds:x": -0.39492127416050249, 
+            "Sepal width": 3.0, 
+            "Petal length": 1.1, 
+            "Petal width": 0.1, 
+            "Sepal length": 4.3, 
+            "Class": "I. setosa"
+        }, 
+        {
+            "mds:y": 0.29967933617782938, 
+            "mds:x": -0.22382014843226591, 
+            "Sepal width": 4.0, 
+            "Petal length": 1.2, 
+            "Petal width": 0.2, 
+            "Sepal length": 5.8, 
+            "Class": "I. setosa"
+        }, 
+        {
+            "mds:y": 0.30181890625134172, 
+            "mds:x": -0.18429029689666607, 
+            "Sepal width": 4.4, 
+            "Petal length": 1.5, 
+            "Petal width": 0.4, 
+            "Sepal length": 5.7, 
+            "Class": "I. setosa"
+        }, 
+        {
+            "mds:y": 0.23989455017028724, 
+            "mds:x": -0.26505551462486265, 
+            "Sepal width": 3.9, 
+            "Petal length": 1.3, 
+            "Petal width": 0.4, 
+            "Sepal length": 5.4, 
+            "Class": "I. setosa"
+        }, 
+        {
+            "mds:y": 0.19864621548834277, 
+            "mds:x": -0.27959558658201822, 
+            "Sepal width": 3.5, 
+            "Petal length": 1.4, 
+            "Petal width": 0.3, 
+            "Sepal length": 5.1, 
+            "Class": "I. setosa"
+        }, 
+        {
+            "mds:y": 0.23192913195619239, 
+            "mds:x": -0.19526869991362447, 
+            "Sepal width": 3.8, 
+            "Petal length": 1.7, 
+            "Petal width": 0.3, 
+            "Sepal length": 5.7, 
+            "Class": "I. setosa"
+        }, 
+        {
+            "mds:y": 0.22303826901329998, 
+            "mds:x": -0.25731255873260817, 
+            "Sepal width": 3.8, 
+            "Petal length": 1.5, 
+            "Petal width": 0.3, 
+            "Sepal length": 5.1, 
+            "Class": "I. setosa"
+        }, 
+        {
+            "mds:y": 0.18524201481108504, 
+            "mds:x": -0.23549827133809426, 
+            "Sepal width": 3.4, 
+            "Petal length": 1.7, 
+            "Petal width": 0.2, 
+            "Sepal length": 5.4, 
+            "Class": "I. setosa"
+        }, 
+        {
+            "mds:y": 0.20988178900291315, 
+            "mds:x": -0.25787306036170443, 
+            "Sepal width": 3.7, 
+            "Petal length": 1.5, 
+            "Petal width": 0.4, 
+            "Sepal length": 5.1, 
+            "Class": "I. setosa"
+        }, 
+        {
+            "mds:y": 0.22322353916737261, 
+            "mds:x": -0.35240549708608837, 
+            "Sepal width": 3.6, 
+            "Petal length": 1.0, 
+            "Petal width": 0.2, 
+            "Sepal length": 4.6, 
+            "Class": "I. setosa"
+        }, 
+        {
+            "mds:y": 0.15223027910923145, 
+            "mds:x": -0.25326672136076445, 
+            "Sepal width": 3.3, 
+            "Petal length": 1.7, 
+            "Petal width": 0.5, 
+            "Sepal length": 5.1, 
+            "Class": "I. setosa"
+        }, 
+        {
+            "mds:y": 0.13233533631193006, 
+            "mds:x": -0.2713993790540572, 
+            "Sepal width": 3.4, 
+            "Petal length": 1.9, 
+            "Petal width": 0.2, 
+            "Sepal length": 4.8, 
+            "Class": "I. setosa"
+        }, 
+        {
+            "mds:y": 0.12914818838400074, 
+            "mds:x": -0.29577947920366332, 
+            "Sepal width": 3.0, 
+            "Petal length": 1.6, 
+            "Petal width": 0.2, 
+            "Sepal length": 5.0, 
+            "Class": "I. setosa"
+        }, 
+        {
+            "mds:y": 0.16663033519105516, 
+            "mds:x": -0.27017035099502346, 
+            "Sepal width": 3.4, 
+            "Petal length": 1.6, 
+            "Petal width": 0.4, 
+            "Sepal length": 5.0, 
+            "Class": "I. setosa"
+        }, 
+        {
+            "mds:y": 0.19813678882455035, 
+            "mds:x": -0.26707189796448727, 
+            "Sepal width": 3.5, 
+            "Petal length": 1.5, 
+            "Petal width": 0.2, 
+            "Sepal length": 5.2, 
+            "Class": "I. setosa"
+        }, 
+        {
+            "mds:y": 0.19586837603106647, 
+            "mds:x": -0.27993731719494114, 
+            "Sepal width": 3.4, 
+            "Petal length": 1.4, 
+            "Petal width": 0.2, 
+            "Sepal length": 5.2, 
+            "Class": "I. setosa"
+        }, 
+        {
+            "mds:y": 0.13740103004283374, 
+            "mds:x": -0.30998560841790296, 
+            "Sepal width": 3.2, 
+            "Petal length": 1.6, 
+            "Petal width": 0.2, 
+            "Sepal length": 4.7, 
+            "Class": "I. setosa"
+        }, 
+        {
+            "mds:y": 0.13293641440276374, 
+            "mds:x": -0.30571646699199878, 
+            "Sepal width": 3.1, 
+            "Petal length": 1.6, 
+            "Petal width": 0.2, 
+            "Sepal length": 4.8, 
+            "Class": "I. setosa"
+        }, 
+        {
+            "mds:y": 0.19641012317064177, 
+            "mds:x": -0.24427682278492285, 
+            "Sepal width": 3.4, 
+            "Petal length": 1.5, 
+            "Petal width": 0.4, 
+            "Sepal length": 5.4, 
+            "Class": "I. setosa"
+        }, 
+        {
+            "mds:y": 0.26478836137243811, 
+            "mds:x": -0.24386338127688736, 
+            "Sepal width": 4.1, 
+            "Petal length": 1.5, 
+            "Petal width": 0.1, 
+            "Sepal length": 5.2, 
+            "Class": "I. setosa"
+        }, 
+        {
+            "mds:y": 0.28549142749229511, 
+            "mds:x": -0.22473241090585674, 
+            "Sepal width": 4.2, 
+            "Petal length": 1.4, 
+            "Petal width": 0.2, 
+            "Sepal length": 5.5, 
+            "Class": "I. setosa"
+        }, 
+        {
+            "mds:y": 0.14550413707033838, 
+            "mds:x": -0.30644357445651516, 
+            "Sepal width": 3.1, 
+            "Petal length": 1.5, 
+            "Petal width": 0.2, 
+            "Sepal length": 4.9, 
+            "Class": "I. setosa"
+        }, 
+        {
+            "mds:y": 0.18406941609867952, 
+            "mds:x": -0.32181940037535889, 
+            "Sepal width": 3.2, 
+            "Petal length": 1.2, 
+            "Petal width": 0.2, 
+            "Sepal length": 5.0, 
+            "Class": "I. setosa"
+        }, 
+        {
+            "mds:y": 0.23383150394105748, 
+            "mds:x": -0.26066554133154524, 
+            "Sepal width": 3.5, 
+            "Petal length": 1.3, 
+            "Petal width": 0.2, 
+            "Sepal length": 5.5, 
+            "Class": "I. setosa"
+        }, 
+        {
+            "mds:y": 0.20733378889083665, 
+            "mds:x": -0.29924066933085819, 
+            "Sepal width": 3.6, 
+            "Petal length": 1.4, 
+            "Petal width": 0.1, 
+            "Sepal length": 4.9, 
+            "Class": "I. setosa"
+        }, 
+        {
+            "mds:y": 0.12702642784000515, 
+            "mds:x": -0.36742291342099992, 
+            "Sepal width": 3.0, 
+            "Petal length": 1.3, 
+            "Petal width": 0.2, 
+            "Sepal length": 4.4, 
+            "Class": "I. setosa"
+        }, 
+        {
+            "mds:y": 0.18374001564066653, 
+            "mds:x": -0.27911079286399254, 
+            "Sepal width": 3.4, 
+            "Petal length": 1.5, 
+            "Petal width": 0.2, 
+            "Sepal length": 5.1, 
+            "Class": "I. setosa"
+        }, 
+        {
+            "mds:y": 0.20106014923157253, 
+            "mds:x": -0.29696238943765441, 
+            "Sepal width": 3.5, 
+            "Petal length": 1.3, 
+            "Petal width": 0.3, 
+            "Sepal length": 5.0, 
+            "Class": "I. setosa"
+        }, 
+        {
+            "mds:y": 0.056428194641582378, 
+            "mds:x": -0.38631195219194864, 
+            "Sepal width": 2.3, 
+            "Petal length": 1.3, 
+            "Petal width": 0.3, 
+            "Sepal length": 4.5, 
+            "Class": "I. setosa"
+        }, 
+        {
+            "mds:y": 0.1446242169844543, 
+            "mds:x": -0.36215768866905534, 
+            "Sepal width": 3.2, 
+            "Petal length": 1.3, 
+            "Petal width": 0.2, 
+            "Sepal length": 4.4, 
+            "Class": "I. setosa"
+        }, 
+        {
+            "mds:y": 0.17180707534643647, 
+            "mds:x": -0.25677947837611542, 
+            "Sepal width": 3.5, 
+            "Petal length": 1.6, 
+            "Petal width": 0.6, 
+            "Sepal length": 5.0, 
+            "Class": "I. setosa"
+        }, 
+        {
+            "mds:y": 0.19588914627211212, 
+            "mds:x": -0.21373000903365172, 
+            "Sepal width": 3.8, 
+            "Petal length": 1.9, 
+            "Petal width": 0.4, 
+            "Sepal length": 5.1, 
+            "Class": "I. setosa"
+        }, 
+        {
+            "mds:y": 0.13407461250934502, 
+            "mds:x": -0.32411541497553803, 
+            "Sepal width": 3.0, 
+            "Petal length": 1.4, 
+            "Petal width": 0.3, 
+            "Sepal length": 4.8, 
+            "Class": "I. setosa"
+        }, 
+        {
+            "mds:y": 0.22023324882581669, 
+            "mds:x": -0.25058866363651233, 
+            "Sepal width": 3.8, 
+            "Petal length": 1.6, 
+            "Petal width": 0.2, 
+            "Sepal length": 5.1, 
+            "Class": "I. setosa"
+        }, 
+        {
+            "mds:y": 0.14868596311148713, 
+            "mds:x": -0.33602319391526231, 
+            "Sepal width": 3.2, 
+            "Petal length": 1.4, 
+            "Petal width": 0.2, 
+            "Sepal length": 4.6, 
+            "Class": "I. setosa"
+        }, 
+        {
+            "mds:y": 0.22381547705085089, 
+            "mds:x": -0.24963874029591165, 
+            "Sepal width": 3.7, 
+            "Petal length": 1.5, 
+            "Petal width": 0.2, 
+            "Sepal length": 5.3, 
+            "Class": "I. setosa"
+        }, 
+        {
+            "mds:y": 0.17726999251279149, 
+            "mds:x": -0.29944621541056926, 
+            "Sepal width": 3.3, 
+            "Petal length": 1.4, 
+            "Petal width": 0.2, 
+            "Sepal length": 5.0, 
+            "Class": "I. setosa"
+        }, 
+        {
+            "mds:y": 0.010872497684190416, 
+            "mds:x": 0.19303065938639408, 
+            "Sepal width": 3.2, 
+            "Petal length": 4.7, 
+            "Petal width": 1.4, 
+            "Sepal length": 7.0, 
+            "Class": "I. versicolor"
+        }, 
+        {
+            "mds:y": -0.02288827772512305, 
+            "mds:x": 0.12480815673701705, 
+            "Sepal width": 3.2, 
+            "Petal length": 4.5, 
+            "Petal width": 1.5, 
+            "Sepal length": 6.4, 
+            "Class": "I. versicolor"
+        }, 
+        {
+            "mds:y": -0.020850860422019675, 
+            "mds:x": 0.20103525123169613, 
+            "Sepal width": 3.1, 
+            "Petal length": 4.9, 
+            "Petal width": 1.5, 
+            "Sepal length": 6.9, 
+            "Class": "I. versicolor"
+        }, 
+        {
+            "mds:y": -0.10237051116156069, 
+            "mds:x": -0.033545455526834266, 
+            "Sepal width": 2.3, 
+            "Petal length": 4.0, 
+            "Petal width": 1.3, 
+            "Sepal length": 5.5, 
+            "Class": "I. versicolor"
+        }, 
+        {
+            "mds:y": -0.043732506344790222, 
+            "mds:x": 0.13298148362555837, 
+            "Sepal width": 2.8, 
+            "Petal length": 4.6, 
+            "Petal width": 1.5, 
+            "Sepal length": 6.5, 
+            "Class": "I. versicolor"
+        }, 
+        {
+            "mds:y": -0.088846151587402097, 
+            "mds:x": 0.043013186752093778, 
+            "Sepal width": 2.8, 
+            "Petal length": 4.5, 
+            "Petal width": 1.3, 
+            "Sepal length": 5.7, 
+            "Class": "I. versicolor"
+        }, 
+        {
+            "mds:y": -0.042436679037906169, 
+            "mds:x": 0.14076638655022911, 
+            "Sepal width": 3.3, 
+            "Petal length": 4.7, 
+            "Petal width": 1.6, 
+            "Sepal length": 6.3, 
+            "Class": "I. versicolor"
+        }, 
+        {
+            "mds:y": -0.064656284290515884, 
+            "mds:x": -0.14687277261708212, 
+            "Sepal width": 2.4, 
+            "Petal length": 3.3, 
+            "Petal width": 1.0, 
+            "Sepal length": 4.9, 
+            "Class": "I. versicolor"
+        }, 
+        {
+            "mds:y": -0.018266797731897023, 
+            "mds:x": 0.14000684780489783, 
+            "Sepal width": 2.9, 
+            "Petal length": 4.6, 
+            "Petal width": 1.3, 
+            "Sepal length": 6.6, 
+            "Class": "I. versicolor"
+        }, 
+        {
+            "mds:y": -0.086993370020968186, 
+            "mds:x": -0.051049559366857684, 
+            "Sepal width": 2.7, 
+            "Petal length": 3.9, 
+            "Petal width": 1.4, 
+            "Sepal length": 5.2, 
+            "Class": "I. versicolor"
+        }, 
+        {
+            "mds:y": -0.11170308951108325, 
+            "mds:x": -0.13805525554755993, 
+            "Sepal width": 2.0, 
+            "Petal length": 3.5, 
+            "Petal width": 1.0, 
+            "Sepal length": 5.0, 
+            "Class": "I. versicolor"
+        }, 
+        {
+            "mds:y": -0.045450726346072348, 
+            "mds:x": 0.048869932751105127, 
+            "Sepal width": 3.0, 
+            "Petal length": 4.2, 
+            "Petal width": 1.5, 
+            "Sepal length": 5.9, 
+            "Class": "I. versicolor"
+        }, 
+        {
+            "mds:y": -0.11529085639224067, 
+            "mds:x": -0.028258794178074201, 
+            "Sepal width": 2.2, 
+            "Petal length": 4.0, 
+            "Petal width": 1.0, 
+            "Sepal length": 6.0, 
+            "Class": "I. versicolor"
+        }, 
+        {
+            "mds:y": -0.075018786619118538, 
+            "mds:x": 0.10177588640942244, 
+            "Sepal width": 2.9, 
+            "Petal length": 4.7, 
+            "Petal width": 1.4, 
+            "Sepal length": 6.1, 
+            "Class": "I. versicolor"
+        }, 
+        {
+            "mds:y": -0.011397164528885926, 
+            "mds:x": -0.034433083383139843, 
+            "Sepal width": 2.9, 
+            "Petal length": 3.6, 
+            "Petal width": 1.3, 
+            "Sepal length": 5.6, 
+            "Class": "I. versicolor"
+        }, 
+        {
+            "mds:y": 0.0059330354276572435, 
+            "mds:x": 0.13854191476072522, 
+            "Sepal width": 3.1, 
+            "Petal length": 4.4, 
+            "Petal width": 1.4, 
+            "Sepal length": 6.7, 
+            "Class": "I. versicolor"
+        }, 
+        {
+            "mds:y": -0.098179019409489046, 
+            "mds:x": 0.044431324889231447, 
+            "Sepal width": 3.0, 
+            "Petal length": 4.5, 
+            "Petal width": 1.5, 
+            "Sepal length": 5.6, 
+            "Class": "I. versicolor"
+        }, 
+        {
+            "mds:y": -0.050480487796307427, 
+            "mds:x": 0.0018447300200939004, 
+            "Sepal width": 2.7, 
+            "Petal length": 4.1, 
+            "Petal width": 1.0, 
+            "Sepal length": 5.8, 
+            "Class": "I. versicolor"
+        }, 
+        {
+            "mds:y": -0.080017214068527687, 
+            "mds:x": 0.084606226854021971, 
+            "Sepal width": 2.2, 
+            "Petal length": 4.5, 
+            "Petal width": 1.5, 
+            "Sepal length": 6.2, 
+            "Class": "I. versicolor"
+        }, 
+        {
+            "mds:y": -0.064716674211079836, 
+            "mds:x": -0.032977882073261716, 
+            "Sepal width": 2.5, 
+            "Petal length": 3.9, 
+            "Petal width": 1.1, 
+            "Sepal length": 5.6, 
+            "Class": "I. versicolor"
+        }, 
+        {
+            "mds:y": -0.11084332632847888, 
+            "mds:x": 0.10761847984590354, 
+            "Sepal width": 3.2, 
+            "Petal length": 4.8, 
+            "Petal width": 1.8, 
+            "Sepal length": 5.9, 
+            "Class": "I. versicolor"
+        }, 
+        {
+            "mds:y": -0.019737534073007549, 
+            "mds:x": 0.037663318988767062, 
+            "Sepal width": 2.8, 
+            "Petal length": 4.0, 
+            "Petal width": 1.3, 
+            "Sepal length": 6.1, 
+            "Class": "I. versicolor"
+        }, 
+        {
+            "mds:y": -0.11404285554698071, 
+            "mds:x": 0.12508760791408174, 
+            "Sepal width": 2.5, 
+            "Petal length": 4.9, 
+            "Petal width": 1.5, 
+            "Sepal length": 6.3, 
+            "Class": "I. versicolor"
+        }, 
+        {
+            "mds:y": -0.078572040562240472, 
+            "mds:x": 0.089013842142813049, 
+            "Sepal width": 2.8, 
+            "Petal length": 4.7, 
+            "Petal width": 1.2, 
+            "Sepal length": 6.1, 
+            "Class": "I. versicolor"
+        }, 
+        {
+            "mds:y": -0.013180916379718825, 
+            "mds:x": 0.093867093980529254, 
+            "Sepal width": 2.9, 
+            "Petal length": 4.3, 
+            "Petal width": 1.3, 
+            "Sepal length": 6.4, 
+            "Class": "I. versicolor"
+        }, 
+        {
+            "mds:y": -0.0058029995512735577, 
+            "mds:x": 0.12711305688758662, 
+            "Sepal width": 3.0, 
+            "Petal length": 4.4, 
+            "Petal width": 1.4, 
+            "Sepal length": 6.6, 
+            "Class": "I. versicolor"
+        }, 
+        {
+            "mds:y": -0.023045732068914318, 
+            "mds:x": 0.17801035552833988, 
+            "Sepal width": 2.8, 
+            "Petal length": 4.8, 
+            "Petal width": 1.4, 
+            "Sepal length": 6.8, 
+            "Class": "I. versicolor"
+        }, 
+        {
+            "mds:y": -0.059259683685415447, 
+            "mds:x": 0.19407128695259376, 
+            "Sepal width": 3.0, 
+            "Petal length": 5.0, 
+            "Petal width": 1.7, 
+            "Sepal length": 6.7, 
+            "Class": "I. versicolor"
+        }, 
+        {
+            "mds:y": -0.072097032092645202, 
+            "mds:x": 0.077760562641247324, 
+            "Sepal width": 2.9, 
+            "Petal length": 4.5, 
+            "Petal width": 1.5, 
+            "Sepal length": 6.0, 
+            "Class": "I. versicolor"
+        }, 
+        {
+            "mds:y": -0.021277219082887076, 
+            "mds:x": -0.060393589144352174, 
+            "Sepal width": 2.6, 
+            "Petal length": 3.5, 
+            "Petal width": 1.0, 
+            "Sepal length": 5.7, 
+            "Class": "I. versicolor"
+        }, 
+        {
+            "mds:y": -0.071629200018185304, 
+            "mds:x": -0.053524694012095114, 
+            "Sepal width": 2.4, 
+            "Petal length": 3.8, 
+            "Petal width": 1.1, 
+            "Sepal length": 5.5, 
+            "Class": "I. versicolor"
+        }, 
+        {
+            "mds:y": -0.063994600397186241, 
+            "mds:x": -0.066960423816582057, 
+            "Sepal width": 2.4, 
+            "Petal length": 3.7, 
+            "Petal width": 1.0, 
+            "Sepal length": 5.5, 
+            "Class": "I. versicolor"
+        }, 
+        {
+            "mds:y": -0.038749842731575009, 
+            "mds:x": -0.0052265652907103003, 
+            "Sepal width": 2.7, 
+            "Petal length": 3.9, 
+            "Petal width": 1.2, 
+            "Sepal length": 5.8, 
+            "Class": "I. versicolor"
+        }, 
+        {
+            "mds:y": -0.13558709672575436, 
+            "mds:x": 0.1256805278867997, 
+            "Sepal width": 2.7, 
+            "Petal length": 5.1, 
+            "Petal width": 1.6, 
+            "Sepal length": 6.0, 
+            "Class": "I. versicolor"
+        }, 
+        {
+            "mds:y": -0.11709047827566743, 
+            "mds:x": 0.025250945556543815, 
+            "Sepal width": 3.0, 
+            "Petal length": 4.5, 
+            "Petal width": 1.5, 
+            "Sepal length": 5.4, 
+            "Class": "I. versicolor"
+        }, 
+        {
+            "mds:y": -0.03468144321520937, 
+            "mds:x": 0.10069045200810296, 
+            "Sepal width": 3.4, 
+            "Petal length": 4.5, 
+            "Petal width": 1.6, 
+            "Sepal length": 6.0, 
+            "Class": "I. versicolor"
+        }, 
+        {
+            "mds:y": -0.022663870625976634, 
+            "mds:x": 0.16578044807140305, 
+            "Sepal width": 3.1, 
+            "Petal length": 4.7, 
+            "Petal width": 1.5, 
+            "Sepal length": 6.7, 
+            "Class": "I. versicolor"
+        }, 
+        {
+            "mds:y": -0.027439525941000603, 
+            "mds:x": 0.089869427635195037, 
+            "Sepal width": 2.3, 
+            "Petal length": 4.4, 
+            "Petal width": 1.3, 
+            "Sepal length": 6.3, 
+            "Class": "I. versicolor"
+        }, 
+        {
+            "mds:y": -0.040943611214653952, 
+            "mds:x": 0.011460187183212572, 
+            "Sepal width": 3.0, 
+            "Petal length": 4.1, 
+            "Petal width": 1.3, 
+            "Sepal length": 5.6, 
+            "Class": "I. versicolor"
+        }, 
+        {
+            "mds:y": -0.08219917627163531, 
+            "mds:x": -0.023935590630810213, 
+            "Sepal width": 2.5, 
+            "Petal length": 4.0, 
+            "Petal width": 1.3, 
+            "Sepal length": 5.5, 
+            "Class": "I. versicolor"
+        }, 
+        {
+            "mds:y": -0.10550398603445393, 
+            "mds:x": 0.0077073270198149794, 
+            "Sepal width": 2.6, 
+            "Petal length": 4.4, 
+            "Petal width": 1.2, 
+            "Sepal length": 5.5, 
+            "Class": "I. versicolor"
+        }, 
+        {
+            "mds:y": -0.061854557381879859, 
+            "mds:x": 0.095790650619533166, 
+            "Sepal width": 3.0, 
+            "Petal length": 4.6, 
+            "Petal width": 1.4, 
+            "Sepal length": 6.1, 
+            "Class": "I. versicolor"
+        }, 
+        {
+            "mds:y": -0.05762881884351366, 
+            "mds:x": -0.0021797853558087922, 
+            "Sepal width": 2.6, 
+            "Petal length": 4.0, 
+            "Petal width": 1.2, 
+            "Sepal length": 5.8, 
+            "Class": "I. versicolor"
+        }, 
+        {
+            "mds:y": -0.068890178429713095, 
+            "mds:x": -0.14252612438685605, 
+            "Sepal width": 2.3, 
+            "Petal length": 3.3, 
+            "Petal width": 1.0, 
+            "Sepal length": 5.0, 
+            "Class": "I. versicolor"
+        }, 
+        {
+            "mds:y": -0.076215856484015507, 
+            "mds:x": 0.0084684510728060911, 
+            "Sepal width": 2.7, 
+            "Petal length": 4.2, 
+            "Petal width": 1.3, 
+            "Sepal length": 5.6, 
+            "Class": "I. versicolor"
+        }, 
+        {
+            "mds:y": -0.04408534136320208, 
+            "mds:x": 0.02251273314383399, 
+            "Sepal width": 3.0, 
+            "Petal length": 4.2, 
+            "Petal width": 1.2, 
+            "Sepal length": 5.7, 
+            "Class": "I. versicolor"
+        }, 
+        {
+            "mds:y": -0.05670292255637846, 
+            "mds:x": 0.022860963971414024, 
+            "Sepal width": 2.9, 
+            "Petal length": 4.2, 
+            "Petal width": 1.3, 
+            "Sepal length": 5.7, 
+            "Class": "I. versicolor"
+        }, 
+        {
+            "mds:y": -0.032479768228888505, 
+            "mds:x": 0.073057742024756095, 
+            "Sepal width": 2.9, 
+            "Petal length": 4.3, 
+            "Petal width": 1.3, 
+            "Sepal length": 6.2, 
+            "Class": "I. versicolor"
+        }, 
+        {
+            "mds:y": -0.029164435908546702, 
+            "mds:x": -0.15082543808600413, 
+            "Sepal width": 2.5, 
+            "Petal length": 3.0, 
+            "Petal width": 1.1, 
+            "Sepal length": 5.1, 
+            "Class": "I. versicolor"
+        }, 
+        {
+            "mds:y": -0.055780364563807194, 
+            "mds:x": 0.011639014623755706, 
+            "Sepal width": 2.8, 
+            "Petal length": 4.1, 
+            "Petal width": 1.3, 
+            "Sepal length": 5.7, 
+            "Class": "I. versicolor"
+        }, 
+        {
+            "mds:y": -0.21305183789529825, 
+            "mds:x": 0.27048666228090046, 
+            "Sepal width": 3.3, 
+            "Petal length": 6.0, 
+            "Petal width": 2.5, 
+            "Sepal length": 6.3, 
+            "Class": "I. virginica"
+        }, 
+        {
+            "mds:y": -0.16084332117173991, 
+            "mds:x": 0.11943889725592144, 
+            "Sepal width": 2.7, 
+            "Petal length": 5.1, 
+            "Petal width": 1.9, 
+            "Sepal length": 5.8, 
+            "Class": "I. virginica"
+        }, 
+        {
+            "mds:y": -0.11653745562741656, 
+            "mds:x": 0.31920384353344422, 
+            "Sepal width": 3.0, 
+            "Petal length": 5.9, 
+            "Petal width": 2.1, 
+            "Sepal length": 7.1, 
+            "Class": "I. virginica"
+        }, 
+        {
+            "mds:y": -0.15514370721923015, 
+            "mds:x": 0.20429464515885962, 
+            "Sepal width": 2.9, 
+            "Petal length": 5.6, 
+            "Petal width": 1.8, 
+            "Sepal length": 6.3, 
+            "Class": "I. virginica"
+        }, 
+        {
+            "mds:y": -0.16129515309250056, 
+            "mds:x": 0.25902107258843671, 
+            "Sepal width": 3.0, 
+            "Petal length": 5.8, 
+            "Petal width": 2.2, 
+            "Sepal length": 6.5, 
+            "Class": "I. virginica"
+        }, 
+        {
+            "mds:y": -0.14139631474334577, 
+            "mds:x": 0.423118426624287, 
+            "Sepal width": 3.0, 
+            "Petal length": 6.6, 
+            "Petal width": 2.1, 
+            "Sepal length": 7.6, 
+            "Class": "I. virginica"
+        }, 
+        {
+            "mds:y": 0.059940799615829099, 
+            "mds:x": 0.08657907327554272, 
+            "Sepal width": 2.5, 
+            "Petal length": 4.5, 
+            "Petal width": 1.7, 
+            "Sepal length": 4.9, 
+            "Class": "I. virginica"
+        }, 
+        {
+            "mds:y": -0.13646858311491294, 
+            "mds:x": 0.36332248754812796, 
+            "Sepal width": 2.9, 
+            "Petal length": 6.3, 
+            "Petal width": 1.8, 
+            "Sepal length": 7.3, 
+            "Class": "I. virginica"
+        }, 
+        {
+            "mds:y": -0.19576642605608713, 
+            "mds:x": 0.23593389736248666, 
+            "Sepal width": 2.5, 
+            "Petal length": 5.8, 
+            "Petal width": 1.8, 
+            "Sepal length": 6.7, 
+            "Class": "I. virginica"
+        }, 
+        {
+            "mds:y": -0.092020092647907101, 
+            "mds:x": 0.38039574368708823, 
+            "Sepal width": 3.6, 
+            "Petal length": 6.1, 
+            "Petal width": 2.5, 
+            "Sepal length": 7.2, 
+            "Class": "I. virginica"
+        }, 
+        {
+            "mds:y": -0.0826654047802622, 
+            "mds:x": 0.20289960252929382, 
+            "Sepal width": 3.2, 
+            "Petal length": 5.1, 
+            "Petal width": 2.0, 
+            "Sepal length": 6.5, 
+            "Class": "I. virginica"
+        }, 
+        {
+            "mds:y": -0.135881796431087, 
+            "mds:x": 0.1877410242472709, 
+            "Sepal width": 2.7, 
+            "Petal length": 5.3, 
+            "Petal width": 1.9, 
+            "Sepal length": 6.4, 
+            "Class": "I. virginica"
+        }, 
+        {
+            "mds:y": -0.10819157254802535, 
+            "mds:x": 0.25862137278800945, 
+            "Sepal width": 3.0, 
+            "Petal length": 5.5, 
+            "Petal width": 2.1, 
+            "Sepal length": 6.8, 
+            "Class": "I. virginica"
+        }, 
+        {
+            "mds:y": -0.17903876027473631, 
+            "mds:x": 0.099162270808910477, 
+            "Sepal width": 2.5, 
+            "Petal length": 5.0, 
+            "Petal width": 2.0, 
+            "Sepal length": 5.7, 
+            "Class": "I. virginica"
+        }, 
+        {
+            "mds:y": -0.19875231101176224, 
+            "mds:x": 0.1317506598932737, 
+            "Sepal width": 2.8, 
+            "Petal length": 5.1, 
+            "Petal width": 2.4, 
+            "Sepal length": 5.8, 
+            "Class": "I. virginica"
+        }, 
+        {
+            "mds:y": -0.11450043833453669, 
+            "mds:x": 0.22616620804798179, 
+            "Sepal width": 3.2, 
+            "Petal length": 5.3, 
+            "Petal width": 2.3, 
+            "Sepal length": 6.4, 
+            "Class": "I. virginica"
+        }, 
+        {
+            "mds:y": -0.12612855875383722, 
+            "mds:x": 0.21720651965291066, 
+            "Sepal width": 3.0, 
+            "Petal length": 5.5, 
+            "Petal width": 1.8, 
+            "Sepal length": 6.5, 
+            "Class": "I. virginica"
+        }, 
+        {
+            "mds:y": -0.073813864215919872, 
+            "mds:x": 0.46942558758397612, 
+            "Sepal width": 3.8, 
+            "Petal length": 6.7, 
+            "Petal width": 2.2, 
+            "Sepal length": 7.7, 
+            "Class": "I. virginica"
+        }, 
+        {
+            "mds:y": -0.21779451884784704, 
+            "mds:x": 0.44492894101592606, 
+            "Sepal width": 2.6, 
+            "Petal length": 6.9, 
+            "Petal width": 2.3, 
+            "Sepal length": 7.7, 
+            "Class": "I. virginica"
+        }, 
+        {
+            "mds:y": -0.17657637807449261, 
+            "mds:x": 0.087544670781314532, 
+            "Sepal width": 2.2, 
+            "Petal length": 5.0, 
+            "Petal width": 1.5, 
+            "Sepal length": 6.0, 
+            "Class": "I. virginica"
+        }, 
+        {
+            "mds:y": -0.11967937635626404, 
+            "mds:x": 0.29487340658041844, 
+            "Sepal width": 3.2, 
+            "Petal length": 5.7, 
+            "Petal width": 2.3, 
+            "Sepal length": 6.9, 
+            "Class": "I. virginica"
+        }, 
+        {
+            "mds:y": -0.16354152430667795, 
+            "mds:x": 0.088092595434415263, 
+            "Sepal width": 2.8, 
+            "Petal length": 4.9, 
+            "Petal width": 2.0, 
+            "Sepal length": 5.6, 
+            "Class": "I. virginica"
+        }, 
+        {
+            "mds:y": -0.1540028779215204, 
+            "mds:x": 0.43609549003492765, 
+            "Sepal width": 2.8, 
+            "Petal length": 6.7, 
+            "Petal width": 2.0, 
+            "Sepal length": 7.7, 
+            "Class": "I. virginica"
+        }, 
+        {
+            "mds:y": -0.10292455341830162, 
+            "mds:x": 0.14652957948352285, 
+            "Sepal width": 2.7, 
+            "Petal length": 4.9, 
+            "Petal width": 1.8, 
+            "Sepal length": 6.3, 
+            "Class": "I. virginica"
+        }, 
+        {
+            "mds:y": -0.11689667812046985, 
+            "mds:x": 0.2751722236761569, 
+            "Sepal width": 3.3, 
+            "Petal length": 5.7, 
+            "Petal width": 2.1, 
+            "Sepal length": 6.7, 
+            "Class": "I. virginica"
+        }, 
+        {
+            "mds:y": -0.084393904857475943, 
+            "mds:x": 0.33553221107158382, 
+            "Sepal width": 3.2, 
+            "Petal length": 6.0, 
+            "Petal width": 1.8, 
+            "Sepal length": 7.2, 
+            "Class": "I. virginica"
+        }, 
+        {
+            "mds:y": -0.094710513290729922, 
+            "mds:x": 0.13250181260268115, 
+            "Sepal width": 2.8, 
+            "Petal length": 4.8, 
+            "Petal width": 1.8, 
+            "Sepal length": 6.2, 
+            "Class": "I. virginica"
+        }, 
+        {
+            "mds:y": -0.10092251418093232, 
+            "mds:x": 0.13603993603265965, 
+            "Sepal width": 3.0, 
+            "Petal length": 4.9, 
+            "Petal width": 1.8, 
+            "Sepal length": 6.1, 
+            "Class": "I. virginica"
+        }, 
+        {
+            "mds:y": -0.15954514849916354, 
+            "mds:x": 0.22359338333543771, 
+            "Sepal width": 2.8, 
+            "Petal length": 5.6, 
+            "Petal width": 2.1, 
+            "Sepal length": 6.4, 
+            "Class": "I. virginica"
+        }, 
+        {
+            "mds:y": -0.060457874178799068, 
+            "mds:x": 0.31230604110651011, 
+            "Sepal width": 3.0, 
+            "Petal length": 5.8, 
+            "Petal width": 1.6, 
+            "Sepal length": 7.2, 
+            "Class": "I. virginica"
+        }, 
+        {
+            "mds:y": -0.13100729764226129, 
+            "mds:x": 0.3536688563514217, 
+            "Sepal width": 2.8, 
+            "Petal length": 6.1, 
+            "Petal width": 1.9, 
+            "Sepal length": 7.4, 
+            "Class": "I. virginica"
+        }, 
+        {
+            "mds:y": -0.038596701594487325, 
+            "mds:x": 0.45108186924367916, 
+            "Sepal width": 3.8, 
+            "Petal length": 6.4, 
+            "Petal width": 2.0, 
+            "Sepal length": 7.9, 
+            "Class": "I. virginica"
+        }, 
+        {
+            "mds:y": -0.16385657677639784, 
+            "mds:x": 0.2276787799577793, 
+            "Sepal width": 2.8, 
+            "Petal length": 5.6, 
+            "Petal width": 2.2, 
+            "Sepal length": 6.4, 
+            "Class": "I. virginica"
+        }, 
+        {
+            "mds:y": -0.098251044417160843, 
+            "mds:x": 0.1558771784084404, 
+            "Sepal width": 2.8, 
+            "Petal length": 5.1, 
+            "Petal width": 1.5, 
+            "Sepal length": 6.3, 
+            "Class": "I. virginica"
+        }, 
+        {
+            "mds:y": -0.19419495169587145, 
+            "mds:x": 0.15754355696976563, 
+            "Sepal width": 2.6, 
+            "Petal length": 5.6, 
+            "Petal width": 1.4, 
+            "Sepal length": 6.1, 
+            "Class": "I. virginica"
+        }, 
+        {
+            "mds:y": -0.096104603728887059, 
+            "mds:x": 0.39843917113588456, 
+            "Sepal width": 3.0, 
+            "Petal length": 6.1, 
+            "Petal width": 2.3, 
+            "Sepal length": 7.7, 
+            "Class": "I. virginica"
+        }, 
+        {
+            "mds:y": -0.17818751567324184, 
+            "mds:x": 0.23861119538029404, 
+            "Sepal width": 3.4, 
+            "Petal length": 5.6, 
+            "Petal width": 2.4, 
+            "Sepal length": 6.3, 
+            "Class": "I. virginica"
+        }, 
+        {
+            "mds:y": -0.12780809670484716, 
+            "mds:x": 0.2118839761071345, 
+            "Sepal width": 3.1, 
+            "Petal length": 5.5, 
+            "Petal width": 1.8, 
+            "Sepal length": 6.4, 
+            "Class": "I. virginica"
+        }, 
+        {
+            "mds:y": -0.10234734953928677, 
+            "mds:x": 0.11747317149602159, 
+            "Sepal width": 3.0, 
+            "Petal length": 4.8, 
+            "Petal width": 1.8, 
+            "Sepal length": 6.0, 
+            "Class": "I. virginica"
+        }, 
+        {
+            "mds:y": -0.086804457142945754, 
+            "mds:x": 0.26225423198154901, 
+            "Sepal width": 3.1, 
+            "Petal length": 5.4, 
+            "Petal width": 2.1, 
+            "Sepal length": 6.9, 
+            "Class": "I. virginica"
+        }, 
+        {
+            "mds:y": -0.13745197924184577, 
+            "mds:x": 0.27127249712438772, 
+            "Sepal width": 3.1, 
+            "Petal length": 5.6, 
+            "Petal width": 2.4, 
+            "Sepal length": 6.7, 
+            "Class": "I. virginica"
+        }, 
+        {
+            "mds:y": -0.057725602087682043, 
+            "mds:x": 0.25249758512895126, 
+            "Sepal width": 3.1, 
+            "Petal length": 5.1, 
+            "Petal width": 2.3, 
+            "Sepal length": 6.9, 
+            "Class": "I. virginica"
+        }, 
+        {
+            "mds:y": -0.16084327482221331, 
+            "mds:x": 0.11943892895807563, 
+            "Sepal width": 2.7, 
+            "Petal length": 5.1, 
+            "Petal width": 1.9, 
+            "Sepal length": 5.8, 
+            "Class": "I. virginica"
+        }, 
+        {
+            "mds:y": -0.14581322171304487, 
+            "mds:x": 0.30119894996610619, 
+            "Sepal width": 3.2, 
+            "Petal length": 5.9, 
+            "Petal width": 2.3, 
+            "Sepal length": 6.8, 
+            "Class": "I. virginica"
+        }, 
+        {
+            "mds:y": -0.15286189442320108, 
+            "mds:x": 0.28594226600906414, 
+            "Sepal width": 3.3, 
+            "Petal length": 5.7, 
+            "Petal width": 2.5, 
+            "Sepal length": 6.7, 
+            "Class": "I. virginica"
+        }, 
+        {
+            "mds:y": -0.08827145251190098, 
+            "mds:x": 0.23964605436822839, 
+            "Sepal width": 3.0, 
+            "Petal length": 5.2, 
+            "Petal width": 2.3, 
+            "Sepal length": 6.7, 
+            "Class": "I. virginica"
+        }, 
+        {
+            "mds:y": -0.13605927358366313, 
+            "mds:x": 0.14983483236211201, 
+            "Sepal width": 2.5, 
+            "Petal length": 5.0, 
+            "Petal width": 1.9, 
+            "Sepal length": 6.3, 
+            "Class": "I. virginica"
+        }, 
+        {
+            "mds:y": -0.10251097787824003, 
+            "mds:x": 0.20343762438491475, 
+            "Sepal width": 3.0, 
+            "Petal length": 5.2, 
+            "Petal width": 2.0, 
+            "Sepal length": 6.5, 
+            "Class": "I. virginica"
+        }, 
+        {
+            "mds:y": -0.12029161777456189, 
+            "mds:x": 0.23062475231051277, 
+            "Sepal width": 3.4, 
+            "Petal length": 5.4, 
+            "Petal width": 2.3, 
+            "Sepal length": 6.2, 
+            "Class": "I. virginica"
+        }, 
+        {
+            "mds:y": -0.13724505567917406, 
+            "mds:x": 0.1321273789241541, 
+            "Sepal width": 3.0, 
+            "Petal length": 5.1, 
+            "Petal width": 1.8, 
+            "Sepal length": 5.9, 
+            "Class": "I. virginica"
+        }
+    ]
+}

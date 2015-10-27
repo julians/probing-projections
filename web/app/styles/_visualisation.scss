@@ -1,0 +1,135 @@
+.scatterplot {
+    user-select: none; 
+    
+    svg {
+        display: block;
+        margin: 0 auto;
+        background: hsl(0, 0%, 95%);
+    }
+    //.halo {
+    //    fill: $farColor;
+    //    
+    //    &.nearer {
+    //        fill: $nearColor;
+    //        //stroke: hsl(0, 0%, 89%);
+    //        //stroke-weight: 1px;
+    //    }
+    //}
+    .line {
+        //pointer-events: none;
+        fill: none;
+        //stroke: black;
+        stroke-width: 11px;
+        stroke-linecap: round;
+        
+        &.nearer {
+            stroke: $nearColor;
+        }
+        &.farther {
+            stroke: $farColor;
+        }
+    }
+    .halo {
+        pointer-events: none;
+        fill: hsl(0, 0%, 91%);
+        transition: fill 0.5s;
+         
+        &.farther {
+            fill: $farColor;
+        }
+         &.nearer {
+             fill: $nearColor;
+         }
+    }
+    .brushLayer {
+        //pointer-events: all;
+        pointer-events: none;
+    }
+    .selectionRect {
+        fill: $actionColour;
+        fill-opacity: 0.2;
+        stroke-width: 1px;
+        stroke: $actionColour;
+        stroke-opacity: 0.7;
+        shape-rendering: crispEdges;
+    }
+    .hull,
+    .hullLine {
+        pointer-events: none;
+    }
+    .hullLine {
+        fill: none;
+        stroke-width: 7px;
+    }
+    .dot {
+        cursor: pointer;
+        fill: $defaultColor;
+        
+        &:hover {
+            fill: #555;
+            transition: fill 0s;
+        }
+        &.selected {
+            fill: tomato;
+            transition: fill 0s;
+        }
+    }
+    .labelLayer,
+    .labelShadowLayer {
+        user-select: none;
+    }
+    .dotLabel {
+        font-size: 1.1rem;
+        letter-spacing: 0.05rem;
+        cursor: default;
+    }
+    //.labelShadowLayer .dotLabel {
+    //    stroke: black;
+    //    stroke-width: 4px;
+    //}
+    //.labelShadowLayer {
+    //    opacity: 0.4;
+    //    //display: none;
+    //}
+    .clusterLineLayer {
+        opacity: 0.075;
+        pointer-events: none;
+    }
+    .clusterLine {
+        //stroke: hsl(0, 0%, 92%);
+        stroke: black;
+        stroke-width: 2px;
+    }
+    .voronoi {
+        fill: #E2C15E;
+        stroke: none;
+        pointer-events: none;
+    }
+    .heatmapLayer {
+        opacity: 0.35;
+        .heatmapDot {
+            fill: #666;
+            fill: black;
+            //fill: #E2C15E;
+            stroke: none;
+            shape-rendering: crispEdges;
+        }
+    }
+}
+.sampleTooltip {
+        font-size: 1.3rem;
+    
+    h3 {
+        font-size: 1.6rem;
+        margin: 0;
+    }
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+    }
+    li {
+        margin: 0;
+        padding: 0;
+    }
+}

@@ -1,0 +1,127 @@
+$thumbSize: 48px;
+
+.selectionListDisplay {
+    color: $grey;
+    position: relative;
+    transition: height 0.5s;
+
+    .selection {
+        width: 120px;
+        height: 45px;
+        padding-top: $thumbSize + 5px;
+        position: absolute;
+        transition: left 0.5s, top 0.5s, opacity 0.5s, transform 0.5s;
+        cursor: pointer;
+        
+        &:hover .thumbnailContainer {
+            background-color: $thumbnailBackgroundHover;
+            border-color: $thumbnailBackgroundHover;
+        }
+        &.active .thumbnailContainer {
+            border-color: $faintGrey;
+        }
+        &.inserted {
+            transform: scale(0.5);
+            opacity: 0;
+        }
+        &.removed {
+            transform: scale(0.5);
+            opacity: 0;
+        }
+        .label {
+            display: block;
+            font-weight: normal;
+            font-size: 1.5rem;
+            
+            &.editable {
+                cursor: text;
+            }
+        }
+        .details {
+            color: $lightGrey;
+            font-size: 1.3rem;
+            display: block;
+        }
+        &.temp .label {
+            color: $actionColour;
+        }
+        &.temp.empty {
+            .label {
+                color: $lightGrey;
+            }
+            .details {
+                color: $veryLightGrey;
+            }
+        }
+        .thumbnailContainer,
+        .tempAddButton {
+            border: solid 1px $thumbnailBackground;
+            position: absolute;
+            left: 0;
+            top: 0;
+            background-color: $thumbnailBackground;
+            width: $thumbSize;
+            height: $thumbSize;
+            border-radius: 2px;
+            background-clip: padding-box;
+            transition: opacity 0.5s;
+            z-index: 2;
+        }
+        .createSelection,
+        .removeSelection {
+            position: absolute;
+            top: $thumbSize - 14px;
+            left: $thumbSize + 5px;
+            //font-weight: bold;
+            color: white;
+            opacity: 0;
+            font-size: 21px;
+            width: 16px;
+            height: 16px;
+            border-radius: 2px;
+            background: black;
+            line-height: 15px;
+            text-align: center;
+            
+            &:hover {
+                opacity: 0.5 !important;
+            }
+        }
+        .removeSelection {
+            line-height: 14px;
+            background: red;
+        }
+        &:hover {
+            .createSelection,
+            .removeSelection {
+                opacity: 0.2;
+            }
+            .tempAddButton {
+                color: $lightGrey;
+            }
+        }
+        .tempAddButton {
+            opacity: 0;
+            font-size: $thumbSize;
+            color: $faintGrey;
+            line-height: $thumbSize * 0.9;
+            text-align: center;
+            z-index: 1;
+        }
+        &.temp {
+            .thumbnailContainer {
+                background-color: transparent;
+                pointer-events: none;
+                border-color: transparent;
+            }
+            .tempAddButton {
+                opacity: 1;
+                pointer-events: all;
+            }
+            .removeSelection {
+                opacity: 0 !important;
+                pointer-events: none;
+            }
+        }
+    }
+}

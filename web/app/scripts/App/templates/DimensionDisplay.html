@@ -1,0 +1,25 @@
+<h3>Dimensions</h3>
+<ul>
+	{{#each quantitativeDimensions}}
+		<li class="dimension quantitative actionable" data-dimension="{{id}}">
+            <div class="innerContainer">
+    			<strong class="label">{{label}}</strong>
+                <div class="densityContainer">
+                    <span class="range min">{{value.[0]}}</span>
+                    <div class="densityPlot" data-dimension="{{id}}"></div>
+                    <span class="range max">{{value.[1]}}</span>
+                </div>
+                <div class="scaleAction" data-dimension="{{id}}"></div>
+            </div>
+            <div class="heatmapContainer" data-dimension="{{id}}"></div>
+		</li>
+	{{/each}}
+	{{#each binaryDimensions}}
+		<li class="dimension binary" data-dimension="{{id}}">
+			<strong class="label">{{label}}</strong>
+			{{#each values}}
+				<span class="actionable" data-dimension="{{id}}">{{term}}</span>
+			{{/each}}
+		</li>
+	{{/each}}
+</ul>

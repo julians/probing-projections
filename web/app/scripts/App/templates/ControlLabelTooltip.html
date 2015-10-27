@@ -1,0 +1,47 @@
+<div class="displayTooltip legendTooltip controlLegend">
+    <div class="tooltipHead">
+        {{#if dendrogram}}
+            <h4>Dendrogram</h4>
+        {{/if}}
+        {{#if errordisplay}}
+            <h4>Error display</h4>
+        {{/if}}
+        {{#if clustercontrol}}
+            <h4>Clustering</h4>
+        {{/if}}
+    </div>
+    <div class="tooltipContent">
+        {{#if dendrogram}}
+            <p>
+                Overlays a dendrogram onto the projection. The hierarchical level of the clusterings is reflected by the thickness of the lines, with thicker lines indicating closer, lower-level clusters.
+            </p>
+            <p>
+                The dendrogram is computed using agglomerative clustering with a Ward linkage criterion in the high-dimensional space.
+            </p>
+        {{/if}}
+        {{#if errordisplay}}
+            <p>
+                Display the projection error <em>(stress1)</em> for each point in relation to all other points. Hovering over a point shows error relation to that specific point.
+            </p>
+            <ul>
+                <li>
+                    <span class="fakePlot"><span class="fakeHalo nearer"></span></span> other points appear farther away, yet are actually more similar
+                </li>
+                <li>
+                    <span class="fakePlot"><span class="fakeHalo farther"></span></span> other points appear closer by, but are actually not that similar
+                </li>
+                <li>
+                    <span class="fakePlot"><span class="fakeHalo farther sizeAnimated"></span></span> the size of the halo shows the relative magnitude of the error
+                </li>
+            </ul>
+        {{/if}}
+        {{#if clustercontrol}}
+            <p>
+                Sets the number of clusters for the clustering algorithm.
+            </p>
+            <p>
+                The clusters are computed using agglomerative clustering with a Ward linkage criterion in the high-dimensional space.
+            </p>
+        {{/if}}
+    </div>
+</div>

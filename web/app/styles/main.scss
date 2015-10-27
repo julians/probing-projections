@@ -1,0 +1,140 @@
+@import "compass/css3";
+@import "mixins";
+@import "vars";
+$default-transition-function: "ease-in-out";
+
+@import "components/tooltip";
+
+html {
+    font-size: 10px;
+    line-height: 1.3;
+    font-family: "adelle-sans", "Adelle Sans", sans-serif;
+}
+body {
+    background: $bodyBackground;
+    margin: 0;
+    padding: 0;
+}
+
+$defaultColor: #888;
+$nearColor: hsl(0, 0%, 100%);
+$farColor: hsl(0, 0%, 82%);
+
+@import "flip";
+@import "extends";
+@import "densityPlot";
+@import "visualisation";
+@import "sidebar";
+@import "selectionListDisplay";
+@import "dimensions";
+@import "tooltips";
+
+ul, li {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+#vizzyviz {
+    font-size: 1.3rem;
+    
+    .visualisation {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        //@include display-flex(flex);
+        
+        .mainContainer {
+            //@include flex(1);
+            left: 0;
+            top: 0;
+            position: absolute;
+            box-sizing: border-box;
+            padding: 20px;
+        }
+        .flipper {
+            margin: 0;
+        }
+        .dataEntry {
+            background: hsl(0, 0%, 88%);
+            color: $grey;
+            
+            .action {
+                color: $actionColour;
+            }
+            h3 {
+                @extend .listTitle;
+                margin: 0 0 1rem 0;
+                color: $lightGrey;
+                
+                small {
+                    color: $faintGrey;
+                    font-size: 1em;
+                }
+            }
+            form {
+                width: 90%;
+                margin: 2em auto;
+            }
+            textarea {
+                width: 100%;
+                height: 50%;
+                margin: 0 auto 2rem 0;
+                display: block;
+                border: none;
+                padding: 2rem;
+                box-sizing: border-box;
+                background: hsla(0, 0%, 100%, 0.7);
+                box-shadow: hsla(0, 0%, 0%, 0.2) 0 1px 1px inset;
+                border-radius: 3px;
+                font-family: monospace;
+                font-size: 1.5rem;
+                line-height: 1.3;
+                color: $grey;
+            }
+            .top {
+                overflow: hidden;
+                margin-bottom: 3rem;
+            }
+            .left {
+                float: left;
+            }
+            .buttons {
+                float: right;
+            }
+            a {
+                color: $faintGrey;
+            }
+        } 
+        .exportArea {
+            display: none;
+        }
+        .sidebar {
+            width: 450px;
+            position: absolute;
+            right: 0;
+            top: 0;
+            padding-top: 0.4rem;
+        }   
+    }
+    .hoverHelp {
+        border-radius: 100%;
+        display: inline-block;
+        width: 1.35em;
+        height: 1.35em;
+        background: $faintGrey;
+        color: $bodyBackground;
+        text-align: center;
+        font-size: 0.75em;
+        font-weight: normal;
+        position: relative;
+        top: -1px;
+        cursor: default;
+        
+        &:hover {
+            background: $lightGrey;
+        }
+    }
+}
