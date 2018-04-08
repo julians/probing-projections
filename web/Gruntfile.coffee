@@ -11,7 +11,7 @@ mountFolder = (connect, dir) ->
 module.exports = (grunt) ->
     # load all grunt tasks
     require('matchdep').filterDev('grunt-*').forEach grunt.loadNpmTasks
-    
+
     appConfig =
         date: "2015-06-08T11:06:46+0200"
         paths:
@@ -25,8 +25,8 @@ module.exports = (grunt) ->
             scripts: "scripts"
             bower: "bower_components"
         supported_browsers: "last 3 versions"
-        remotePath: 'http://jujujulian.com/mds/'
-        
+        remotePath: '//jujujulian.com/mds/'
+
     if grunt.cli.tasks[0] == "server"
         appConfig.templateData =
             imagePath: "images"
@@ -39,8 +39,8 @@ module.exports = (grunt) ->
             scriptPath: "scripts"
             stylePath: "styles"
             environment: "dev"
-        
-    
+
+
     createPages = (obj) ->
         template = grunt.file.read('_templates/layouts/cardpage.hbs')
         pages = []
@@ -53,10 +53,10 @@ module.exports = (grunt) ->
                 filename: "#{key}.json"
             )
         pages
-    
+
     cardPages = []#createPages grunt.file.readYAML("_data/cards.yml")
 
-        
+
     grunt.initConfig
         pkg: grunt.file.readJSON('package.json')
         appConfig: appConfig
@@ -453,7 +453,7 @@ module.exports = (grunt) ->
                 'open'
                 'connect:dist:keepalive'
             ])
-        
+
         grunt.task.run [
             'clean:server'
             'concurrent:server'
@@ -494,9 +494,9 @@ module.exports = (grunt) ->
         'clean:requirejsonefile'
         'clean:emptyfolders'
     ]
-    
+
     grunt.registerTask "default", () ->
         grunt.task.run buildTask
-        
+
     grunt.registerTask "staticbuild", () ->
         grunt.task.run staticbuildTask

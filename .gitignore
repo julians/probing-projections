@@ -17,6 +17,7 @@ dist-zips/
 Thumbs.db
 
 *.pyc
+venv
 
 # TextMate files
 *.tmproj
