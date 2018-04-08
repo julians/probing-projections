@@ -20,6 +20,8 @@ To install grunt (you need to have node installed): `npm install -g grunt-cli`
 
 1. clone git repository
 2. open directory in Terminal
+3. `npm install`
+4. `bower install`
 
 `grunt server` then watches the files for changes and compiles them for you. It’ll also serve them up on [localhost:9000](http://localhost:9000/).
 
