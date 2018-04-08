@@ -18,10 +18,10 @@ To install grunt (you need to have node installed): `npm install -g grunt-cli`
 
 ### Set-up instructions
 
-1. clone git repository
-2. open directory in Terminal
-3. `npm install`
-4. `bower install`
+1. open `web` directory in Terminal
+2. `npm install`
+3. `bower install`
+4. install [compass](http://compass-style.org)
 
 `grunt server` then watches the files for changes and compiles them for you. It’ll also serve them up on [localhost:9000](http://localhost:9000/).
 

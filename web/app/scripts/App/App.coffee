@@ -22,6 +22,7 @@ define([
     "components/MicroEvent"
     "jquery"
     "underscore"
+    "d3"
     "components/Tooltip"
 ], (
     Config
@@ -43,6 +44,7 @@ define([
     MicroEvent
     $
     _
+    d3
     Tooltip
 ) ->
     'use strict'
