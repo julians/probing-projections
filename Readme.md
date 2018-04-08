@@ -19,7 +19,7 @@ Can be hosted anywhere, needs grunt and an old (2014/2015-ish) version of node t
 
 Runs on Python 3.6. Do the following in this repository’s root directory:
 
-1. `python3 -m venv venv` (creates a new [virtual environment](http://docs.python-guide.org/en/latest/dev/virtualenvs/) erzeugen)
+1. `python3 -m venv venv` (creates a new [virtual environment](http://docs.python-guide.org/en/latest/dev/virtualenvs/))
 2. `source venv/bin/activate` (activates virtual environment)
 3. `pip install -r requirements.txt` (installs dependencies)
 4. Start with `gunicorn server.server:app`
