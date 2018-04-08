@@ -17,7 +17,9 @@ Can be hosted anywhere, needs grunt and an old (2014/2015-ish) version of node t
 
 ## Backend
 
-Runs on Python 3.6. Do the following in this repository’s root directory:
+Needs Python 3.6. Everything’s in place to run this on Heroku using `Heroku Git`.
+
+Do the following in this repository’s root directory to run locally:
 
 1. `python3 -m venv venv` (creates a new [virtual environment](http://docs.python-guide.org/en/latest/dev/virtualenvs/))
 2. `source venv/bin/activate` (activates virtual environment)
