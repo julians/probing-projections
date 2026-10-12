@@ -133,7 +133,7 @@ class SelectionListDisplay extends MicroEvent
                         $(this).find(".label")
                             .attr("contenteditable", "true")
                             .addClass("editable")
-                    $(this).on("click", ".label.editable").click((event) ->
+                    $(this).on("click", ".label.editable", (event) ->
                         if d == DataWrapper.tempSelection
                             event.preventDefault()
                         else
