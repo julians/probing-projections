@@ -25,6 +25,7 @@ define([
     'use strict'
     class Scatterplot extends MicroEvent
         constructor: (options) ->
+            super()
             @$container = $(options.container)
             
             @transitionDuration = 250

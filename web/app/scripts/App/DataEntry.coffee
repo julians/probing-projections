@@ -20,6 +20,7 @@ define([
     'use strict'
     class DataEntry extends MicroEvent
         constructor: (options) ->
+            super()
             @$container = $(options.container)
             @$container.html(DataEntryTemplate(
                 data: options?.data or ""

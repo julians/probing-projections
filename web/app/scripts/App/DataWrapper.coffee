@@ -20,6 +20,7 @@ define([
     'use strict'
     class DataWrapper extends MicroEvent
         constructor: () ->
+            super()
             @sampleList = null
             @activeSelections = null
             @selectionLists = {}

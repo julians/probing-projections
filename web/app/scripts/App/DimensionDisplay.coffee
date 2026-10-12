@@ -26,6 +26,7 @@ define([
     'use strict'
     class DimensionDisplay extends MicroEvent
         constructor: (options) ->
+            super()
             @$container = $(options.container)
             @heatmap = options.heatmap
             @heatmap.bind("mousevalue:change", @heatmapMouseMove)

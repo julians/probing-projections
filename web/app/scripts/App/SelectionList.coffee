@@ -24,6 +24,7 @@ define([
     'use strict'
     class SelectionList extends MicroEvent
         constructor: (options) ->
+            super()
             @selections = []
             @selectionsById = {}
             @selectionsByLabel = {}

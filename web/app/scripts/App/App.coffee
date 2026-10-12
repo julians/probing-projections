@@ -52,6 +52,7 @@ define([
     'use strict'
     class App extends MicroEvent
         constructor: (options) ->
+            super()
             Config.baseColour = d3.hcl(0, 0, 60)
             @$container = $(options.container)
             @$container.html(AppTemplate())

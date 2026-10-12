@@ -22,6 +22,7 @@ define([
     'use strict'
     class Selection extends MicroEvent
         constructor: (options) ->
+            super()
             @samples = []
             @sampleHash = {}
             @id = _.uniqueId()

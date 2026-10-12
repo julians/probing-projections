@@ -37,6 +37,7 @@ define([
     'use strict'
     class ExplorationTooltip extends MicroEvent
         constructor: (options) ->
+            super()
             @tooltip = new Tooltip(
                 container: options.container
             )

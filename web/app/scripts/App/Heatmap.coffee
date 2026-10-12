@@ -20,6 +20,7 @@ define([
     'use strict'
     class Heatmap extends MicroEvent
         constructor: (scatterplot) ->
+            super()
             @scatterplot = scatterplot
             @container = @scatterplot.svg.select(".heatmapLayer")
             @positions = []

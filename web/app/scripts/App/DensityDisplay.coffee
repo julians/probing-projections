@@ -21,6 +21,7 @@ define([
     'use strict'
     class DensityDisplay extends MicroEvent
         constructor: (options) ->
+            super()
             @$container = $(options.container)
             
             @baseFillColour = "#999999"

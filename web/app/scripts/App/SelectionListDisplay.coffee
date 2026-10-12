@@ -26,6 +26,7 @@ define([
     'use strict'
     class SelectionListDisplay extends MicroEvent
         constructor: (options) ->
+            super()
             @$container = $(options.container)
             @selectionList = options.selectionList
             @key = "id"

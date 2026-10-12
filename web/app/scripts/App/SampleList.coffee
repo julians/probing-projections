@@ -37,6 +37,7 @@ define([
     'use strict'
     class SampleList extends MicroEvent
         constructor: () ->
+            super()
             @__resetEverything()
         
         
