@@ -16,7 +16,7 @@ This serves the app on [localhost:9000](http://localhost:9000/) and recompiles t
 
 The build is set up with [Vite](https://vite.dev), see `vite.config.js`. Two small plugins in there compile `.coffee` files (CoffeeScript 2) and precompile Handlebars templates imported with `?hbs`, e.g. `import Template from "./templates/App.html?hbs"`.
 
-A few old libraries that only work as global scripts (Modernizr, science.js, Sylvester) live in `app/public/vendor` and are loaded with plain `<script>` tags in `index.html`. d3 v3 gets a small patch (`patches/`) so it works as a module.
+All dependencies are ES modules installed with pnpm; there are no global vendor scripts any more. The few statistics functions from science.js live in `app/scripts/Stats.coffee`.
 
 
 ### Distributing

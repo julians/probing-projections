@@ -9,10 +9,8 @@ class Utils
         uniqueIdCounter += 1
         return "#{uniqueIdCounter}"
 
-    # what Modernizr.touch used to check
+    # on touch devices the scatterplot doesn't react to hovering
     @isTouchDevice: "ontouchstart" of window
-    
-    @transitionEndEvent: "webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend"
     
     @difference: (a, b) ->
         Math.abs(a - b)
@@ -140,10 +138,6 @@ class Utils
         
     @cssify: (_string) ->
         _string.replace(/\//g, "").replace(/-/g, "").replace(/\s+/g, "-")
-    
-        
-    @isHighDensity: ->
-        (window.matchMedia and (window.matchMedia("only screen and (min-resolution: 124dpi), only screen and (min-resolution: 1.5dppx), only screen and (min-resolution: 48.8dpcm)").matches or window.matchMedia("only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3/2), only screen and (min--moz-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5)").matches)) or (window.devicePixelRatio and window.devicePixelRatio > 1.5)
 
 
 class HclColour

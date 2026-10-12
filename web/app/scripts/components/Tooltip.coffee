@@ -34,7 +34,7 @@ class Tooltip
         
     hide: =>
         @$tooltip.removeClass("in")
-            .on("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", () =>
+            .on("transitionend", () =>
                 @$tooltip.hide()
             )
         if @followMouse

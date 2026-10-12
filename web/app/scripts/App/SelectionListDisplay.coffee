@@ -219,10 +219,10 @@ class SelectionListDisplay extends MicroEvent
                 element = this
                 remove = ->
                     clearTimeout(timeout)
-                    $(element).off(Utils.transitionEndEvent, remove)
+                    $(element).off("transitionend", remove)
                     $(element).remove()
                 timeout = setTimeout(remove, 600)
-                $(element).one(Utils.transitionEndEvent, remove)
+                $(element).one("transitionend", remove)
             )
             .classed("removed", true)
                 
