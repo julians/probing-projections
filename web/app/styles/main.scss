@@ -76,8 +76,8 @@
     --tooltip-blur: 3px;
 }
 
-// Rough dark mode. Whatever is further in front (the plot and its thumbnails,
-// tooltips, controls, "nearer" halos) is lighter than the page, what is
+// Rough dark mode. Whatever is further in front (the plot, the data entry on
+// its back, thumbnails, tooltips, controls, "nearer" halos) is lighter than the page, what is
 // recessed (dividers, "farther" halos) is darker.
 // Only ink (text, lines, data marks) is inverted. Data colours stay as they are.
 @media (prefers-color-scheme: dark) {
@@ -87,7 +87,7 @@
         
         --body-background: hsl(0, 0%, 10%);
         --plot-background: hsl(0, 0%, 14%);
-        --data-entry-background: hsl(0, 0%, 7%);
+        --data-entry-background: hsl(0, 0%, 14%);
         --input-background: hsla(0, 0%, 100%, 0.06);
         --input-shadow: hsla(0, 0%, 0%, 0.5);
         --control-background: hsla(0, 0%, 30%, 0.9);
