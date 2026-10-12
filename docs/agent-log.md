@@ -1,5 +1,11 @@
 # Agent log
 
+## 2026-10-12 — Merged and pushed, `master` → `main`
+
+- [005](issues/done/005-merge-vite-branch.md): fast-forwarded `master` to `vite`, pushed, PR #3 shows as merged,
+  deleted `vite` and `pr-3`. Renamed `master` → `main` with GitHub's rename API (default branch and
+  redirects included); work on `main` from now on.
+
 ## 2026-10-12 — No vendor prefixes in the source
 
 - None left: the build adds `-webkit-` for `backdrop-filter`, `mask-image`/`mask-size` and `user-select`
