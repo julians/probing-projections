@@ -1,7 +1,7 @@
 import Config from "../Config.coffee"
 import Utils from "../Utils.coffee"
 import MicroEvent from "../components/MicroEvent.coffee"
-import d3 from "d3"
+import * as d3 from "d3"
 import $ from "jquery"
 import { difference, uniq } from "es-toolkit"
 
@@ -11,7 +11,7 @@ class DensityDisplay extends MicroEvent
         @$container = $(options.container)
         
         @baseFillColour = "#999999"
-        @baseMarkerColour = d3.hcl(0, 0, 50)
+        @baseMarkerColour = Utils.hcl(0, 0, 50)
         
         @subPlotSelections = []
         @subPlots = {}
@@ -47,20 +47,20 @@ class DensityDisplay extends MicroEvent
         @marker2Colour = null
         @diffBarValue = null
             
-        @x = d3.scale.linear()
-        @y = d3.scale.linear()
-        @diffBarScale = d3.scale.linear()
+        @x = d3.scaleLinear()
+        @y = d3.scaleLinear()
+        @diffBarScale = d3.scaleLinear()
             .range([0, 1])
             .domain([0, 1])
         
-        @area = d3.svg.area()
+        @area = d3.area()
             .x((d) => return @x(d[0]))
             .y0(=> return @y(0))
             .y1((d) => return @y(d[1]))
 
     
     __computeArea: (values, x, y) =>
-        area = d3.svg.area()
+        area = d3.area()
             .x((d) => return x(d[0]))
             .y0(=> return y(0))
             .y1((d) => return y(d[1]))
@@ -68,7 +68,7 @@ class DensityDisplay extends MicroEvent
         
         
     __computeLine: (values, x, y) =>
-        line = d3.svg.line()
+        line = d3.line()
             .x((d) => return x(d[0]))
             .y((d) => return y(d[1]))
         return line(values)
@@ -79,7 +79,7 @@ class DensityDisplay extends MicroEvent
             [@x.domain()[0], 0]
             [@x.domain()[1], 0]
         ]
-        area = d3.svg.area()
+        area = d3.area()
             .x((d) => return @x(d[0]))
             .y0(=> return @y(0))
             .y1((d) => return @y(0))
@@ -166,7 +166,7 @@ class DensityDisplay extends MicroEvent
         kde = science.stats.kde().sample(values)
         kde.bandwidth(science.stats.bandwidth.nrd0)
         plotValues = kde(d3.range(extent[0], extent[1], .1))
-        yDomain = d3.scale.linear()
+        yDomain = d3.scaleLinear()
             .domain([0, d3.max(plotValues, (d) -> d[1])])
             .range([@height-@margin.bottom, 1])
             
@@ -220,7 +220,7 @@ class DensityDisplay extends MicroEvent
             if normalizedMean > normalizedValue
                 h = 10
             c = @diffBarScale(Math.abs(normalizedMean - normalizedValue))*90
-        return d3.hcl(h, c, l)
+        return Utils.hcl(h, c, l)
     
     
     drawSubPlots: =>
@@ -232,11 +232,11 @@ class DensityDisplay extends MicroEvent
         subPlots = @subPlotLayer.selectAll(".subPlot")
             .data(subPlotValues)
         
-        subPlots.enter()
+        subPlotsEnter = subPlots.enter()
             .append("path")
             .attr("class", "subPlot")
                 
-        subPlots
+        subPlotsEnter.merge(subPlots)
             .attr("d", (d) =>
                 if @highlightSelection and @highlightSelection.id == d.id
                     return @__computeArea(@highlightPlot.plotValues, @x, @highlightPlot.y)
@@ -256,11 +256,11 @@ class DensityDisplay extends MicroEvent
         subPlotLines = @subPlotLayer.selectAll(".subPlotLine")
             .data(subPlotValues)
         
-        subPlotLines.enter()
+        subPlotLinesEnter = subPlotLines.enter()
             .append("path")
             .attr("class", "subPlotLine")
                 
-        subPlotLines
+        subPlotLinesEnter.merge(subPlotLines)
             .attr("d", (d) =>
                 if @highlightSelection and @highlightSelection.id == d.id
                     return @__computeLine(@highlightPlot.plotValues, @x, @highlightPlot.y)
@@ -285,11 +285,11 @@ class DensityDisplay extends MicroEvent
         basePlot = @baseLayer.selectAll(".basePath")
             .data([@basePlot])
         
-        basePlot.enter()
+        basePlotEnter = basePlot.enter()
             .append("path")
             .attr("class", "basePath")
                 
-        basePlot
+        basePlotEnter.merge(basePlot)
             .attr("d", (d) =>
                 return @area(d)
             )
@@ -297,11 +297,11 @@ class DensityDisplay extends MicroEvent
         quantileLines = @quantileLayer.selectAll("line")
             .data(@quantiles)
         
-        quantileLines.enter()
+        quantileLinesEnter = quantileLines.enter()
             .append("line")
             .attr("class", "quantileLine")
                 
-        quantileLines
+        quantileLinesEnter.merge(quantileLines)
             .attr("x1", (d) => @x(d))
             .attr("y1", (d) => @y.range()[0])
             .attr("x2", (d) => @x(d))

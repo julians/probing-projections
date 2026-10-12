@@ -8,7 +8,7 @@ import SingleSelectionTooltipTemplate from "./templates/SingleSelectionTooltip.h
 import MultiSelectionTooltipTemplate from "./templates/MultiSelectionTooltip.html?hbs"
 import Tooltip from "../components/Tooltip.coffee"
 import ifCondHelper from "../templates/helpers/ifCond.coffee"
-import d3 from "d3"
+import * as d3 from "d3"
 import $ from "jquery"
 import MicroEvent from "../components/MicroEvent.coffee"
 import { sortBy } from "es-toolkit"

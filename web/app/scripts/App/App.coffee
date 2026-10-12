@@ -19,13 +19,13 @@ import MicroEvent from "../components/MicroEvent.coffee"
 import $ from "jquery"
 import { maxBy, minBy, throttle, uniq } from "es-toolkit"
 import Papa from "papaparse"
-import d3 from "d3"
+import * as d3 from "d3"
 import Tooltip from "../components/Tooltip.coffee"
 
 class App extends MicroEvent
     constructor: (options) ->
         super()
-        Config.baseColour = d3.hcl(0, 0, 60)
+        Config.baseColour = Utils.hcl(0, 0, 60)
         @$container = $(options.container)
         @$container.html(AppTemplate())
 
@@ -325,7 +325,7 @@ class App extends MicroEvent
                 if centroids.length == 2
                     pos = Utils.lerp(centroids[0], centroids[1], 0.5)
                 else
-                    pos = d3.geom.polygon(centroids).centroid()
+                    pos = d3.polygonCentroid(centroids)
 
                 @explorationTooltip.showForContentAtPosition(
                     content:

@@ -1,6 +1,6 @@
 import Config from "../Config.coffee"
 import Utils from "../Utils.coffee"
-import d3 from "d3"
+import * as d3 from "d3"
 
 class OrdinalDimension
     constructor: (options) ->
@@ -9,7 +9,7 @@ class OrdinalDimension
         @label = options.label or "#{@key}"
         @id = @key
         @multiplier = options.multiplier or 1
-        @scale = d3.scale.linear().range([0, @multiplier])
+        @scale = d3.scaleLinear().range([0, @multiplier])
         @normalize()
     
     

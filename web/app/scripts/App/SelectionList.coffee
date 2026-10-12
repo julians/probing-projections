@@ -4,7 +4,7 @@ import MicroEvent from "../components/MicroEvent.coffee"
 import DataWrapper from "./DataWrapper.coffee"
 import Selection from "./Selection.coffee"
 import { difference, sortBy } from "es-toolkit"
-import d3 from "d3"
+import * as d3 from "d3"
 
 class SelectionList extends MicroEvent
     constructor: (options) ->

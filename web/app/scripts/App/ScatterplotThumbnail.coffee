@@ -2,7 +2,7 @@ import Config from "../Config.coffee"
 import Utils from "../Utils.coffee"
 import DataWrapper from "./DataWrapper.coffee"
 import sampleList from "../components/MicroEvent.coffee"
-import d3 from "d3"
+import * as d3 from "d3"
 import $ from "jquery"
 
 class ScatterplotThumbnail
@@ -13,8 +13,8 @@ class ScatterplotThumbnail
         @$canvas = $("<canvas></canvas>").appendTo(@$container)
         @canvas = @$canvas[0]
         
-        @x = d3.scale.linear()
-        @y = d3.scale.linear()
+        @x = d3.scaleLinear()
+        @y = d3.scaleLinear()
 
     
     updateLayout: =>

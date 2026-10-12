@@ -2,7 +2,7 @@ import Config from "../Config.coffee"
 import Utils from "../Utils.coffee"
 import MicroEvent from "../components/MicroEvent.coffee"
 import { difference, uniq } from "es-toolkit"
-import d3 from "d3"
+import * as d3 from "d3"
 
 class Selection extends MicroEvent
     constructor: (options) ->
@@ -117,7 +117,7 @@ class Selection extends MicroEvent
         unless @hull
             points = for sample in @samples
                 sample.mdsPosition
-            @hull = d3.geom.polygon(d3.geom.hull(points))
+            @hull = d3.polygonHull(points)
         return @hull
         
         
@@ -127,7 +127,7 @@ class Selection extends MicroEvent
         else if @samples.length == 2
             return Utils.lerp(@samples[0].mdsPosition, @samples[1].mdsPosition, 0.5)
         else
-            return @getHull().centroid()
+            return d3.polygonCentroid(@getHull())
         return null
         
         

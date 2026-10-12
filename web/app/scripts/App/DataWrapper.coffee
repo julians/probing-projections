@@ -2,7 +2,7 @@ import Config from "../Config.coffee"
 import Utils from "../Utils.coffee"
 import Selection from "./Selection.coffee"
 import MicroEvent from "../components/MicroEvent.coffee"
-import d3 from "d3"
+import * as d3 from "d3"
 
 class DataWrapper extends MicroEvent
     constructor: () ->

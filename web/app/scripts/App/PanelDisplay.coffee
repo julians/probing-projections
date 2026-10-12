@@ -1,7 +1,7 @@
 import Config from "../Config.coffee"
 import Utils from "../Utils.coffee"
 import DataWrapper from "./DataWrapper.coffee"
-import d3 from "d3"
+import * as d3 from "d3"
 import $ from "jquery"
 
 class PanelDisplay

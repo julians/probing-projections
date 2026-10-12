@@ -8,7 +8,7 @@ import SelectionList from "./SelectionList.coffee"
 import HierarchicalCluster from "./HierarchicalCluster.coffee"
 import MicroEvent from "../components/MicroEvent.coffee"
 import { median } from "es-toolkit"
-import d3 from "d3"
+import * as d3 from "d3"
 
 class SampleList extends MicroEvent
     constructor: () ->
@@ -320,7 +320,7 @@ class SampleList extends MicroEvent
             mdsDistances = @getAllProjectionDistancesFromSample(mainSample)
         
             # min/max distances, ignoring 0 values
-            distanceScale = d3.scale.linear()
+            distanceScale = d3.scaleLinear()
                 .domain(d3.extent(calculatedDistances, (d) -> return (if d == 0 then null else d)))
                 .range(d3.extent(mdsDistances, (d) -> return (if d == 0 then null else d)))
             

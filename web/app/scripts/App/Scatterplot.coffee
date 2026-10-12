@@ -4,7 +4,7 @@ import DataWrapper from "./DataWrapper.coffee"
 import MDS from "./MDS.coffee"
 import Heatmap from "./Heatmap.coffee"
 import MicroEvent from "../components/MicroEvent.coffee"
-import d3 from "d3"
+import * as d3 from "d3"
 import $ from "jquery"
 
 class Scatterplot extends MicroEvent
@@ -20,13 +20,12 @@ class Scatterplot extends MicroEvent
         @visualVariables =
             size: null
             haloSize: null
-            heatmap: null
         @visualVariableDefaults = 
             size: [3.5, 3.5]
             haloSize: [3.5, 3.5]
         @visualScales =
-            size: d3.scale.sqrt().domain([0, 1]).range(@visualVariableDefaults.size)
-            haloSize: d3.scale.sqrt().domain([0, 1]).range(@visualVariableDefaults.haloSize)
+            size: d3.scaleSqrt().domain([0, 1]).range(@visualVariableDefaults.size)
+            haloSize: d3.scaleSqrt().domain([0, 1]).range(@visualVariableDefaults.haloSize)
         @maxHaloRadius = 20
         
         @clusterLineMaxWidth = 4
@@ -47,11 +46,11 @@ class Scatterplot extends MicroEvent
             .on("mousedown", @mouseDownListener)
             .on("mousemove", @mouseMoveListener)
             .on("mouseup", @mouseUpListener)
-            .on("mouseenter", (d) =>
+            .on("mouseenter", (event, d) =>
                 @trigger("mouse:enter", d)
                 DataWrapper.trigger("plot:mouse:enter")
             )
-            .on("mouseleave", (d) =>
+            .on("mouseleave", (event, d) =>
                 @trigger("mouse:leave", d)
                 DataWrapper.trigger("plot:mouse:leave")
             )
@@ -64,9 +63,6 @@ class Scatterplot extends MicroEvent
         #    .attr("class", "labelShadowLayer")
         #    .style("display", "none")
         
-        @voronoiLayer = @svg.append("g")
-            .attr("class", "voronoiLayer")
-                
         @heatmapLayer = @svg.append("g")
             .attr("class", "heatmapLayer")
         
@@ -91,8 +87,8 @@ class Scatterplot extends MicroEvent
         @brushLayer = @svg.append("g")
             .attr("class", "brushLayer")
             
-        @x = d3.scale.linear()
-        @y = d3.scale.linear()
+        @x = d3.scaleLinear()
+        @y = d3.scaleLinear()
         
         @updateLayout()
         
@@ -102,24 +98,22 @@ class Scatterplot extends MicroEvent
         DataWrapper.bind("activeSelections:change", @draw)
     
     
-    mouseDownListener: () =>
-        p = d3.mouse(@svg[0][0])
+    mouseDownListener: (event) =>
+        p = d3.pointer(event, @svg.node())
         @brushing =
             pos: p
-            shiftKey: d3.event.shiftKey
+            shiftKey: event.shiftKey
         @brushLayer.append("rect")
-            .attr(
-                class: "selectionRect"
-                x: p[0]
-                y: p[1]
-                width: 0
-                height: 0
-            )
+            .attr("class", "selectionRect")
+            .attr("x", p[0])
+            .attr("y", p[1])
+            .attr("width", 0)
+            .attr("height", 0)
     
     
-    mouseMoveListener: () =>
+    mouseMoveListener: (event) =>
         if @brushing
-            p = d3.mouse(@svg[0][0])
+            p = d3.pointer(event, @svg.node())
 
             move = 
                 x: p[0] - @brushing.pos[0],
@@ -138,15 +132,16 @@ class Scatterplot extends MicroEvent
             else
                 attrs.y = @brushing.pos[1]
                 
-            @brushLayer.select(".selectionRect")
-                .attr(attrs)
+            rect = @brushLayer.select(".selectionRect")
+            for name, value of attrs
+                rect.attr(name, value)
     
     
-    mouseUpListener: () =>
+    mouseUpListener: (event) =>
         if @brushing
             @brushLayer.select(".selectionRect").remove()
             
-            p = d3.mouse(@svg[0][0])
+            p = d3.pointer(event, @svg.node())
             move = 
                 x: p[0] - @brushing.pos[0],
                 y: p[1] - @brushing.pos[1]
@@ -281,79 +276,19 @@ class Scatterplot extends MicroEvent
         @setVisualScales()
 
 
-        # voronoi heatmap
-        
-        clipExtent = [[
-            Math.round(@x.range()[0])-@margin.left, Math.round(@y.range()[1])-@margin.top
-        ], [
-            Math.round(@x.range()[1])+@margin.right, Math.round(@y.range()[0])+@margin.bottom
-        ]]
-        voronoiLayout = d3.geom.voronoi()
-            .clipExtent(clipExtent)
-        voronoiData = []
-        
-        if @visualVariables.heatmap
-            coordHash = {}
-            for d in sampleList.samples
-                if @activeNode and d != @activeNode
-                    x = @x(relativePositions[d.id].pos[0])
-                    y = @y(relativePositions[d.id].pos[1])
-                else
-                    x = @x(d.mdsPosition[0])
-                    y = @y(d.mdsPosition[1])
-                
-                coords = [+x.toFixed(1), +y.toFixed(1)]
-                
-                unless "#{coords[0]}:#{coords[1]}" of coordHash
-                    coordHash["#{coords[0]}:#{coords[1]}"] = 0
-                
-                value = d.getValueForDimension(@visualVariables.heatmap)
-                value /= @visualVariables.heatmap.multiplier
-                coordHash["#{coords[0]}:#{coords[1]}"] += value
-                
-            voronoiData = Object.entries(coordHash).map(([coords, value]) ->
-                return (+coord for coord in coords.split(":")).concat([value])
-            )  
-            voronoiData = voronoiLayout(voronoiData)
-
-
-        voronois = @voronoiLayer.selectAll(".voronoi")
-            .data(voronoiData)
-        
-        voronois.enter()
-            .append("path")
-            .style("opacity", 0)
-        
-        voronois
-            .attr("class", "voronoi")
-            .transition()
-                .duration(@transitionDuration)
-                .style("opacity", (d) ->
-                    if d?.point
-                        return d.point[2]
-                    return 0
-                )
-                .attr("d", (d, index) =>
-                    return "M" + d.join("L") + "Z"
-                )
-                
-        voronois.exit()
-            .transition()
-                .duration(@transitionDuration)
-                .style("opacity", 0)
-                .remove()
-        
-        
         # hulls
         
-        hullLineGenerator = d3.svg.line()
+        hullLineGenerator = d3.line()
             .x((d) =>
                 @x(d[0])
             )
             .y((d) =>
                 @y(d[1])
             )
-            .interpolate("cardinal-closed") 
+            # the curve of d3 v3’s "cardinal-closed" with its default tension
+            # of 0.7; d3 v4+ scales the tangents by (1 - tension) / 6
+            # instead of / 2, so the equivalent tension is 0.1
+            .curve(d3.curveCardinalClosed.tension(0.1))
         
         hullSelections = []
         unless @activeNode
@@ -366,7 +301,7 @@ class Scatterplot extends MicroEvent
         hulls = @hullLayer.selectAll(".hull")
             .data(hullSelections.filter((d) -> d.samples.length > 2), (d) -> d.id)
         
-        hulls.enter()
+        hullsEnter = hulls.enter()
             .append("path")
             .attr("class", "hull")
             .style("opacity", 0)
@@ -375,7 +310,7 @@ class Scatterplot extends MicroEvent
                 return hullLineGenerator(d.getHull())
             )
             
-        hulls
+        hullsEnter.merge(hulls)
             .attr("d", (d) ->
                 return hullLineGenerator(d.getHull())
             )
@@ -398,7 +333,7 @@ class Scatterplot extends MicroEvent
         hullLines = @hullLayer.selectAll(".hullLine")
             .data(hullSelections.filter((d) -> d.samples.length == 2), (d) -> d.id)
         
-        hullLines.enter()
+        hullLinesEnter = hullLines.enter()
             .append("line")
             .attr("class", "hullLine")
             .style("opacity", 0)
@@ -416,7 +351,7 @@ class Scatterplot extends MicroEvent
                 return @y(d.samples[1].mdsPosition[1])
             )
             
-        hullLines
+        hullLinesEnter.merge(hullLines)
             .attr("x1", (d) =>
                 return @x(d.samples[0].mdsPosition[0])
             )
@@ -451,7 +386,7 @@ class Scatterplot extends MicroEvent
         if @showDendrogram
             clusterData = sampleList.hierarchicalClustering?.getClustering() or null
             clusterLineData = clusterData?.clusterLines or []
-            clusterLineScale = d3.scale.linear().domain([0, 0]).range([0, 0])
+            clusterLineScale = d3.scaleLinear().domain([0, 0]).range([0, 0])
         else
             clusterLineData = []
         
@@ -463,7 +398,7 @@ class Scatterplot extends MicroEvent
         clusterLines = @clusterLineLayer.selectAll(".clusterLine")
             .data(clusterLineData)
         
-        clusterLines.enter()
+        clusterLinesEnter = clusterLines.enter()
             .append("line")
             .attr("class", "clusterLine")
             .attr("x1", (d) =>
@@ -480,7 +415,7 @@ class Scatterplot extends MicroEvent
             )
             .style("opacity", 0)
             
-        clusterLines
+        clusterLinesEnter.merge(clusterLines)
         .transition()
             .duration(@transitionDuration)
             .attr("x1", (d) =>
@@ -520,7 +455,7 @@ class Scatterplot extends MicroEvent
                     return @y(d.pjPositions[1][1])
                 )
                 .style("opacity", 0)
-                .each("end", (d) ->
+                .on("end", (d) ->
                     d3.select(this).remove()
                 )
         
@@ -545,7 +480,7 @@ class Scatterplot extends MicroEvent
             .style("opacity", 0)
             #.attr("filter", "url(#blurFilter)")
               
-        halos
+        halosEnter.merge(halos)
             .attr("class", (d) =>
                 className = "halo"
                 if @hoveredNode and d.id != @hoveredNode.id
@@ -600,7 +535,7 @@ class Scatterplot extends MicroEvent
         lines = @lineLayer.selectAll(".line")
             .data(Object.keys(if @activeNode then relativePositions else {}), (d) -> d)
             
-        lines.enter()
+        linesEnter = lines.enter()
             .append("line")
             .attr("class", "line")
             .attr("x1", (d) =>
@@ -617,7 +552,7 @@ class Scatterplot extends MicroEvent
             )
             .style("opacity", 0)
             
-        lines
+        linesEnter.merge(lines)
             .attr("class", (d) =>
                 className = "line"
                 if d != @activeNode?.id# and d!= @hoveredNode?.id
@@ -689,7 +624,7 @@ class Scatterplot extends MicroEvent
                     return null
                 )
                 .style("opacity", 0)
-                .each("end", (d) ->
+                .on("end", (d) ->
                     d3.select(this).remove()
                 )
         
@@ -704,14 +639,10 @@ class Scatterplot extends MicroEvent
             .attr("class", "dot")
             .attr("r", 5.5)
             .style("opacity", 0)
-            .on("click", (d) =>
-                #d3.event.stopPropagation()
-                #if d3.event.shiftKey
-                #    console.log "shift"
-                    
+            .on("click", (event, d) =>
                 @trigger("selection", {
                     samples: [d]
-                    shiftKey: d3.event.shiftKey
+                    shiftKey: event.shiftKey
                 })
                 #if d == that.activeNode
                 #    that.activeNode = null
@@ -727,7 +658,7 @@ class Scatterplot extends MicroEvent
             
         unless Modernizr.touch
             dotsEnter
-                .on("mouseover", (d) ->
+                .on("mouseover", (event, d) ->
                     that.hoveredNode = d
                     that.draw()
                     
@@ -737,7 +668,7 @@ class Scatterplot extends MicroEvent
                     })
                     DataWrapper.trigger("brushed:sample", d)
                 )
-                .on("mouseout", (d) ->
+                .on("mouseout", (event, d) ->
                     that.hoveredNode = null
                     that.draw()
                     
@@ -748,7 +679,7 @@ class Scatterplot extends MicroEvent
                     DataWrapper.trigger("brushed:sample", null)
                 )
               
-        dots
+        dotsEnter.merge(dots)
             .attr("class", (d) =>
                 className = "dot"
                 if @activeNode or @hoveredNode
@@ -807,16 +738,16 @@ class Scatterplot extends MicroEvent
             .text((d) ->
                 d.getLabel()
             )
-            .on("click", (d) =>
+            .on("click", (event, d) =>
                 @trigger("selection", {
                     samples: [d]
-                    shiftKey: d3.event.shiftKey
+                    shiftKey: event.shiftKey
                 })
             )
         
         unless Modernizr.touch
             labelsEnter
-                .on("mouseover", (d) =>
+                .on("mouseover", (event, d) =>
                     that.hoveredNode = d
                     that.draw()
                     
@@ -829,7 +760,7 @@ class Scatterplot extends MicroEvent
                     })
                     DataWrapper.trigger("brushed:sample", d)
                 )
-                .on("mouseout", (d) =>
+                .on("mouseout", (event, d) =>
                     that.hoveredNode = null
                     that.draw()
                     
@@ -843,7 +774,7 @@ class Scatterplot extends MicroEvent
                     DataWrapper.trigger("brushed:sample", null)
                 )
         
-        labels.transition()
+        labelsEnter.merge(labels).transition()
             .duration(@transitionDuration)
             .attr("x", (d, index) =>
                 value = 1
@@ -883,7 +814,7 @@ class Scatterplot extends MicroEvent
         selectionForSample = DataWrapper.activeSelections.getSelectionForSampleById(d.id)
         if selectionForSample
             if DataWrapper.brushedSelection or DataWrapper.tempSelection.samples.length
-                return d3.hcl(selectionForSample.colour.h, selectionForSample.colour.c * 0.25, selectionForSample.colour.l)
+                return Utils.hcl(selectionForSample.colour.h, selectionForSample.colour.c * 0.25, selectionForSample.colour.l)
             else
                 return selectionForSample.colour
         
@@ -910,7 +841,7 @@ class Scatterplot extends MicroEvent
         mdsDistances = DataWrapper.sampleList.getAllProjectionDistancesFromSample(baseSample)
         
         # min/max distances, ignoring 0 values
-        distanceScale = d3.scale.linear()
+        distanceScale = d3.scaleLinear()
             .domain(d3.extent(calculatedDistances, (d) -> return (if d == 0 then null else d)))
             .range(d3.extent(mdsDistances, (d) -> return (if d == 0 then null else d)))
         

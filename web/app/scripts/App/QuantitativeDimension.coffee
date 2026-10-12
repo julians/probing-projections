@@ -1,6 +1,6 @@
 import Config from "../Config.coffee"
 import Utils from "../Utils.coffee"
-import d3 from "d3"
+import * as d3 from "d3"
 
 class QuantitativeDimension
     constructor: (options) ->
@@ -13,7 +13,7 @@ class QuantitativeDimension
         @stdDeviation = null
         @domain = options.domain or false
         @multiplier = options.multiplier or 1
-        @scale = d3.scale.linear().range([0, @multiplier])
+        @scale = d3.scaleLinear().range([0, @multiplier])
 
         if @domain
             @scale.domain(@domain)

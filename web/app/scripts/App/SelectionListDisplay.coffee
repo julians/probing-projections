@@ -6,7 +6,7 @@ import ScatterplotThumbnail from "./ScatterplotThumbnail.coffee"
 import SelectionDisplayTemplate from "./templates/SelectionDisplay.html?hbs"
 import MicroEvent from "../components/MicroEvent.coffee"
 import $ from "jquery"
-import d3 from "d3"
+import * as d3 from "d3"
 
 class SelectionListDisplay extends MicroEvent
     constructor: (options) ->
@@ -107,7 +107,7 @@ class SelectionListDisplay extends MicroEvent
         items = container.selectAll(".selection")
             .data(selections, keyFunction)
         
-        items.enter()
+        itemsEnter = items.enter()
             .append("li")
             .attr("class", "selection inserted")
             .each((d, index) ->
@@ -144,15 +144,15 @@ class SelectionListDisplay extends MicroEvent
                             d.setLabel($(this).html())
                     )
             )
-            .on("mouseenter", (d) ->
+            .on("mouseenter", (event, d) ->
                 $(this).find(".label").css("color", d.colour)
             )
-            .on("mouseleave", (d) ->
+            .on("mouseleave", (event, d) ->
                 unless d.active
                     $(this).find(".label").css("color", "")
             )
             
-        items
+        itemsEnter.merge(items)
             .attr("data-id", (d) ->
                 return d.id
             )

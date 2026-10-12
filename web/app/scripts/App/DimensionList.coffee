@@ -6,7 +6,7 @@ import QuantitativeDimension from "./QuantitativeDimension.coffee"
 import BinaryDimension from "./BinaryDimension.coffee"
 import MDS from "./MDS.coffee"
 import { uniq } from "es-toolkit"
-import d3 from "d3"
+import * as d3 from "d3"
 
 class DimensionList
     excludedKeys: [
