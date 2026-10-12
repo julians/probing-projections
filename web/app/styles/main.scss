@@ -1,7 +1,4 @@
-@import "compass/css3";
-@import "mixins";
 @import "vars";
-$default-transition-function: "ease-in-out";
 
 @import "components/tooltip";
 
@@ -44,10 +41,10 @@ ul, li {
         right: 0;
         top: 0;
         bottom: 0;
-        //@include display-flex(flex);
+        //display: flex;
         
         .mainContainer {
-            //@include flex(1);
+            //flex: 1;
             left: 0;
             top: 0;
             position: absolute;

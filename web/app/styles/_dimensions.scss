@@ -6,7 +6,7 @@ $heatmapThumbSize: 48px;
     
     ul {
         overflow: auto;
-        @include transition(height 0.3s);
+        transition: height 0.3s;
     }
     .dimension {
         margin: 0 0 6px 0;
@@ -64,8 +64,8 @@ $heatmapThumbSize: 48px;
             position: absolute;
             left: 0;
             top: 0;
-            @include border-radius(2px);
-            @include background-clip(padding-box);
+            border-radius: 2px;
+            background-clip: padding-box;
             overflow: hidden;
         }
     }
@@ -77,8 +77,8 @@ $heatmapThumbSize: 48px;
         //margin-left: 5px;
         width: 15px;
         height: 15px;
-        background-image: image-url("scalesymbol.png");
-        @include background-size(cover);
+        background-image: url("/images/scalesymbol.png");
+        background-size: cover;
         cursor: pointer;
         opacity: 0;
     }
