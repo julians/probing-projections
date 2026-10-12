@@ -15,6 +15,7 @@ define([
     "./DimensionDisplay"
     "./PanelDisplay"
     "./MDS"
+    "./HierarchicalCluster"
     "./Scatterplot"
     "./ExplorationTooltip"
     "hbs!./templates/App"
@@ -37,6 +38,7 @@ define([
     DimensionDisplay
     PanelDisplay
     MDS
+    HierarchicalCluster
     Scatterplot
     ExplorationTooltip
     AppTemplate
@@ -177,33 +179,30 @@ define([
                 DataWrapper.sampleList = new SampleList()
                 DataWrapper.sampleList.setData(data.parsedCsv.data)
 
-            if ~window.location.host.indexOf("jujujulian.com")
-                url = "//probing-projections.herokuapp.com/mds"
-            else
-                url = "//localhost:5000/mds"
+            dataset = DataWrapper.sampleList.serialise()
+            metric = data.metric
+            computeProjection = not DataWrapper.sampleList.precalculatedMDS
 
-            $.ajax(url,
-                type: "POST"
-                contentType: "application/json; charset=utf-8"
-                dataType: "json"
-                data: JSON.stringify(
-                    dataset: DataWrapper.sampleList.serialise()
-                    metric: data.metric
-                    drtype: if DataWrapper.sampleList.precalculatedMDS then false else data.drType
-                    components: 2
-                )
-                success: (data) =>
+            # the projection and clustering used to be computed by a python
+            # server (see ./server), now they run in the browser. Deferred
+            # with a timeout so that the browser gets to repaint before the
+            # (potentially long) computation blocks it.
+            setTimeout(=>
+                result =
+                    embedding: if computeProjection then MDS.smacof(dataset, metric: metric).embedding else null
+                    clustering: HierarchicalCluster.ward(dataset)
+
+                @$container.find(".classDisplay").show()
+                DataWrapper.sampleList.updateFromServer(result)
+
+                if DataWrapper.sampleList.sampleClasses.isEmpty()
+                    @$container.find(".classDisplay").hide()
+                else
                     @$container.find(".classDisplay").show()
-                    DataWrapper.sampleList.updateFromServer(data)
-
-                    if DataWrapper.sampleList.sampleClasses.isEmpty()
-                        @$container.find(".classDisplay").hide()
-                    else
-                        @$container.find(".classDisplay").show()
-                        DataWrapper.setActiveSelections("classes")
-                    #@completeCSV()
-                    @createPositionExportJson()
-            )
+                    DataWrapper.setActiveSelections("classes")
+                #@completeCSV()
+                @createPositionExportJson()
+            , 50)
 
 
         editProjection: (event) =>

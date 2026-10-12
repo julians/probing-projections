@@ -1,0 +1,35 @@
+// Minimal stand-in for the handful of Compass CSS3 mixins and helpers this
+// project uses, so the stylesheets compile with plain (dart) sass.
+@function image-url($path) {
+    @return url("../images/#{$path}");
+}
+
+@mixin border-radius($radius...) {
+    -webkit-border-radius: $radius;
+    border-radius: $radius;
+}
+
+@mixin transition($args...) {
+    -webkit-transition: $args;
+    transition: $args;
+}
+
+@mixin background-size($size...) {
+    -webkit-background-size: $size;
+    background-size: $size;
+}
+
+@mixin background-clip($clip...) {
+    -webkit-background-clip: $clip;
+    background-clip: $clip;
+}
+
+@mixin display-flex($value: flex) {
+    display: -webkit-#{$value};
+    display: $value;
+}
+
+@mixin flex($value...) {
+    -webkit-flex: $value;
+    flex: $value;
+}

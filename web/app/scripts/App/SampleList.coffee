@@ -391,6 +391,11 @@ define([
                     else
                         if @stress1Matrix.length > otherIndex and @stress1Matrix[otherIndex].length > mainIndex
                             @stress1Matrix[mainIndex][otherIndex] = @stress1Matrix[otherIndex][mainIndex]
+                        else if distances[otherIndex] == 0
+                            # samples projected onto the same spot (e.g. duplicate
+                            # rows): no error if they are identical, otherwise the
+                            # (relative) error is maximal
+                            @stress1Matrix[mainIndex][otherIndex] = if disparities[otherIndex] == 0 then 0 else 1
                         else
                             stress1 = Math.sqrt(Math.pow(distances[otherIndex] - disparities[otherIndex], 2) / Math.pow(distances[otherIndex], 2))
                             @stress1Matrix[mainIndex][otherIndex] = Math.abs(stress1)
