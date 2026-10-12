@@ -1,6 +1,9 @@
+@use "vars";
+@use "extends";
+
 .sidebar {
     .projectionSettings {
-        color: $grey;
+        color: vars.$grey;
         
         .subPanel {
             margin: 0 0 0.7rem 0;
@@ -60,7 +63,7 @@
 .slider {
     font-size: 1.3rem;
     margin-bottom: 2rem;
-    color: $lightGrey;
+    color: vars.$lightGrey;
     
     .label.min {
         margin-right: 0.3em;

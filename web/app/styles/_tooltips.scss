@@ -1,10 +1,13 @@
+@use "vars";
+@use "extends";
+
 .displayTooltip {
     text-align: left;
     padding: 0.5rem 0.5rem 1rem 0.5rem;
     
     .tooltipHead {
         font-size: 1.5rem;
-        border-bottom: solid 1px $faintGrey;
+        border-bottom: solid 1px vars.$faintGrey;
         padding-bottom: 0.3rem;
         
         h3 {
@@ -19,10 +22,10 @@
             margin: 0;
             display: inline;
             font-size: 1.3rem;
-            color: $grey;
+            color: vars.$grey;
         }
         .numberOfSamples {
-            color: $lightGrey;
+            color: vars.$lightGrey;
             font-size: 1.3rem;
             font-style: italic;
             margin-left: 0.3em;
@@ -33,7 +36,7 @@
     }
     .tooltipContent {
         font-size: 1.3rem;
-        color: $grey;
+        color: vars.$grey;
         
         table {
             cellspacing: 0;
@@ -41,7 +44,7 @@
             vertical-align: top;
         }
         thead {
-            color: $veryLightGrey;
+            color: vars.$veryLightGrey;
             font-size: 1rem;
             font-weight: bold;
             text-transform: uppercase;
@@ -61,7 +64,7 @@
                 line-height: 1.6rem;
             }
             .label {
-                color: $lightGrey;
+                color: vars.$lightGrey;
                 text-align: right;
                 
                 .wrapper {
@@ -109,7 +112,7 @@
         }
         .selectionContains,
         .tooltipActions {
-            border-top: solid 1px $faintGrey;
+            border-top: solid 1px vars.$faintGrey;
             padding-top: 0.3rem;
             margin-top: 1rem;
         }
@@ -161,15 +164,15 @@
         width: 0.35em;
         height: 0.35em;
         border-radius: 100%;
-        border: solid 0.35em $defaultColor;
-        background: $defaultColor;
+        border: solid 0.35em vars.$defaultColor;
+        background: vars.$defaultColor;
         vertical-align: middle;
         
         &.nearer {
-            border-color: $nearColor;
+            border-color: vars.$nearColor;
         }
         &.farther {
-            border-color: $farColor;
+            border-color: vars.$farColor;
         }
         @keyframes haloSizeLegend {
           0%   { border-width: 0.1em; }

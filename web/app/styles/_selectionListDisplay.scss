@@ -1,7 +1,9 @@
+@use "vars";
+
 $thumbSize: 48px;
 
 .selectionListDisplay {
-    color: $grey;
+    color: vars.$grey;
     position: relative;
     transition: height 0.5s;
 
@@ -14,11 +16,11 @@ $thumbSize: 48px;
         cursor: pointer;
         
         &:hover .thumbnailContainer {
-            background-color: $thumbnailBackgroundHover;
-            border-color: $thumbnailBackgroundHover;
+            background-color: vars.$thumbnailBackgroundHover;
+            border-color: vars.$thumbnailBackgroundHover;
         }
         &.active .thumbnailContainer {
-            border-color: $faintGrey;
+            border-color: vars.$faintGrey;
         }
         &.inserted {
             transform: scale(0.5);
@@ -38,28 +40,28 @@ $thumbSize: 48px;
             }
         }
         .details {
-            color: $lightGrey;
+            color: vars.$lightGrey;
             font-size: 1.3rem;
             display: block;
         }
         &.temp .label {
-            color: $actionColour;
+            color: vars.$actionColour;
         }
         &.temp.empty {
             .label {
-                color: $lightGrey;
+                color: vars.$lightGrey;
             }
             .details {
-                color: $veryLightGrey;
+                color: vars.$veryLightGrey;
             }
         }
         .thumbnailContainer,
         .tempAddButton {
-            border: solid 1px $thumbnailBackground;
+            border: solid 1px vars.$thumbnailBackground;
             position: absolute;
             left: 0;
             top: 0;
-            background-color: $thumbnailBackground;
+            background-color: vars.$thumbnailBackground;
             width: $thumbSize;
             height: $thumbSize;
             border-radius: 2px;
@@ -97,13 +99,13 @@ $thumbSize: 48px;
                 opacity: 0.2;
             }
             .tempAddButton {
-                color: $lightGrey;
+                color: vars.$lightGrey;
             }
         }
         .tempAddButton {
             opacity: 0;
             font-size: $thumbSize;
-            color: $faintGrey;
+            color: vars.$faintGrey;
             line-height: $thumbSize * 0.9;
             text-align: center;
             z-index: 1;

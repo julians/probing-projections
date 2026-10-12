@@ -1,3 +1,5 @@
+@use "vars";
+
 .scatterplot {
     user-select: none; 
     
@@ -23,10 +25,10 @@
         stroke-linecap: round;
         
         &.nearer {
-            stroke: $nearColor;
+            stroke: vars.$nearColor;
         }
         &.farther {
-            stroke: $farColor;
+            stroke: vars.$farColor;
         }
     }
     .halo {
@@ -35,10 +37,10 @@
         transition: fill 0.5s;
          
         &.farther {
-            fill: $farColor;
+            fill: vars.$farColor;
         }
          &.nearer {
-             fill: $nearColor;
+             fill: vars.$nearColor;
          }
     }
     .brushLayer {
@@ -46,10 +48,10 @@
         pointer-events: none;
     }
     .selectionRect {
-        fill: $actionColour;
+        fill: vars.$actionColour;
         fill-opacity: 0.2;
         stroke-width: 1px;
-        stroke: $actionColour;
+        stroke: vars.$actionColour;
         stroke-opacity: 0.7;
         shape-rendering: crispEdges;
     }
@@ -63,7 +65,7 @@
     }
     .dot {
         cursor: pointer;
-        fill: $defaultColor;
+        fill: vars.$defaultColor;
         
         &:hover {
             fill: #555;

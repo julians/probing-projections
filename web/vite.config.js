@@ -48,7 +48,6 @@ export default defineConfig({
         preprocessorOptions: {
             scss: {
                 loadPaths: [fileURLToPath(new URL("app/styles", import.meta.url))],
-                silenceDeprecations: ["import", "global-builtin", "color-functions"],
             },
         },
     },
