@@ -227,15 +227,6 @@ class SelectionListDisplay extends MicroEvent
             .classed("removed", true)
                 
         DataWrapper.trigger("layoutChange")
-            
-    
-    renderContent: () =>
-        if DataWrapper.sampleList.sampleClasses.isEmpty()
-            return ""
-        
-        return ClassDisplayTemplate(
-            samplesByClass: DataWrapper.sampleList.sampleClasses.getAll()
-        )
-       
-        
+
+
 export default SelectionListDisplay
