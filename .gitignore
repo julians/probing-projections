@@ -1,7 +1,6 @@
 web/dist*
 
 scripts/output
-*.pyc
 
 node_modules
 bower_components
@@ -15,9 +14,6 @@ dist-zips/
 # OS files
 .DS_Store
 Thumbs.db
-
-*.pyc
-venv
 
 # TextMate files
 *.tmproj
