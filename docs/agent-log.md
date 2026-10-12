@@ -1,5 +1,11 @@
 # Agent log
 
+## 2026-10-12 — Tooltip blur
+
+- [026](issues/done/026-tooltip-blur-chrome.md): unprefixed `backdrop-filter`. The Vite build adds vendor
+  prefixes on its own via Lightning CSS (checked by removing `-webkit-backdrop-filter` and grepping
+  the build), so don't write prefixes in the source. `@supports` conditions aren't rewritten, though.
+
 ## 2026-10-12 — Custom properties everywhere, rough dark mode, SVG icons
 
 - [025](issues/done/025-custom-properties-dark-mode.md): no Sass variables left. Colours are named by role
