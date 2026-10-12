@@ -1,5 +1,19 @@
 # Agent log
 
+## 2026-10-12 — Classical MDS / PCA, SMACOF start
+
+- `MDS.classical` replaces the numeric.js version: Jacobi eigen solver on the smaller of the
+  scatter and Gram matrices ([007](issues/done/007-remove-classic-mds.md)).
+- Classical MDS equals PCA here (euclidean distances on the normalised vectors; checked to 1e-14),
+  so the UI offers one “Classical MDS / PCA” option ([008](issues/open/008-pca-tsne-options.md)).
+- The first version ran Jacobi on the n×n matrix and took 4 s at n=500. Switching to the d×d
+  scatter matrix made it about 1 ms.
+- SMACOF now starts from classical MDS: same stress (±0.5%), 20–60× faster than 10 random starts
+  ([023](issues/done/023-smacof-classical-init.md)).
+- Fixed in passing: Recompute did nothing on data with `mds:x`/`mds:y` columns.
+- t-SNE was researched, not built. The blocker is the error displays, not the computation (notes in 008).
+- Port 9000 was taken by another session, so `.claude/launch.json` (untracked) got a `web-alt` config on 9010.
+
 ## 2026-10-12 — Project tracking in docs/
 
 - Added [AGENTS.md](../AGENTS.md) (with `CLAUDE.md` importing it), [PLAN.md](PLAN.md), this log

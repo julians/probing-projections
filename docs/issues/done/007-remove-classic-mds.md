@@ -8,9 +8,9 @@ Phase: 0 · Clean up
 warning suppressed in `vite.config.js` because it uses `eval`).
 
 ## Tasks
-- [ ] Delete `MDS.classic` and `SampleList.calculateMDS`
-- [ ] Delete `web/app/scripts/App/data/cities.coffee` (unused test data)
-- [ ] Remove `numeric` from `package.json` and the `EVAL` log filter from `vite.config.js`
+- [x] Delete `MDS.classic` and `SampleList.calculateMDS`
+- [x] Delete `web/app/scripts/App/data/cities.coffee` (unused test data)
+- [x] Remove `numeric` from `package.json` and the `EVAL` log filter from `vite.config.js`
 
 ## Notes
 Probably a port of Ben Frederickson’s `mds.js`; `cities.coffee` holds the US city distances from
@@ -19,3 +19,6 @@ If classical MDS is wanted again (023), only the top two eigenvectors are needed
 need numeric.js.
 
 ## Done
+Removed in the commit “Classical MDS without numeric.js”. It was replaced rather than dropped:
+`MDS.classical` (Jacobi eigen solver, no dependency) backs the new projection option (008)
+and the SMACOF start (023).

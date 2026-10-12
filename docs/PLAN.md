@@ -16,8 +16,8 @@ Get rid of dead code and loose ends before touching anything big.
 
 - [ ] [005](issues/open/005-merge-vite-branch.md) Merge the `vite` branch and push
 - [ ] [006](issues/open/006-remove-python-backend.md) Remove the Python backend
-- [ ] [007](issues/open/007-remove-classic-mds.md) Remove classic MDS and numeric.js
-- [ ] [008](issues/open/008-pca-tsne-options.md) Decide on the PCA/t-SNE options
+- [x] [007](issues/done/007-remove-classic-mds.md) Remove classic MDS and numeric.js
+- [ ] [008](issues/open/008-pca-tsne-options.md) Decide on the PCA/t-SNE options (PCA done, t-SNE open)
 - [ ] [009](issues/open/009-typekit-fonts.md) Check the Typekit fonts
 - [ ] [010](issues/open/010-readme-fork-wording.md) Fix the Readme’s fork wording
 
@@ -52,4 +52,4 @@ bus). The d3 visualisations stay imperative, wrapped in components.
 - [ ] [020](issues/open/020-class-display-template.md) `ClassDisplayTemplate` is undefined
 - [ ] [021](issues/open/021-active-selections-listening.md) `setActiveSelections` never stops listening
 - [ ] [022](issues/open/022-stale-elements-after-reload.md) Old dots and clusters stay in the DOM after loading new data
-- [ ] [023](issues/open/023-smacof-classical-init.md) Idea: start SMACOF from classical MDS
+- [x] [023](issues/done/023-smacof-classical-init.md) Idea: start SMACOF from classical MDS
