@@ -81,9 +81,9 @@
     --tooltip-blur: 3px;
 }
 
-// Rough dark mode. Surfaces keep their order from light mode: whatever is
-// further in front (the plot, tooltips, controls, "nearer" halos) is lighter,
-// what is recessed (dividers, thumbnail wells, "farther" halos) is darker.
+// Rough dark mode. Whatever is further in front (the plot and its thumbnails,
+// tooltips, controls, "nearer" halos) is lighter than the page, what is
+// recessed (dividers, "farther" halos) is darker.
 // Only ink (text, lines, data marks) is inverted. Data colours stay as they are.
 @media (prefers-color-scheme: dark) {
     :root {
@@ -97,9 +97,9 @@
         --input-shadow: hsla(0, 0%, 0%, 0.5);
         --control-background: hsla(0, 0%, 30%, 0.9);
         --shadow-colour: hsla(0, 0%, 0%, 0.5);
-        --thumbnail-background: hsla(0, 0%, 0%, 0.25);
-        --thumbnail-background-hover: hsla(0, 0%, 0%, 0.35);
-        --heatmap-background: hsl(0, 0%, 6%);
+        --thumbnail-background: hsla(0, 0%, 100%, 0.05);
+        --thumbnail-background-hover: hsla(0, 0%, 100%, 0.08);
+        --heatmap-background: hsl(0, 0%, 14%);
         --row-hover-background: hsla(0, 0%, 0%, 0.2);
         --legend-plot-background: hsl(0, 0%, 14%);
         
