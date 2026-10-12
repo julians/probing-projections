@@ -29,7 +29,7 @@
   color: var(--tooltip-colour);
   text-decoration: none;
   background-color: var(--tooltip-background);
-  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(var(--tooltip-blur));
   position: relative;
   //border: solid 1px var(--tooltip-border-colour);
   border-radius: var(--tooltip-border-radius);
