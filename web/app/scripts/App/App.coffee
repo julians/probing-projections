@@ -137,6 +137,8 @@ class App extends MicroEvent
 
         @$container.find(".dataEntry form").submit()
         $(window).resize(throttle(@redraw, 300, edges: ["trailing"]))
+        # colours drawn from JavaScript (canvas, inline styles) follow the theme
+        window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", @themeChange)
 
 
     resetSelectionLists: (exceptions) =>
@@ -391,6 +393,11 @@ class App extends MicroEvent
         window.setTimeout(=>
             @explorationTooltip.hide()
         , 10)
+
+
+    themeChange: =>
+        @scatterplot.draw()
+        @dimensionDisplay.redrawThumbnails()
 
 
     redraw: =>

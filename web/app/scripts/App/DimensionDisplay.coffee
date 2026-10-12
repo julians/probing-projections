@@ -141,6 +141,11 @@ class DimensionDisplay extends MicroEvent
             densityPlot.addPlotForSelection(selectionsToAdd)
     
     
+    redrawThumbnails: =>
+        for thumbnail in Object.values(@heatmapThumbnails ? {})
+            thumbnail.draw()
+    
+    
     updateLayout: =>
         labelMaxWidth = 0
         minMaxWidth = 0
