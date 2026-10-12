@@ -1,5 +1,14 @@
 # Agent log
 
+## 2026-10-12 — Sass modules
+
+- [018](issues/done/018-sass-use.md): `@import` → `@use`, no `silenceDeprecations`. The compiled CSS is
+  identical (diffed after splitting at `{};`).
+- sass-migrator needed help: variables shared via the importing file had to move to `_vars.scss`, and
+  its `meta.load-css()` fallback breaks `@extend`, so main.scss now @uses everything at the top.
+- With `@use`, each module's CSS is emitted at its first use. Keep the @use order in main.scss as the
+  intended cascade order, and don't @use CSS-emitting partials from other partials except `extends`.
+
 ## 2026-10-12 — Modernizr and Compass leftovers removed
 
 - Scripts: prefixed `transitionend` names, unused `Utils.isHighDensity`, IE meta tag, outdated README paragraph.

@@ -44,7 +44,7 @@ bus). The d3 visualisations stay imperative, wrapped in components.
 
 - [x] [016](issues/done/016-d3-v7.md) d3 v3 → v7
 - [x] [017](issues/done/017-replace-global-vendor-scripts.md) Replace science.js, Sylvester and Modernizr
-- [ ] [018](issues/open/018-sass-use.md) Sass `@import` → `@use`
+- [x] [018](issues/done/018-sass-use.md) Sass `@import` → `@use`
 
 ## Bugs and ideas (any time)
 
