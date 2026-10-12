@@ -152,24 +152,28 @@ class App extends MicroEvent
             DataWrapper.sampleList = new SampleList()
             DataWrapper.sampleList.setData(data.parsedCsv.data)
 
-        dataset = DataWrapper.sampleList.serialise()
+        sampleList = DataWrapper.sampleList
+        dataset = sampleList.serialise()
         # positions from mds:x/mds:y columns are used when new data comes
         # in; recomputing the same data computes a fresh projection
-        computeProjection = not (data.parsedCsv and DataWrapper.sampleList.precalculatedMDS)
+        computeProjection = not (data.parsedCsv and sampleList.precalculatedMDS)
 
         # the projection and clustering used to be computed by a python
         # server (see ./server), now they run in the browser. Deferred
         # with a timeout so that the browser gets to repaint before the
-        # (potentially long) computation blocks it.
-        setTimeout(=>
+        # (potentially long) computation blocks it. A newer submit
+        # replaces a computation that hasn’t started yet (see issue 019).
+        clearTimeout(@pendingComputation)
+        @pendingComputation = setTimeout(=>
+            @pendingComputation = null
             result =
                 embedding: if computeProjection then @computeProjection(dataset, data) else null
                 clustering: HierarchicalCluster.ward(dataset)
 
             @$container.find(".classDisplay").show()
-            DataWrapper.sampleList.updateFromServer(result)
+            sampleList.updateFromServer(result)
 
-            if DataWrapper.sampleList.sampleClasses.isEmpty()
+            if sampleList.sampleClasses.isEmpty()
                 @$container.find(".classDisplay").hide()
             else
                 @$container.find(".classDisplay").show()

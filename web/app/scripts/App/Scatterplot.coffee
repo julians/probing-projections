@@ -258,7 +258,9 @@ class Scatterplot extends MicroEvent
         hoveredNodePosition = null
         
         sampleList = DataWrapper.sampleList
-        unless sampleList
+        # the samples of new data have no positions until the projection
+        # has been computed (see issue 019)
+        unless sampleList and sampleList.samples.every((sample) -> sample.mdsPosition)
             return false
         
         if @hoveredNode or @activeNode
