@@ -1,5 +1,14 @@
 # Agent log
 
+## 2026-10-12 — Modernizr and Compass leftovers removed
+
+- Scripts: prefixed `transitionend` names, unused `Utils.isHighDensity`, IE meta tag, outdated README paragraph.
+- Styles: Compass stand-in and `_mixins.scss` gone (see [018](issues/open/018-sass-use.md)). Checked
+  by diffing the compiled CSS before/after: only two `-webkit-` declarations differ.
+- Kept `-webkit-backdrop-filter` (Safari < 18) and `Utils.isTouchDevice` (needed for hover handling).
+- Gotcha: files removed with `git rm` are staged immediately and slip into the next commit even when
+  only other paths are `git add`ed; check `git diff --cached --stat` before committing.
+
 ## 2026-10-12 — “Edit projection” flip regression
 
 - User report: “Edit projection” emptied the panel. `_flip.scss` depended on Modernizr's
