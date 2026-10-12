@@ -105,12 +105,13 @@ class SelectionListDisplay extends MicroEvent
             keyFunction = (d) ->
                 return d.id
           
+        # items that are fading out are no longer part of the list
         # d3 v3 dropped data with duplicate keys, v4+ enters them again.
         # The temp selection is briefly listed twice while it is being
         # made permanent.
         if keyFunction
             selections = uniqBy(selections, keyFunction)
-        items = container.selectAll(".selection")
+        items = container.selectAll(".selection:not(.removed)")
             .data(selections, keyFunction)
         
         itemsEnter = items.enter()
@@ -212,9 +213,16 @@ class SelectionListDisplay extends MicroEvent
             .each((d) ->
                 that.thumbnails[d.id] = null
                 delete that.thumbnails[d.id]
-                $(this).one(Utils.transitionEndEvent, ->
-                    d3.select(this).remove()
-                )
+                # transitionend doesn’t fire while the list is hidden (e.g.
+                # the class list for data without classes), so also remove
+                # it after the transition’s duration
+                element = this
+                remove = ->
+                    clearTimeout(timeout)
+                    $(element).off(Utils.transitionEndEvent, remove)
+                    $(element).remove()
+                timeout = setTimeout(remove, 600)
+                $(element).one(Utils.transitionEndEvent, remove)
             )
             .classed("removed", true)
                 
