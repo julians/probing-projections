@@ -153,8 +153,9 @@ class App extends MicroEvent
             DataWrapper.sampleList.setData(data.parsedCsv.data)
 
         dataset = DataWrapper.sampleList.serialise()
-        metric = data.metric
-        computeProjection = not DataWrapper.sampleList.precalculatedMDS
+        # positions from mds:x/mds:y columns are used when new data comes
+        # in; recomputing the same data computes a fresh projection
+        computeProjection = not (data.parsedCsv and DataWrapper.sampleList.precalculatedMDS)
 
         # the projection and clustering used to be computed by a python
         # server (see ./server), now they run in the browser. Deferred
@@ -162,7 +163,7 @@ class App extends MicroEvent
         # (potentially long) computation blocks it.
         setTimeout(=>
             result =
-                embedding: if computeProjection then MDS.smacof(dataset, metric: metric).embedding else null
+                embedding: if computeProjection then @computeProjection(dataset, data) else null
                 clustering: HierarchicalCluster.ward(dataset)
 
             @$container.find(".classDisplay").show()
@@ -176,6 +177,12 @@ class App extends MicroEvent
             #@completeCSV()
             @createPositionExportJson()
         , 50)
+
+
+    computeProjection: (dataset, settings) =>
+        if settings.drType == "classical"
+            return MDS.classical(dataset).embedding
+        return MDS.smacof(dataset, metric: settings.metric).embedding
 
 
     editProjection: (event) =>

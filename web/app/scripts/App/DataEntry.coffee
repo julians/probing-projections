@@ -21,6 +21,10 @@ class DataEntry extends MicroEvent
             event.preventDefault()
             @trigger("cancel")
         )
+        # the metric option only applies to SMACOF
+        @$dataEntryForm.find('input[name="drtype"]').on("change", =>
+            @$dataEntryForm.find("#metricCheckbox").prop("disabled", @getDrType() != "mds")
+        )
         @$dataEntryForm.on("submit", (event) =>
             event.preventDefault()
             event.stopPropagation()
@@ -38,11 +42,15 @@ class DataEntry extends MicroEvent
             @oldCsvString = csvString
         @trigger("change", {
             metric: $("#metricCheckbox").prop("checked")
-            drType: @$dataEntryForm.find('input[name="drtype"]:checked').val()
+            drType: @getDrType()
             parsedCsv: csvData
         })
         
         
+    getDrType: =>
+        return @$dataEntryForm.find('input[name="drtype"]:checked').val()
+
+
     getData: =>
         return Papa.parse(@$dataEntryForm.find("textarea").val().trim(),
             dynamicTyping: true
