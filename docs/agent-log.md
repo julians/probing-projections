@@ -1,5 +1,20 @@
 # Agent log
 
+## 2026-10-12 — d3 v7, global vendor scripts removed
+
+- d3 v3 → v7 ([016](issues/done/016-d3-v7.md)), then science.js/Sylvester/Modernizr → own code
+  ([017](issues/done/017-replace-global-vendor-scripts.md)). Two commits; no global scripts are left.
+- Verified against a worktree of the previous commit (`web-old`, port 9011) with scripted interactions
+  and DOM digests. Only intentional differences remain (path rounding).
+- Silent v3→v7 traps that the comparison caught: cardinal tension (0.7 in v3 = 0.1 in v7) and HCL
+  colours (new Lab constants, up to ~60/255 shift) → `Utils.hcl` keeps v3's conversion.
+- Decision: port science.js 1:1 instead of d3-array (null handling, array-returning quantiles → [024](issues/open/024-quantiles-as-arrays.md)).
+- Removed dead code: the Voronoi heatmap layer (never enabled) and the `supportsFeature` helper.
+- Testing gotcha: in the hidden browser pane, `requestAnimationFrame` stalls, so d3 transitions never
+  run and exit transitions leave elements behind. That looked like a regression. Fix: take a
+  screenshot first, or temporarily shim rAF with `setTimeout` in both versions under test.
+- Testing gotcha: after `pnpm add`, restart the dev server, otherwise Vite serves the old prebundled dependency.
+
 ## 2026-10-12 — Classical MDS / PCA, SMACOF start
 
 - `MDS.classical` replaces the numeric.js version: Jacobi eigen solver on the smaller of the

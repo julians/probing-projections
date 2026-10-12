@@ -42,8 +42,8 @@ bus). The d3 visualisations stay imperative, wrapped in components.
 
 ## Phase 4: Current libraries for the visualisations
 
-- [ ] [016](issues/open/016-d3-v7.md) d3 v3 → v7
-- [ ] [017](issues/open/017-replace-global-vendor-scripts.md) Replace science.js, Sylvester and Modernizr
+- [x] [016](issues/done/016-d3-v7.md) d3 v3 → v7
+- [x] [017](issues/done/017-replace-global-vendor-scripts.md) Replace science.js, Sylvester and Modernizr
 - [ ] [018](issues/open/018-sass-use.md) Sass `@import` → `@use`
 
 ## Bugs and ideas (any time)
@@ -53,3 +53,4 @@ bus). The d3 visualisations stay imperative, wrapped in components.
 - [ ] [021](issues/open/021-active-selections-listening.md) `setActiveSelections` never stops listening
 - [ ] [022](issues/open/022-stale-elements-after-reload.md) Old dots and clusters stay in the DOM after loading new data
 - [x] [023](issues/done/023-smacof-classical-init.md) Idea: start SMACOF from classical MDS
+- [ ] [024](issues/open/024-quantiles-as-arrays.md) Quantiles are one-element arrays
