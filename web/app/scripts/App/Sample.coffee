@@ -3,6 +3,7 @@ import Utils from "../Utils.coffee"
 import DataWrapper from "./DataWrapper.coffee"
 import { mean } from "es-toolkit"
 import * as d3 from "d3"
+import Stats from "../Stats.coffee"
 
 class Sample
     constructor: (data) ->
@@ -68,7 +69,7 @@ class Sample
         
         
     getStress1Mean: =>
-        return science.stats.mean(DataWrapper.sampleList.getStress1ForSample(@))
+        return Stats.mean(DataWrapper.sampleList.getStress1ForSample(@))
     
         
     getValueForDimension: (dimension) =>

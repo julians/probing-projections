@@ -656,7 +656,7 @@ class Scatterplot extends MicroEvent
                 #})
             )
             
-        unless Modernizr.touch
+        unless Utils.isTouchDevice
             dotsEnter
                 .on("mouseover", (event, d) ->
                     that.hoveredNode = d
@@ -745,7 +745,7 @@ class Scatterplot extends MicroEvent
                 })
             )
         
-        unless Modernizr.touch
+        unless Utils.isTouchDevice
             labelsEnter
                 .on("mouseover", (event, d) =>
                     that.hoveredNode = d
@@ -835,7 +835,6 @@ class Scatterplot extends MicroEvent
     
         
     calculatePositionsRelativeTo: (baseSample) =>
-        baseSampleVector = $V(baseSample.mdsPosition)
         calculatedDistances = DataWrapper.sampleList.getAllHdDistancesFromSample(baseSample)
         
         mdsDistances = DataWrapper.sampleList.getAllProjectionDistancesFromSample(baseSample)
@@ -849,26 +848,26 @@ class Scatterplot extends MicroEvent
         for sample, index in DataWrapper.sampleList.samples
             correctedDistance = distanceScale(sample.distanceTo(baseSample))
             #correctedDistance = sample.distanceTo(baseSample)
-            samplePos = $V(sample.mdsPosition).subtract(baseSampleVector)
-            samplePos = samplePos.toUnitVector().multiply(correctedDistance).add(baseSampleVector)
+            samplePos = @moveVectorTowardsOtherVector(baseSample.mdsPosition, sample.mdsPosition, correctedDistance)
 
             relativePositions[sample.id] =
                 distanceDelta: 1 - mdsDistances[index]/correctedDistance
-                pos: [
-                    samplePos.e(1)
-                    samplePos.e(2)
-                ]
+                pos: samplePos
                 
         return relativePositions
         
     
+    # moves from by dist in the direction of to (stays at from if both
+    # are the same point)
     moveVectorTowardsOtherVector: (from, to, dist) =>
-        baseVector = $V(from)
-        movingVector = $V(to).subtract(baseVector).toUnitVector().multiply(dist)
-        movingVector = movingVector.add(baseVector)
+        dx = to[0] - from[0]
+        dy = to[1] - from[1]
+        length = Math.sqrt(dx * dx + dy * dy)
+        if length == 0
+            return [from[0], from[1]]
         return [
-            movingVector.e(1)
-            movingVector.e(2)
+            from[0] + dx / length * dist
+            from[1] + dy / length * dist
         ]
     
     

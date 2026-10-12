@@ -9,6 +9,7 @@ import HierarchicalCluster from "./HierarchicalCluster.coffee"
 import MicroEvent from "../components/MicroEvent.coffee"
 import { median } from "es-toolkit"
 import * as d3 from "d3"
+import Stats from "../Stats.coffee"
 
 class SampleList extends MicroEvent
     constructor: () ->
@@ -207,7 +208,7 @@ class SampleList extends MicroEvent
     getMedianProjectionDistance: =>
         unless @projectionMedianDistance
             @projectionMedianDistance = median(@projectionDistanceMatrix.flat())
-            #console.log science.stats.quantiles(_.flatten(@projectionDistanceMatrix), [0.25, 0.5, 0.75])
+            #console.log Stats.quantiles(_.flatten(@projectionDistanceMatrix), [0.25, 0.5, 0.75])
         
         return @projectionMedianDistance
     
@@ -369,8 +370,8 @@ class SampleList extends MicroEvent
                         stress1 = Math.sqrt(Math.pow(distances[otherIndex] - disparities[otherIndex], 2) / Math.pow(distances[otherIndex], 2))
                         @stress1Matrix[mainIndex][otherIndex] = Math.abs(stress1)
         stress = for row in @stress1Matrix
-            science.stats.mean(row)
-        console.log science.stats.mean(stress)
+            Stats.mean(row)
+        console.log Stats.mean(stress)
         
         
     getStress1ForSample: (sample) =>

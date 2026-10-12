@@ -4,6 +4,7 @@ import MicroEvent from "../components/MicroEvent.coffee"
 import * as d3 from "d3"
 import $ from "jquery"
 import { difference, uniq } from "es-toolkit"
+import Stats from "../Stats.coffee"
 
 class DensityDisplay extends MicroEvent
     constructor: (options) ->
@@ -88,7 +89,7 @@ class DensityDisplay extends MicroEvent
     
     getOffsetForQuantile: (quantile) =>
         if @baseValues
-            quantile = science.stats.quantiles(@baseValues, [quantile])
+            quantile = Stats.quantiles(@baseValues, [quantile])
             width = @x.range()[1] - @x.range()[0]
             return @x(quantile) - width/2
         else
@@ -126,9 +127,7 @@ class DensityDisplay extends MicroEvent
     setBasePlotValues: (values) =>
         @baseValues = values
         @x.domain(d3.extent(@baseValues))
-        kde = science.stats.kde().sample(@baseValues)
-        kde.bandwidth(science.stats.bandwidth.nrd0)
-        @basePlot = kde(d3.range(@x.domain()[0], @x.domain()[1], .1))
+        @basePlot = Stats.kde(@baseValues, d3.range(@x.domain()[0], @x.domain()[1], .1))
         @y.domain([0, d3.max(@basePlot, (d) -> d[1])])
         @quantiles = @dimension.getQuantiles()
         
@@ -163,9 +162,7 @@ class DensityDisplay extends MicroEvent
     __computeSubPlotValues: (selection) =>
         values = selection.getValuesForDimension(@dimension)
         extent = @x.domain()
-        kde = science.stats.kde().sample(values)
-        kde.bandwidth(science.stats.bandwidth.nrd0)
-        plotValues = kde(d3.range(extent[0], extent[1], .1))
+        plotValues = Stats.kde(values, d3.range(extent[0], extent[1], .1))
         yDomain = d3.scaleLinear()
             .domain([0, d3.max(plotValues, (d) -> d[1])])
             .range([@height-@margin.bottom, 1])

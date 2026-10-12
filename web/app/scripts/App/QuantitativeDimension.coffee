@@ -1,6 +1,7 @@
 import Config from "../Config.coffee"
 import Utils from "../Utils.coffee"
 import * as d3 from "d3"
+import Stats from "../Stats.coffee"
 
 class QuantitativeDimension
     constructor: (options) ->
@@ -49,7 +50,7 @@ class QuantitativeDimension
     
     getMean: =>
         unless @mean
-            @mean = science.stats.mean(@getAllValues())
+            @mean = Stats.mean(@getAllValues())
         return @mean
     
         
@@ -57,7 +58,7 @@ class QuantitativeDimension
         returnQuantiles = []
         for quantile in quantiles
             unless @quantileMap[quantile]
-                @quantileMap[quantile] = science.stats.quantiles(@getAllValues(), [quantile])
+                @quantileMap[quantile] = Stats.quantiles(@getAllValues(), [quantile])
             returnQuantiles.push(@quantileMap[quantile])
         return returnQuantiles
         
@@ -67,7 +68,7 @@ class QuantitativeDimension
             mean = @getMean()
             deviations = for value in @getAllValues()
                 Math.pow(value - mean, 2)
-            @stdDeviation = Math.sqrt(science.stats.mean(deviations))
+            @stdDeviation = Math.sqrt(Stats.mean(deviations))
         return @stdDeviation
         
 export default QuantitativeDimension

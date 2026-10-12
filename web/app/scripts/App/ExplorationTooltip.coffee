@@ -12,6 +12,7 @@ import * as d3 from "d3"
 import $ from "jquery"
 import MicroEvent from "../components/MicroEvent.coffee"
 import { sortBy } from "es-toolkit"
+import Stats from "../Stats.coffee"
 
 class ExplorationTooltip extends MicroEvent
     constructor: (options) ->
@@ -112,7 +113,7 @@ class ExplorationTooltip extends MicroEvent
             maxForDimension[d.id] = 0
             meanForSelection = []
             for selection in selections
-                mean = science.stats.mean(selection.getValuesForDimension(d))
+                mean = Stats.mean(selection.getValuesForDimension(d))
                 if mean > maxForDimension[d.id]
                     maxForDimension[d.id] = mean
                 meanForSelection.push(
@@ -166,7 +167,7 @@ class ExplorationTooltip extends MicroEvent
     
     renderSingleSelection: (selection) =>
         quantitativeDimensions = for d in DataWrapper.sampleList.dimensionList.dimensionTree.quantitative
-            mean = science.stats.mean(selection.getValuesForDimension(d))
+            mean = Stats.mean(selection.getValuesForDimension(d))
             zScore = (mean - d.getMean()) / d.getStandardDeviation()
             zScoreRounded = zScore.toPrecision(2)
             if zScore > 0

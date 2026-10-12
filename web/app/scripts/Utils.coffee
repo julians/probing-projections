@@ -9,6 +9,9 @@ class Utils
         uniqueIdCounter += 1
         return "#{uniqueIdCounter}"
 
+    # what Modernizr.touch used to check
+    @isTouchDevice: "ontouchstart" of window
+    
     @transitionEndEvent: "webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend"
     
     @difference: (a, b) ->
