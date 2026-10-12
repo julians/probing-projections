@@ -28,17 +28,13 @@
   padding: 3px 8px;
   color: var(--tooltip-colour);
   text-decoration: none;
-  background-color: var(--tooltip-background);
+  background-color: var(--tooltip-background-blurred);
   backdrop-filter: blur(var(--tooltip-blur));
   position: relative;
   //border: solid 1px var(--tooltip-border-colour);
   border-radius: var(--tooltip-border-radius);
   box-shadow: 0 1px 1px var(--shadow-colour);
   z-index: 2;
-  
-  @supports ((-webkit-backdrop-filter: blur(3px)) or (backdrop-filter: blur(3px))) {
-      background-color: var(--tooltip-background-blurred);
-  }
 }
 
 // Arrows
@@ -74,7 +70,6 @@
     left: calc(var(--tooltip-arrow-width) + var(--tooltip-arrow-offset));
     margin-left: calc(-1 * var(--tooltip-arrow-width));
     border-width: var(--tooltip-arrow-width) var(--tooltip-arrow-width) 0;
-    border-top-color: var(--tooltip-background);
     border-top-color: var(--tooltip-background);
     
     &.border {
