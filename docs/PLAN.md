@@ -15,7 +15,7 @@ should leave the app working; verify in the browser after every step.
 Get rid of dead code and loose ends before touching anything big.
 
 - [x] [005](issues/done/005-merge-vite-branch.md) Merge the `vite` branch and push
-- [ ] [006](issues/open/006-remove-python-backend.md) Remove the Python backend
+- [x] [006](issues/done/006-remove-python-backend.md) Remove the Python backend
 - [x] [007](issues/done/007-remove-classic-mds.md) Remove classic MDS and numeric.js
 - [ ] [008](issues/open/008-pca-tsne-options.md) Decide on the PCA/t-SNE options (PCA done, t-SNE open)
 - [ ] [009](issues/open/009-typekit-fonts.md) Check the Typekit fonts

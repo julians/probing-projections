@@ -1,5 +1,12 @@
 # Agent log
 
+## 2026-10-12 — Python backend removed, Dependabot alerts
+
+- 40 open Dependabot alerts: 34 on the dead `requirements.txt` (2018 pins), 6 on `web/package.json`
+  that were already fixed (handlebars ^4.7.10, no grunt in the lockfile) but not yet rescanned.
+- [006](issues/done/006-remove-python-backend.md): deleted the backend instead of upgrading the pins;
+  `iris.csv` kept as `web/test/fixtures/iris.csv` for 011/012. `pnpm build` passes.
+
 ## 2026-10-12 — Merged and pushed, `master` → `main`
 
 - [005](issues/done/005-merge-vite-branch.md): fast-forwarded `master` to `vite`, pushed, PR #3 shows as merged,
