@@ -1,12 +1,12 @@
 import Config from "../Config.coffee"
 import Utils from "../Utils.coffee"
 import DataWrapper from "./DataWrapper.coffee"
-import _ from "underscore"
+import { mean } from "es-toolkit"
 import d3 from "d3"
 
 class Sample
     constructor: (data) ->
-        @id = _.uniqueId()
+        @id = Utils.uniqueId()
         @data = data
         @classSelection = null
         # @dimensionList assigned in SampleList
@@ -72,7 +72,7 @@ class Sample
     
         
     getValueForDimension: (dimension) =>
-        if _.isString(dimension)
+        if typeof dimension == "string"
             dimension = @dimensionList.getDimensionFromId(dimension)
         return dimension.normalizedValueForSample(@)
         
@@ -83,7 +83,7 @@ class Sample
         
     getTotalDistanceError: =>
         unless @totalDistanceError
-            @totalDistanceError = _.mean(DataWrapper.sampleList.getAllDistanceErrorsFromSample(@))
+            @totalDistanceError = mean(DataWrapper.sampleList.getAllDistanceErrorsFromSample(@))
         return @totalDistanceError
         
     

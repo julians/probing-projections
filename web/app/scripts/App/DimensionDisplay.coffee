@@ -6,7 +6,6 @@ import HeatmapThumbnail from "./HeatmapThumbnail.coffee"
 import DimensionDisplayTemplate from "./templates/DimensionDisplay.html?hbs"
 import MicroEvent from "../components/MicroEvent.coffee"
 import $ from "jquery"
-import _ from "underscore"
 
 class DimensionDisplay extends MicroEvent
     constructor: (options) ->
@@ -85,7 +84,7 @@ class DimensionDisplay extends MicroEvent
     tempSelectionChange: =>
         selection = DataWrapper.tempSelection
         
-        for densityPlot in _.values(@densityPlots)
+        for densityPlot in Object.values(@densityPlots ? {})
             densityPlot.removePlotForSelection(selection, false)
             densityPlot.setMarker2Value(null, false)
             densityPlot.setMarker2Colour(null, false)
@@ -101,7 +100,7 @@ class DimensionDisplay extends MicroEvent
                 
     
     brushedSelection: (selection) =>
-        for densityPlot in _.values(@densityPlots)
+        for densityPlot in Object.values(@densityPlots ? {})
             value = null
             colour = null
             
@@ -118,7 +117,7 @@ class DimensionDisplay extends MicroEvent
     
     
     activeSelection: (selection) =>
-        for densityPlot in _.values(@densityPlots)
+        for densityPlot in Object.values(@densityPlots ? {})
             if selection.active
                 densityPlot.addPlotForSelection(selection)
             else
@@ -126,7 +125,7 @@ class DimensionDisplay extends MicroEvent
     
     
     activeSelectionChange: =>
-        for densityPlot in _.values(@densityPlots)
+        for densityPlot in Object.values(@densityPlots ? {})
             densityPlot.clearPlots(false)
             selectionsToAdd = DataWrapper.activeSelections.getActiveSelections()
             densityPlot.addPlotForSelection(selectionsToAdd)
@@ -203,12 +202,12 @@ class DimensionDisplay extends MicroEvent
         quantitativeDimensions = []
         
         if @dimensionList?.dimensions.length
-            binaryDimensions = _.chain(@dimensionList.dimensionTree.binary)
+            binaryDimensions = @dimensionList.dimensionTree.binary
                 .map((binaryDimension) ->
                     if binaryDimension.dimensions.length
                         return {
                             label: binaryDimension.label
-                            values: _.map(binaryDimension.dimensions, (dimension) ->
+                            values: binaryDimension.dimensions.map((dimension) ->
                                 return {
                                     term: dimension.term
                                     id: dimension.id
@@ -218,8 +217,7 @@ class DimensionDisplay extends MicroEvent
                     else
                         return null
                 )
-                .compact()
-                .value()
+                .filter(Boolean)
         
             quantitativeDimensions = for quantitativeDimension in @dimensionList.dimensionTree.quantitative
                 value = quantitativeDimension.scale.domain()

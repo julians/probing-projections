@@ -5,7 +5,7 @@ import SampleList from "./SampleList.coffee"
 import QuantitativeDimension from "./QuantitativeDimension.coffee"
 import BinaryDimension from "./BinaryDimension.coffee"
 import MDS from "./MDS.coffee"
-import _ from "underscore"
+import { uniq } from "es-toolkit"
 import d3 from "d3"
 
 class DimensionList
@@ -41,8 +41,8 @@ class DimensionList
     
     createDimensions: () =>
         for own key, value of @sampleList.samples[0].data
-            unless _.contains(@excludedKeys, key.toLowerCase())
-                if _.isNumber(value)
+            unless @excludedKeys.includes(key.toLowerCase())
+                if typeof value == "number"
                     @createQuantitativeDimension(key)
                 else
                     @createBinaryDimensions(key)
@@ -79,13 +79,9 @@ class DimensionList
     
                     
     createBinaryDimensions: (key) =>
-        terms = _.chain(@sampleList.samples)
-            .map((sample) ->
-                sample.get(key).split(",")
-            )
-            .flatten()
-            .unique()
-            .value()
+        terms = uniq(@sampleList.samples.flatMap((sample) ->
+            sample.get(key).split(",")
+        ))
         
         multiplier = 1/terms.length
         binaryDimensions = []

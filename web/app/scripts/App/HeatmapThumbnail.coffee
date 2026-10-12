@@ -2,7 +2,6 @@ import Config from "../Config.coffee"
 import Utils from "../Utils.coffee"
 import d3 from "d3"
 import $ from "jquery"
-import _ from "underscore"
 
 class HeatmapThumbnail
     constructor: (options) ->

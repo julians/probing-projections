@@ -6,7 +6,6 @@ import Heatmap from "./Heatmap.coffee"
 import MicroEvent from "../components/MicroEvent.coffee"
 import d3 from "d3"
 import $ from "jquery"
-import _ from "underscore"
 
 class Scatterplot extends MicroEvent
     constructor: (options) ->
@@ -167,7 +166,7 @@ class Scatterplot extends MicroEvent
                 selectionRect.y1 = @brushing.pos[1]
                 selectionRect.y2 = p[1]
 
-            selectedSamples = _.filter(DataWrapper.sampleList.samples, (sample) =>
+            selectedSamples = DataWrapper.sampleList.samples.filter((sample) =>
                 x = @x(sample.mdsPosition[0])
                 y = @y(sample.mdsPosition[1])
                 
@@ -312,7 +311,7 @@ class Scatterplot extends MicroEvent
                 value /= @visualVariables.heatmap.multiplier
                 coordHash["#{coords[0]}:#{coords[1]}"] += value
                 
-            voronoiData = _.map(coordHash, (value, coords) ->
+            voronoiData = Object.entries(coordHash).map(([coords, value]) ->
                 return (+coord for coord in coords.split(":")).concat([value])
             )  
             voronoiData = voronoiLayout(voronoiData)
@@ -365,7 +364,7 @@ class Scatterplot extends MicroEvent
                 hullSelections.push(DataWrapper.brushedSelection)
             
         hulls = @hullLayer.selectAll(".hull")
-            .data(_.filter(hullSelections, (d) -> d.samples.length > 2), (d) -> d.id)
+            .data(hullSelections.filter((d) -> d.samples.length > 2), (d) -> d.id)
         
         hulls.enter()
             .append("path")
@@ -397,7 +396,7 @@ class Scatterplot extends MicroEvent
                 
         
         hullLines = @hullLayer.selectAll(".hullLine")
-            .data(_.filter(hullSelections, (d) -> d.samples.length == 2), (d) -> d.id)
+            .data(hullSelections.filter((d) -> d.samples.length == 2), (d) -> d.id)
         
         hullLines.enter()
             .append("line")
@@ -599,7 +598,7 @@ class Scatterplot extends MicroEvent
         # lines
         
         lines = @lineLayer.selectAll(".line")
-            .data(_.keys(if @activeNode then relativePositions else {}), (d) -> d)
+            .data(Object.keys(if @activeNode then relativePositions else {}), (d) -> d)
             
         lines.enter()
             .append("line")

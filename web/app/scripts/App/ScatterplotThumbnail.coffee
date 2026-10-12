@@ -4,7 +4,6 @@ import DataWrapper from "./DataWrapper.coffee"
 import sampleList from "../components/MicroEvent.coffee"
 import d3 from "d3"
 import $ from "jquery"
-import _ from "underscore"
 
 class ScatterplotThumbnail
     constructor: (options) ->

@@ -11,7 +11,7 @@ import ifCondHelper from "../templates/helpers/ifCond.coffee"
 import d3 from "d3"
 import $ from "jquery"
 import MicroEvent from "../components/MicroEvent.coffee"
-import _ from "underscore"
+import { sortBy } from "es-toolkit"
 
 class ExplorationTooltip extends MicroEvent
     constructor: (options) ->
@@ -193,9 +193,9 @@ class ExplorationTooltip extends MicroEvent
                 label: label
                 count: count
             }
-        labels = _.sortBy(labels, "label")
+        labels = sortBy(labels, ["label"])
         if maxCount > 1
-            labels = _.sortBy(labels, "count")
+            labels = sortBy(labels, ["count"])
         
         data =
             selection: selection

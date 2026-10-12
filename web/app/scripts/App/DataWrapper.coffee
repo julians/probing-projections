@@ -2,7 +2,6 @@ import Config from "../Config.coffee"
 import Utils from "../Utils.coffee"
 import Selection from "./Selection.coffee"
 import MicroEvent from "../components/MicroEvent.coffee"
-import _ from "underscore"
 import d3 from "d3"
 
 class DataWrapper extends MicroEvent
@@ -36,7 +35,7 @@ class DataWrapper extends MicroEvent
         
     clearAllSelectionLists: (exceptions = null) =>
         for key, selectionList of @selectionLists
-            unless exceptions and _.contains(exceptions, key)
+            unless exceptions and exceptions.includes(key)
                 selectionList.clear()
         @tempSelection.setSamples([])
         

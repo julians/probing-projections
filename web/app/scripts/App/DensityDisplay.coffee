@@ -3,7 +3,7 @@ import Utils from "../Utils.coffee"
 import MicroEvent from "../components/MicroEvent.coffee"
 import d3 from "d3"
 import $ from "jquery"
-import _ from "underscore"
+import { difference, uniq } from "es-toolkit"
 
 class DensityDisplay extends MicroEvent
     constructor: (options) ->
@@ -134,10 +134,10 @@ class DensityDisplay extends MicroEvent
         
     
     addPlotForSelection: (selections, draw = true) =>
-        unless _.isArray(selections)
+        unless Array.isArray(selections)
             selections = [selections]
         @subPlotSelections = @subPlotSelections.concat(selections)
-        @subPlotSelections = _.uniq(@subPlotSelections)
+        @subPlotSelections = uniq(@subPlotSelections)
         @subPlots = {}
         for selection in @subPlotSelections
             @subPlots[selection.id] = @__computeSubPlotValues(selection)
@@ -145,9 +145,9 @@ class DensityDisplay extends MicroEvent
         
     
     removePlotForSelection: (selections, draw = true) =>
-        unless _.isArray(selections)
+        unless Array.isArray(selections)
             selections = [selections]
-        @subPlotSelections = _.difference(@subPlotSelections, selections)
+        @subPlotSelections = difference(@subPlotSelections, selections)
         @subPlots = {}
         for selection in @subPlotSelections
             @subPlots[selection.id] = @__computeSubPlotValues(selection)

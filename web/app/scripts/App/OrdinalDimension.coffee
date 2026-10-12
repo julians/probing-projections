@@ -1,6 +1,5 @@
 import Config from "../Config.coffee"
 import Utils from "../Utils.coffee"
-import _ from "underscore"
 import d3 from "d3"
 
 class OrdinalDimension

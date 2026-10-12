@@ -10,11 +10,11 @@
   },
   "dependencies": {
     "d3": "^3.5.17",
+    "es-toolkit": "^1.52.0",
     "handlebars": "^4.7.10",
     "jquery": "^3.7.1",
     "numeric": "^1.2.6",
-    "papaparse": "^5.7.0",
-    "underscore": "^1.13.8"
+    "papaparse": "^5.7.0"
   },
   "devDependencies": {
     "coffeescript": "^2.7.0",

@@ -1,8 +1,15 @@
 import d3 from "d3"
 import $ from "jquery"
-import _ from "underscore"
+
+uniqueIdCounter = 0
+
 
 class Utils
+    # sequential ids as strings, like underscore's _.uniqueId()
+    @uniqueId: ->
+        uniqueIdCounter += 1
+        return "#{uniqueIdCounter}"
+
     @transitionEndEvent: "webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend"
     
     @difference: (a, b) ->
@@ -37,7 +44,7 @@ class Utils
         
     
     @lerp: (from, to, progress) =>
-        if _.isArray(from)
+        if Array.isArray(from)
             result = for value, index in from
                 value + (to[index] - value) * progress
             return result

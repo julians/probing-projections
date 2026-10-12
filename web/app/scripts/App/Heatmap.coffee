@@ -1,7 +1,6 @@
 import Config from "../Config.coffee"
 import Utils from "../Utils.coffee"
 import DataWrapper from "./DataWrapper.coffee"
-import _ from "underscore"
 import d3 from "d3"
 import MicroEvent from "../components/MicroEvent.coffee"
 
@@ -160,7 +159,7 @@ class Heatmap extends MicroEvent
             # add nodes to minidsts if not there already
             [ a, b ].forEach (val, idx, array) =>
                 unless "id" of val
-                    val.id = _.uniqueId()
+                    val.id = Utils.uniqueId()
                 unless val.id of mindists
                     if val.leaf
                         mindists[val.id] = Utils.euclideanDistance([x, y], [val.x, val.y])

@@ -8,9 +8,8 @@ import SelectionList from "./SelectionList.coffee"
 import HierarchicalCluster from "./HierarchicalCluster.coffee"
 import MDS from "./MDS.coffee"
 import MicroEvent from "../components/MicroEvent.coffee"
-import _ from "underscore"
+import { median } from "es-toolkit"
 import d3 from "d3"
-import "../vendor/underscore.math.coffee"
 
 class SampleList extends MicroEvent
     constructor: () ->
@@ -77,7 +76,7 @@ class SampleList extends MicroEvent
     
     
     getSampleClasses: =>
-        return if _.keys(@sampleClasses).length then _.keys(@sampleClasses) else null
+        return if Object.keys(@sampleClasses).length then Object.keys(@sampleClasses) else null
     
     
     getIndexForSample: (sample) =>
@@ -215,7 +214,7 @@ class SampleList extends MicroEvent
     
     getMedianProjectionDistance: =>
         unless @projectionMedianDistance
-            @projectionMedianDistance = _.chain(@projectionDistanceMatrix).flatten().median().value()
+            @projectionMedianDistance = median(@projectionDistanceMatrix.flat())
             #console.log science.stats.quantiles(_.flatten(@projectionDistanceMatrix), [0.25, 0.5, 0.75])
         
         return @projectionMedianDistance

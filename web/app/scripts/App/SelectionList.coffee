@@ -3,7 +3,7 @@ import Utils from "../Utils.coffee"
 import MicroEvent from "../components/MicroEvent.coffee"
 import DataWrapper from "./DataWrapper.coffee"
 import Selection from "./Selection.coffee"
-import _ from "underscore"
+import { difference, sortBy } from "es-toolkit"
 import d3 from "d3"
 
 class SelectionList extends MicroEvent
@@ -13,7 +13,7 @@ class SelectionList extends MicroEvent
         @selectionsById = {}
         @selectionsByLabel = {}
         @broadcastEvents = true
-        @id = options?.id or _.uniqueId()
+        @id = options?.id or Utils.uniqueId()
         
         if options?.selection then @add(options.selection)
     
@@ -43,11 +43,11 @@ class SelectionList extends MicroEvent
     
     
     getIds: =>
-        return _.keys(@selectionsById)
+        return Object.keys(@selectionsById)
     
     
     getLabels: =>
-        return _.keys(@selectionsByLabel)
+        return Object.keys(@selectionsByLabel)
     
     
     getSelectionForSampleById: (id) =>
@@ -58,7 +58,7 @@ class SelectionList extends MicroEvent
     
     
     getActiveSelections: =>
-        return _.filter(@selections, (selection) ->
+        return @selections.filter((selection) ->
             return selection.active
         )
     
@@ -72,7 +72,7 @@ class SelectionList extends MicroEvent
     
     
     add: (selections) =>
-        unless _.isArray(selections)
+        unless Array.isArray(selections)
             selections = [selections]
         @selections = @selections.concat(selections)
         for selection in selections
@@ -83,9 +83,9 @@ class SelectionList extends MicroEvent
             )
         
         @updateIndizes()
-        @selections = _.sortBy(@selections, (selection) ->
+        @selections = sortBy(@selections, [(selection) ->
             return if selection.temp then 1 else 0
-        )
+        ])
         if @broadcastEvents then @trigger("added", selections)
         if @broadcastEvents then @trigger("change")
     
@@ -100,16 +100,16 @@ class SelectionList extends MicroEvent
         args =
             samples: samples
         if options
-            _.extend(args, options)
+            Object.assign(args, options)
         selection = new Selection(args)
         @add(selection)
         return selection
     
     
     remove: (selections) =>
-        unless _.isArray(selections)
+        unless Array.isArray(selections)
             selections = [selections]
-        @selections = _.difference(@selections, selections)
+        @selections = difference(@selections, selections)
         for selection in selections
             @stopListening(selection)
         

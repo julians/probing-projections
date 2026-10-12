@@ -3,7 +3,6 @@ import Utils from "../Utils.coffee"
 import DataEntryTemplate from "./templates/DataEntry.html?hbs"
 import MicroEvent from "../components/MicroEvent.coffee"
 import $ from "jquery"
-import _ from "underscore"
 import Papa from "papaparse"
 
 class DataEntry extends MicroEvent

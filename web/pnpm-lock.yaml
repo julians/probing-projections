@@ -14,6 +14,9 @@ importers:
       d3:
         specifier: ^3.5.17
         version: 3.5.17(patch_hash=671b6f033e7e29394a115e2ec2eb60da184da294e158bb8d1e414e03e5f2f42d)
+      es-toolkit:
+        specifier: ^1.52.0
+        version: 1.52.0
       handlebars:
         specifier: ^4.7.10
         version: 4.7.10
@@ -26,9 +29,6 @@ importers:
       papaparse:
         specifier: ^5.7.0
         version: 5.7.0
-      underscore:
-        specifier: ^1.13.8
-        version: 1.13.8
     devDependencies:
       coffeescript:
         specifier: ^2.7.0
@@ -242,6 +242,9 @@ packages:
     resolution: {integrity: sha512-Btj2BOOO83o3WyH59e8MgXsxEQVcarkUOpEYrubB0urwnN10yQ364rsiByU11nZlqWYZm05i/of7io4mzihBtQ==}
     engines: {node: '>=8'}
 
+  es-toolkit@1.52.0:
+    resolution: {integrity: sha512-XTNEJQh1tY1ZJVcf6ayP/2n4ZPyaHlW2FWs7xvw5ddPuhUVjLD3olQVQS7kf58JbAB48iL0uL/jerTrjtV3lDA==}
+
   fdir@6.5.0:
     resolution: {integrity: sha512-tIbYtZbucOs0BRGqPJkshJUYdL+SDH7dVM8gjy+ERp3WAUjLEFJE+02kanyHtwjWOnwrKYBiwAmM0p4kLJAnXg==}
     engines: {node: '>=12.0.0'}
@@ -411,9 +414,6 @@ packages:
     engines: {node: '>=0.8.0'}
     hasBin: true
 
-  underscore@1.13.8:
-    resolution: {integrity: sha512-DXtD3ZtEQzc7M8m4cXotyHR+FAS18C64asBYY5vqZexfYryNNnDc02W4hKg3rdQuqOYas1jkseX0+nZXjTXnvQ==}
-
   vite@8.3.4:
     resolution: {integrity: sha512-IftLE8phJhdNRIGNEV4JCCvfNScoZQVfcXaN8TQropWGJtOHcu+iAB9pHcuGvmEb/kddw0LBe/jS8ztdC6xdiQ==}
     engines: {node: ^20.19.0 || >=22.12.0}
@@ -578,6 +578,8 @@ snapshots:
 
   detect-libc@2.1.2: {}
 
+  es-toolkit@1.52.0: {}
+
   fdir@6.5.0(picomatch@4.0.7):
     optionalDependencies:
       picomatch: 4.0.7
@@ -720,8 +722,6 @@ snapshots:
 
   uglify-js@3.19.3:
     optional: true
-
-  underscore@1.13.8: {}
 
   vite@8.3.4(sass@1.105.1):
     dependencies:

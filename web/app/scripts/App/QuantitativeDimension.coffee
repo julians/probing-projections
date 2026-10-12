@@ -1,6 +1,5 @@
 import Config from "../Config.coffee"
 import Utils from "../Utils.coffee"
-import _ from "underscore"
 import d3 from "d3"
 
 class QuantitativeDimension
@@ -44,7 +43,7 @@ class QuantitativeDimension
         
     getAllValues: =>
         unless @rawValues
-            @rawValues = _.map(@sampleList.samples, @accessor)
+            @rawValues = @sampleList.samples.map(@accessor)
         return @rawValues
         
     

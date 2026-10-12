@@ -1,7 +1,7 @@
 import Config from "../Config.coffee"
 import Utils from "../Utils.coffee"
 import DataWrapper from "./DataWrapper.coffee"
-import _ from "underscore"
+import { sortBy } from "es-toolkit"
 import d3 from "d3"
 
 class HierarchicalCluster
@@ -70,7 +70,7 @@ class HierarchicalCluster
         
         # sort by level so that the highest level lines will be drawn first,
         # being overlapped by the more important lower leve lines
-        @clusterLines = _.sortBy(@clusterLines, "level").reverse()
+        @clusterLines = sortBy(@clusterLines, ["level"]).reverse()
         @levelExtent = [minLevel, maxLevel]
         @pjDistanceExtent = [minPjDistance, maxPjDistance]
         @hdDistanceExtent = [minHdDistance, maxHdDistance]

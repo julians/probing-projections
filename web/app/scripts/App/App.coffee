@@ -17,7 +17,7 @@ import AppTemplate from "./templates/App.html?hbs"
 import ControlLabelTooltipTemplate from "./templates/ControlLabelTooltip.html?hbs"
 import MicroEvent from "../components/MicroEvent.coffee"
 import $ from "jquery"
-import _ from "underscore"
+import { maxBy, minBy, throttle, uniq } from "es-toolkit"
 import Papa from "papaparse"
 import d3 from "d3"
 import Tooltip from "../components/Tooltip.coffee"
@@ -136,7 +136,7 @@ class App extends MicroEvent
         @updateLayout()
 
         @$container.find(".dataEntry form").submit()
-        $(window).resize(_.throttle(@redraw, 300, {leading: false}))
+        $(window).resize(throttle(@redraw, 300, edges: ["trailing"]))
 
 
     resetSelectionLists: (exceptions) =>
@@ -274,22 +274,22 @@ class App extends MicroEvent
             selections = [selection]
             activeSelections = DataWrapper.activeSelections.getActiveSelections()
             if activeSelections.length
-                selections = _.uniq(selections.concat(activeSelections))
+                selections = uniq(selections.concat(activeSelections))
 
             # get position for tooltip
             offset = @scatterplot.$container.offset()
 
             if selections.length == 1
-                leftmost = _.min(selection.samples, (sample) ->
+                leftmost = minBy(selection.samples, (sample) ->
                     return sample.mdsPosition[0]
                 )
-                rightmost = _.max(selection.samples, (sample) ->
+                rightmost = maxBy(selection.samples, (sample) ->
                     return sample.mdsPosition[0]
                 )
-                topmost = _.max(selection.samples, (sample) ->
+                topmost = maxBy(selection.samples, (sample) ->
                     return sample.mdsPosition[1]
                 )
-                bottommost = _.min(selection.samples, (sample) ->
+                bottommost = minBy(selection.samples, (sample) ->
                     return sample.mdsPosition[1]
                 )
                 possiblePos = [
@@ -360,7 +360,7 @@ class App extends MicroEvent
                 label: event.sample.getLabel()
                 colour: event.sample.getColour()
             )]
-            selections = _.uniq(selections.concat(activeSelections))
+            selections = uniq(selections.concat(activeSelections))
             @explorationTooltip.showForContentAtPosition(
                 content:
                     selections: selections

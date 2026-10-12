@@ -1,6 +1,5 @@
 import Config from "../Config.coffee"
 import Utils from "../Utils.coffee"
-import _ from "underscore"
 import d3 from "d3"
 
 class BinaryDimension
@@ -15,7 +14,7 @@ class BinaryDimension
     
     normalizedValueForSample: (sample) =>
         prop = sample.get(@key)
-        if prop and _.contains(prop.split(","), @term)
+        if prop and prop.split(",").includes(@term)
             return 1*@multiplier
         return 0
         

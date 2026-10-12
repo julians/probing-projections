@@ -1,7 +1,7 @@
 import Config from "../Config.coffee"
 import Utils from "../Utils.coffee"
 import MicroEvent from "../components/MicroEvent.coffee"
-import _ from "underscore"
+import { difference, uniq } from "es-toolkit"
 import d3 from "d3"
 
 class Selection extends MicroEvent
@@ -9,7 +9,7 @@ class Selection extends MicroEvent
         super()
         @samples = []
         @sampleHash = {}
-        @id = _.uniqueId()
+        @id = Utils.uniqueId()
         @label = options?.label or @id
         @colour = options?.colour or "black"
         @selectionLists = []
@@ -33,29 +33,29 @@ class Selection extends MicroEvent
     
     
     add: (samples) =>
-        unless _.isArray(samples)
+        unless Array.isArray(samples)
             samples = [samples]
         for sample in samples
             @sampleHash[sample.id] = sample
-        @samples = _.uniq(@samples.concat(samples))
+        @samples = uniq(@samples.concat(samples))
         @hull = null
         @trigger("added", samples)
         @trigger("change")
         
         
     remove: (samples) =>
-        unless _.isArray(samples)
+        unless Array.isArray(samples)
             samples = [samples]
         for sample in samples
             delete @sampleHash[sample.id]
-        @samples = _.difference(@samples, samples)
+        @samples = difference(@samples, samples)
         @hull = null
         @trigger("removed", samples)
         @trigger("change")
     
     
     toggle: (samples) =>
-        unless _.isArray(samples)
+        unless Array.isArray(samples)
             samples = [samples]
         
         toAdd = []
@@ -68,7 +68,7 @@ class Selection extends MicroEvent
                 @sampleHash[sample.id] = sample
                 toAdd.push(sample)
         
-        @samples = _.difference(@samples, toRemove)
+        @samples = difference(@samples, toRemove)
         @samples = @samples.concat(toAdd)
         @hull = null
         

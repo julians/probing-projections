@@ -3,7 +3,6 @@ import Utils from "../Utils.coffee"
 import DataWrapper from "./DataWrapper.coffee"
 import d3 from "d3"
 import $ from "jquery"
-import _ from "underscore"
 
 class PanelDisplay
     constructor: (options) ->

@@ -6,7 +6,6 @@ import ScatterplotThumbnail from "./ScatterplotThumbnail.coffee"
 import SelectionDisplayTemplate from "./templates/SelectionDisplay.html?hbs"
 import MicroEvent from "../components/MicroEvent.coffee"
 import $ from "jquery"
-import _ from "underscore"
 import d3 from "d3"
 
 class SelectionListDisplay extends MicroEvent
