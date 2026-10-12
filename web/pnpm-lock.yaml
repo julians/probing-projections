@@ -11,9 +11,6 @@ importers:
 
   .:
     dependencies:
-      backbone:
-        specifier: ^1.6.1
-        version: 1.6.1
       d3:
         specifier: ^3.5.17
         version: 3.5.17(patch_hash=671b6f033e7e29394a115e2ec2eb60da184da294e158bb8d1e414e03e5f2f42d)
@@ -228,9 +225,6 @@ packages:
 
   '@rolldown/pluginutils@1.0.1':
     resolution: {integrity: sha512-2j9bGt5Jh8hj+vPtgzPtl72j0yRxHAyumoo6TNfAjsLB04UtpSvPbPcDcBMxz7n+9CYB0c1GxQFxYRg2jimqGw==}
-
-  backbone@1.6.1:
-    resolution: {integrity: sha512-YQzWxOrIgL6BoFnZjThVN99smKYhyEXXFyJJ2lsF1wJLyo4t+QjmkLrH8/fN22FZ4ykF70Xq7PgTugJVR4zS9Q==}
 
   chokidar@5.0.0:
     resolution: {integrity: sha512-TQMmc3w+5AxjpL8iIiwebF73dRDF4fBIieAqGn9RGCWaEVwQ6Fb2cGe31Yns0RRIzii5goJ1Y7xbMwo1TxMplw==}
@@ -573,10 +567,6 @@ snapshots:
     optional: true
 
   '@rolldown/pluginutils@1.0.1': {}
-
-  backbone@1.6.1:
-    dependencies:
-      underscore: 1.13.8
 
   chokidar@5.0.0:
     dependencies:

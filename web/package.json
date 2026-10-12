@@ -9,7 +9,6 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "backbone": "^1.6.1",
     "d3": "^3.5.17",
     "handlebars": "^4.7.10",
     "jquery": "^3.7.1",
