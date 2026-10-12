@@ -2,19 +2,17 @@
   "name": "vizzyviz",
   "version": "1.0.0",
   "dependencies": {
-    "requirejs": "latest",
-    "modernizr": "latest",
-    "jquery": "latest",
-    "es5-shim": "latest",
-    "d3": "latest",
-    "handlebars": "latest",
+    "requirejs": "~2.1.20",
+    "modernizr": "~2.8.3",
+    "jquery": "~2.1.4",
+    "es5-shim": "~4.1.0",
+    "d3": "~3.5.5",
+    "handlebars": "~3.0.3",
     "underscore": "~1.7.0",
-    "requirejs-plugins": "latest",
-    "require-handlebars-plugin": "latest",
-    "history.js": "latest",
-    "victor": "~0.2.6"
-  },
-  "devDependencies": {
+    "requirejs-plugins": "~1.0.3",
+    "require-handlebars-plugin": "~0.11.2",
+    "history.js": "~1.8.0",
+    "victor": "~0.2.6",
     "papaparse": "~4.1.1"
   }
 }
