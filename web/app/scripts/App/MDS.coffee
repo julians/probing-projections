@@ -106,6 +106,9 @@ class MDS
     #               false fits only their rank order (Kruskal’s
     #               non-metric MDS, using isotonic regression)
     #   components  number of output dimensions (default 2)
+    #   init        "classical" (default) starts once from the classical
+    #               MDS solution, "random" uses nInit random starts, or
+    #               an array of [x, y] starting positions
     #   nInit       number of random restarts, the best one wins (default 10)
     #   maxIter     maximum iterations per restart (default 3000)
     #   eps         convergence threshold (default 1e-6)
@@ -123,6 +126,14 @@ class MDS
 
         dissimilarities = MDS.__distanceMatrix(vectors)
 
+        # starting from classical MDS reaches about the same stress as
+        # the best of 10 random starts, in a fraction of the time
+        init = options.init or "classical"
+        if init == "classical"
+            init = MDS.classical(vectors, components).embedding
+        if Array.isArray(init)
+            return MDS.__smacofSingle(dissimilarities, metric, components, maxIter, eps, random, init)
+
         best = null
         for run in [0...nInit]
             result = MDS.__smacofSingle(dissimilarities, metric, components, maxIter, eps, random)
@@ -132,12 +143,12 @@ class MDS
         return best
 
 
-    @__smacofSingle: (similarities, metric, components, maxIter, eps, random) ->
+    @__smacofSingle: (similarities, metric, components, maxIter, eps, random, init) ->
         n = similarities.length
 
-        # random start positions in [0, 1)
+        # given or random start positions in [0, 1)
         X = for i in [0...n]
-            (random() for c in [0...components])
+            if init then init[i].slice() else (random() for c in [0...components])
 
         # the upper triangle of the dissimilarity matrix, used for the
         # isotonic regression in non-metric scaling
