@@ -1,15 +1,6 @@
 .flip-container {
-    &.flipped {
+    &.flipped .flipper {
         .front {
-            display: none;
-        }
-        .back {
-            display: block;
-        }
-    }
-    .csstransforms3d &.flipped .flipper {
-        .front {
-            display: block;
             transform: perspective(1000px) rotateY(-180deg);
         }
         .back {
@@ -19,7 +10,7 @@
     .flipper {
         position: relative;
         transform-style: preserve-3d;
-        
+
         .back,
         .front {
             position: absolute;
