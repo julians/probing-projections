@@ -91,10 +91,9 @@ class DataWrapper extends MicroEvent
         
     setActiveSelections: (key) =>
         if @activeSelections != @selectionLists[key] and @selectionLists[key]
+            if @activeSelections
+                @stopListening(@activeSelections)
             @activeSelections = @selectionLists[key]
-
-            for selectionList in @selectionLists
-                @stopListening(selectionList)
 
             @listenTo(@activeSelections, "all", (eventName, args...) =>
                 @trigger("activeSelections:#{eventName}", args...)

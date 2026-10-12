@@ -84,8 +84,18 @@ class DimensionDisplay extends MicroEvent
     tempSelectionChange: =>
         selection = DataWrapper.tempSelection
         
+        # making the temp selection permanent replaces it with a new one;
+        # the old one’s plot stays only if it is shown as an active
+        # selection anyway
+        previous = @previousTempSelection
+        @previousTempSelection = selection
+        removePrevious = previous and previous != selection and
+            not (previous.active and previous in DataWrapper.activeSelections.selections)
+        
         for densityPlot in Object.values(@densityPlots ? {})
             densityPlot.removePlotForSelection(selection, false)
+            if removePrevious
+                densityPlot.removePlotForSelection(previous, false)
             densityPlot.setMarker2Value(null, false)
             densityPlot.setMarker2Colour(null, false)
             
