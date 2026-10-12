@@ -63,7 +63,7 @@
     }
     .dot {
         cursor: pointer;
-        fill: var(--default-color);
+        fill: var(--mid-grey);
         
         &:hover {
             fill: var(--dot-hover-color);

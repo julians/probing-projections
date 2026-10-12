@@ -94,7 +94,7 @@
                 
                 .basePath {
                     stroke: none;
-                    fill: var(--tooltip-density-fill);
+                    fill: var(--faint-grey);
                 }
                 .quantileLine {
                     stroke: var(--tooltip-quantile-line);
@@ -148,7 +148,7 @@
         min-height: 1.5em;
     }
     .fakePlot {
-        background: var(--legend-plot-background);
+        background: var(--plot-background);
         width: 1.5em;
         height: 1.5em;
         position: absolute;
@@ -163,8 +163,8 @@
         width: 0.35em;
         height: 0.35em;
         border-radius: 100%;
-        border: solid 0.35em var(--default-color);
-        background: var(--default-color);
+        border: solid 0.35em var(--mid-grey);
+        background: var(--mid-grey);
         vertical-align: middle;
         
         &.nearer {

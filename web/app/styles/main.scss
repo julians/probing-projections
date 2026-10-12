@@ -26,23 +26,20 @@
     --shadow-colour: hsla(0, 0%, 0%, 0.15);
     --thumbnail-background: hsla(0, 0%, 0%, 0.05);
     --thumbnail-background-hover: hsla(0, 0%, 0%, 0.075);
+    --recess: hsla(0, 0%, 0%, 0.05);
     --heatmap-background: #ddd;
-    --row-hover-background: hsla(0, 0%, 0%, 0.05);
-    --legend-plot-background: hsl(0, 0%, 94%);
     
     // text and lines
     --grey: hsla(0, 0%, 0%, 0.6);
     --light-grey: hsla(0, 0%, 0%, 0.4);
     --very-light-grey: hsla(0, 0%, 0%, 0.3);
     --faint-grey: hsla(0, 0%, 0%, 0.15);
-    --heading-colour: #888;
+    --mid-grey: #888;
     --divider: #ddd;
     --divider-strong: #ccc;
-    --panel-border: hsla(0, 0%, 0%, 0.05);
     --action-colour: #F5A623;
     
     // scatterplot
-    --default-color: #888;
     --dot-hover-color: #555;
     --halo-color: hsl(0, 0%, 91%);
     --near-color: hsl(0, 0%, 100%);
@@ -50,7 +47,6 @@
     
     // density plots
     --density-fill: hsla(0, 0%, 0%, 0.2);
-    --tooltip-density-fill: hsla(0, 0%, 0%, 0.15);
     --tooltip-quantile-line: white;
     --marker-colour: hsl(0, 0%, 60%);
     
@@ -58,7 +54,6 @@
     --tooltip-colour: #333;
     --tooltip-background: hsla(0, 0%, 100%, 0.9);
     --tooltip-background-blurred: hsla(0, 0%, 100%, 0.7);
-    --tooltip-border-colour: hsla(0, 0%, 0%, 0.15);
     
     // scale symbol (three circles, largest first)
     --scale-symbol-fill-1: #9B9B9B;
@@ -99,34 +94,28 @@
         --shadow-colour: hsla(0, 0%, 0%, 0.5);
         --thumbnail-background: hsla(0, 0%, 100%, 0.05);
         --thumbnail-background-hover: hsla(0, 0%, 100%, 0.08);
+        --recess: hsla(0, 0%, 0%, 0.25);
         --heatmap-background: hsl(0, 0%, 14%);
-        --row-hover-background: hsla(0, 0%, 0%, 0.2);
-        --legend-plot-background: hsl(0, 0%, 14%);
         
         --grey: hsla(0, 0%, 100%, 0.6);
         --light-grey: hsla(0, 0%, 100%, 0.4);
         --very-light-grey: hsla(0, 0%, 100%, 0.3);
         --faint-grey: hsla(0, 0%, 100%, 0.15);
-        --heading-colour: #777;
+        --mid-grey: #777;
         --divider: hsl(0, 0%, 6%);
         --divider-strong: hsl(0, 0%, 3%);
-        --panel-border: hsla(0, 0%, 0%, 0.3);
-        
-        --default-color: #777;
         --dot-hover-color: #aaa;
         --halo-color: hsl(0, 0%, 11%);
         --near-color: hsl(0, 0%, 26%);
         --far-color: hsl(0, 0%, 4%);
         
         --density-fill: hsla(0, 0%, 100%, 0.2);
-        --tooltip-density-fill: hsla(0, 0%, 100%, 0.15);
         --tooltip-quantile-line: hsl(0, 0%, 22%);
         --marker-colour: hsl(0, 0%, 40%);
         
         --tooltip-colour: #ccc;
         --tooltip-background: hsla(0, 0%, 22%, 0.9);
         --tooltip-background-blurred: hsla(0, 0%, 22%, 0.7);
-        --tooltip-border-colour: hsla(0, 0%, 100%, 0.15);
         
         // ink: the front circle has the darkest outline in light mode
         --scale-symbol-fill-1: #646464;
