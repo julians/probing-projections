@@ -43,13 +43,6 @@ export default defineConfig({
         outDir: "../dist",
         emptyOutDir: true,
         chunkSizeWarningLimit: 1000,
-        rolldownOptions: {
-            onLog(level, log, handler) {
-                // numeric.js uses eval internally, nothing we can do about it
-                if (log.code === "EVAL" && log.id?.includes("numeric")) return
-                handler(level, log)
-            },
-        },
     },
     css: {
         preprocessorOptions: {

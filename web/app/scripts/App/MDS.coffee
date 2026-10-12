@@ -1,37 +1,99 @@
-import numeric from "numeric"
-
 class MDS
-    # given a matrix of distances between some points, returns the
-    # point coordinates that best approximate the distances
-    @classic: (distances, dimensions) ->
-        dimensions = dimensions or 2
-        
-        # square distances
-        M = numeric.mul(-.5, numeric.pow(distances, 2))
-        
-        # double centre the rows/columns
-        mean = (A) ->
-            numeric.div numeric.add.apply(null, A), A.length
-            
-        rowMeans = mean(M)
-        colMeans = mean(numeric.transpose(M))
-        totalMean = mean(rowMeans)
-        i = 0
+    # classical (Torgerson) MDS, which for euclidean distances is the
+    # same as PCA: the centred data projected onto its principal axes.
+    # Decomposes whichever is smaller, the d×d scatter matrix or the
+    # n×n Gram matrix (the double-centred squared distances).
+    #
+    # returns { embedding, eigenvalues } with embedding being an array of
+    # [x, y] positions and eigenvalues all non-zero eigenvalues, largest
+    # first (the variance along each axis, times n)
+    @classical: (vectors, components = 2) ->
+        n = vectors.length
+        d = vectors[0].length
+        means = for k in [0...d]
+            vectors.reduce(((sum, v) -> sum + v[k]), 0) / n
+        centred = (v.map((value, k) -> value - means[k]) for v in vectors)
 
-        while i < M.length
-            j = 0
-            
-            while j < M[0].length
-                M[i][j] += totalMean - rowMeans[i] - colMeans[j]
-                ++j
-            ++i
+        if d <= n
+            scatter = for a in [0...d]
+                for b in [0...d]
+                    centred.reduce(((sum, v) -> sum + v[a] * v[b]), 0)
+            { values, vectors: axes } = MDS.__symmetricEigen(scatter)
+            embedding = for v in centred
+                for c in [0...components]
+                    if c < d then v.reduce(((sum, value, k) -> sum + value * axes[k][c]), 0) else 0
+        else
+            gram = for i in [0...n]
+                for j in [0...n]
+                    centred[i].reduce(((sum, value, k) -> sum + value * centred[j][k]), 0)
+            { values, vectors: axes } = MDS.__symmetricEigen(gram)
+            embedding = for i in [0...n]
+                for c in [0...components]
+                    if values[c] > 0 then axes[i][c] * Math.sqrt(values[c]) else 0
 
-        # take the SVD of the double centred matrix, and return the
-        # points from it
-        ret = numeric.svd(M)
-        eigenValues = numeric.sqrt(ret.S)
-        ret.U.map (row) ->
-            numeric.mul(row, eigenValues).splice 0, dimensions
+        # the sign of each axis is arbitrary; flip it so that the point
+        # furthest from the centre lies on the positive side
+        for c in [0...components]
+            largest = 0
+            for position in embedding
+                largest = position[c] if Math.abs(position[c]) > Math.abs(largest)
+            if largest < 0
+                for position in embedding
+                    position[c] = -position[c]
+
+        return {
+            embedding: embedding
+            eigenvalues: values.filter((value) -> value > 1e-12)
+        }
+
+
+    # eigen decomposition of a symmetric matrix with the cyclic Jacobi
+    # method. Returns { values, vectors }, sorted by descending
+    # eigenvalue, with vectors[i][k] the i-th entry of the k-th
+    # eigenvector.
+    @__symmetricEigen: (matrix, maxSweeps = 100) ->
+        n = matrix.length
+        A = (row.slice() for row in matrix)
+        V = for i in [0...n]
+            ((if i == j then 1 else 0) for j in [0...n])
+
+        for sweep in [0...maxSweeps]
+            offDiagonal = 0
+            for i in [0...n]
+                for j in [i+1...n]
+                    offDiagonal += A[i][j] * A[i][j]
+            break if offDiagonal < 1e-22
+
+            for p in [0...n]
+                for q in [p+1...n]
+                    continue if Math.abs(A[p][q]) < 1e-300
+                    theta = (A[q][q] - A[p][p]) / (2 * A[p][q])
+                    t = (if theta >= 0 then 1 else -1) / (Math.abs(theta) + Math.sqrt(theta * theta + 1))
+                    c = 1 / Math.sqrt(t * t + 1)
+                    s = t * c
+
+                    for k in [0...n]
+                        akp = A[k][p]
+                        akq = A[k][q]
+                        A[k][p] = c * akp - s * akq
+                        A[k][q] = s * akp + c * akq
+                    for k in [0...n]
+                        apk = A[p][k]
+                        aqk = A[q][k]
+                        A[p][k] = c * apk - s * aqk
+                        A[q][k] = s * apk + c * aqk
+                    for k in [0...n]
+                        vkp = V[k][p]
+                        vkq = V[k][q]
+                        V[k][p] = c * vkp - s * vkq
+                        V[k][q] = s * vkp + c * vkq
+
+        order = [0...n].sort((a, b) -> A[b][b] - A[a][a])
+        values = (A[k][k] for k in order)
+        vectors = for i in [0...n]
+            (V[i][k] for k in order)
+
+        return { values, vectors }
 
 
     # SMACOF multidimensional scaling, a port of scikit-learn's

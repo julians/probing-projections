@@ -6,7 +6,6 @@ import DimensionList from "./DimensionList.coffee"
 import Selection from "./Selection.coffee"
 import SelectionList from "./SelectionList.coffee"
 import HierarchicalCluster from "./HierarchicalCluster.coffee"
-import MDS from "./MDS.coffee"
 import MicroEvent from "../components/MicroEvent.coffee"
 import { median } from "es-toolkit"
 import d3 from "d3"
@@ -159,13 +158,6 @@ class SampleList extends MicroEvent
             y: yMinMaxDefault#.reverse()
 
         @trigger("change:projection")
-    
-    
-    calculateMDS: =>
-        unless @mds
-            @mds = MDS.classic(@calculateHdDistanceMatrix(), 2)
-            @resetProjectionDistanceMatrix()
-        return @mds
     
     
     resetProjectionDistanceMatrix: =>
