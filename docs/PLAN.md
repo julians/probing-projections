@@ -54,3 +54,5 @@ bus). The d3 visualisations stay imperative, wrapped in components.
 - [x] [022](issues/done/022-stale-elements-after-reload.md) Old dots and clusters stay in the DOM after loading new data
 - [x] [023](issues/done/023-smacof-classical-init.md) Idea: start SMACOF from classical MDS
 - [x] [024](issues/done/024-quantiles-as-arrays.md) Quantiles are one-element arrays
+- [x] [025](issues/done/025-custom-properties-dark-mode.md) More custom properties, rough dark mode
+- [ ] [026](issues/open/026-tooltip-blur-chrome.md) Tooltip background blur missing in Chrome

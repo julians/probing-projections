@@ -1,5 +1,19 @@
 # Agent log
 
+## 2026-10-12 — Custom properties everywhere, rough dark mode, SVG icons
+
+- [025](issues/done/025-custom-properties-dark-mode.md): no Sass variables left. Colours are named by role
+  around `--ink`/`--paper`, and JS-drawn colours use `Utils.cssVar`.
+- Dark mode: surfaces keep their light-mode depth order (front = lighter), only ink is inverted.
+  My first version mirrored everything; Julian pointed out that this puts the plot behind the page.
+- Icons: eye as a CSS mask (`--ink`), scale symbol inline in the template with custom properties.
+- Verified light mode via a baseline of computed styles and positions (5 states) plus canvas hashes in
+  `localStorage`, compared with a temporary rAF shim. Run the comparison once without changes first:
+  it has to report 0 differences (it did).
+- Split into three commits by building intermediate file states from a saved final copy.
+  Restoring deleted PNGs gives them a `?t=` URL in Vite dev, which looks like a diff and isn't one.
+- Found [026](issues/open/026-tooltip-blur-chrome.md): tooltip blur only prefixed, so no blur in Chrome.
+
 ## 2026-10-12 — CSS custom properties
 
 - `_vars.scss` → custom properties on `:root` in `main.scss` (kebab-case, e.g. `--light-grey`).
