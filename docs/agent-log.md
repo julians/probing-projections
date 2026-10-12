@@ -1,5 +1,13 @@
 # Agent log
 
+## 2026-10-12 — CSS custom properties
+
+- `_vars.scss` → custom properties on `:root` in `main.scss` (kebab-case, e.g. `--light-grey`).
+  Sass variables remain only where Sass computes with them (`$thumbSize` etc.) and in the tooltip component.
+- `color.adjust($grey, $alpha: 0.2)` → `color-mix(in srgb, var(--grey), black)`, the same black at 80%.
+- Verified by comparing the computed colours of all elements in four UI states against a baseline in
+  `localStorage` (0 differences). The compiled CSS can't be diffed here, since it now contains `var()`.
+
 ## 2026-10-12 — Sass modules
 
 - [018](issues/done/018-sass-use.md): `@import` → `@use`, no `silenceDeprecations`. The compiled CSS is
