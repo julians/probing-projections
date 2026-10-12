@@ -4,7 +4,7 @@
     svg {
         display: block;
         margin: 0 auto;
-        background: hsl(0, 0%, 95%);
+        background: var(--plot-background);
     }
     //.halo {
     //    fill: var(--far-color);
@@ -31,7 +31,7 @@
     }
     .halo {
         pointer-events: none;
-        fill: hsl(0, 0%, 91%);
+        fill: var(--halo-color);
         transition: fill 0.5s;
          
         &.farther {
@@ -66,7 +66,7 @@
         fill: var(--default-color);
         
         &:hover {
-            fill: #555;
+            fill: var(--dot-hover-color);
             transition: fill 0s;
         }
         &.selected {
@@ -97,14 +97,13 @@
     }
     .clusterLine {
         //stroke: hsl(0, 0%, 92%);
-        stroke: black;
+        stroke: var(--ink);
         stroke-width: 2px;
     }
     .heatmapLayer {
         opacity: 0.35;
         .heatmapDot {
-            fill: #666;
-            fill: black;
+            fill: var(--ink);
             //fill: #E2C15E;
             stroke: none;
             shape-rendering: crispEdges;

@@ -10,7 +10,7 @@
     }
     .panel {
         margin: 0 0 20px 0;
-        border-top: solid 1px hsla(0, 0%, 0%, 0.05);
+        border-top: solid 1px var(--panel-border);
         padding: 5px 20px 0 0;
         
         .selectionToggle {
@@ -45,7 +45,7 @@
         
         padding: 0;
         margin: 0.75rem 0 1rem 0;
-        color: #888;
+        color: var(--heading-colour);
     }
     #editProjectionButton {
         margin-right: 0.75em;

@@ -10,17 +10,65 @@
 @use "tooltips";
 
 :root {
+    // the two ends of the grey scale; most greys are ink with transparency
+    --ink: black;
+    --paper: white;
+    
+    // surfaces
     --body-background: hsl(0, 0%, 92%);
+    --plot-background: hsl(0, 0%, 95%);
+    --data-entry-background: hsl(0, 0%, 88%);
+    --input-background: hsla(0, 0%, 100%, 0.7);
+    --input-shadow: hsla(0, 0%, 0%, 0.2);
+    --control-background: hsla(0, 0%, 100%, 0.9);
+    --shadow-colour: hsla(0, 0%, 0%, 0.15);
     --thumbnail-background: hsla(0, 0%, 0%, 0.05);
     --thumbnail-background-hover: hsla(0, 0%, 0%, 0.075);
+    --heatmap-background: #ddd;
+    --row-hover-background: hsla(0, 0%, 0%, 0.05);
+    --legend-plot-background: hsl(0, 0%, 94%);
+    
+    // text and lines
     --grey: hsla(0, 0%, 0%, 0.6);
     --light-grey: hsla(0, 0%, 0%, 0.4);
     --very-light-grey: hsla(0, 0%, 0%, 0.3);
     --faint-grey: hsla(0, 0%, 0%, 0.15);
+    --heading-colour: #888;
+    --divider: #ddd;
+    --divider-strong: #ccc;
+    --panel-border: hsla(0, 0%, 0%, 0.05);
     --action-colour: #F5A623;
+    
+    // scatterplot
     --default-color: #888;
+    --dot-hover-color: #555;
+    --halo-color: hsl(0, 0%, 91%);
     --near-color: hsl(0, 0%, 100%);
     --far-color: hsl(0, 0%, 82%);
+    
+    // density plots
+    --density-fill: hsla(0, 0%, 0%, 0.2);
+    --tooltip-density-fill: hsla(0, 0%, 0%, 0.15);
+    --tooltip-quantile-line: white;
+    --marker-colour: hsl(0, 0%, 60%);
+    
+    // tooltips
+    --tooltip-colour: #333;
+    --tooltip-background: hsla(0, 0%, 100%, 0.9);
+    --tooltip-background-blurred: hsla(0, 0%, 100%, 0.7);
+    --tooltip-border-colour: hsla(0, 0%, 0%, 0.15);
+    
+    
+    // sizes
+    --thumb-size: 48px;
+    --heatmap-thumb-size: 48px;
+    --tooltip-max-width: 400px;
+    --tooltip-arrow-offset: 5px;
+    --tooltip-arrow-width: 5px;
+    --tooltip-arrow-border-width: calc(var(--tooltip-arrow-width) + 2px);
+    --tooltip-opacity: 1;
+    --tooltip-z-index: 10;
+    --tooltip-border-radius: 4px;
 }
 
 ul, li {
@@ -52,7 +100,7 @@ ul, li {
             margin: 0;
         }
         .dataEntry {
-            background: hsl(0, 0%, 88%);
+            background: var(--data-entry-background);
             color: var(--grey);
             
             .action {
@@ -80,8 +128,8 @@ ul, li {
                 border: none;
                 padding: 2rem;
                 box-sizing: border-box;
-                background: hsla(0, 0%, 100%, 0.7);
-                box-shadow: hsla(0, 0%, 0%, 0.2) 0 1px 1px inset;
+                background: var(--input-background);
+                box-shadow: var(--input-shadow) 0 1px 1px inset;
                 border-radius: 3px;
                 font-family: monospace;
                 font-size: 1.5rem;

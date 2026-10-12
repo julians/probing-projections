@@ -1,7 +1,7 @@
 .densityPlot {
     .basePath {
         stroke: none;
-        fill: hsla(0, 0%, 0%, 0.2);
+        fill: var(--density-fill);
     }
     .subPlotLayer {
         .subPlot {
@@ -28,7 +28,7 @@
     }
     .marker {
         stroke: none;
-        fill: hsl(0, 0%, 60%);
+        fill: var(--marker-colour);
     }
     .diffBar {
         stroke: none;

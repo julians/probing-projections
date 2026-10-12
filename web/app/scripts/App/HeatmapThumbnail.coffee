@@ -34,13 +34,14 @@ class HeatmapThumbnail
         ctx = @canvas.getContext('2d')
         @canvas.width = size
         @canvas.height = size
+        ink = d3.rgb(Utils.cssVar("--ink"))
         
         for rowIndex in [0...@heatmap.numDots]
             for colIndex in [0...@heatmap.numDots]
                 i = rowIndex * @heatmap.numDots + colIndex
                 pos = @heatmap.positions[i]
                 
-                ctx.fillStyle = "hsla(0, 0%, 0%, #{pos.valueForDimension[@dimension.id]})"
+                ctx.fillStyle = "rgba(#{ink.r}, #{ink.g}, #{ink.b}, #{pos.valueForDimension[@dimension.id]})"
                 ctx.fillRect(colIndex*spacing, rowIndex*spacing, spacing, spacing)
 
         

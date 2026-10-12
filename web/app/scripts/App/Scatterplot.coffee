@@ -597,8 +597,8 @@ class Scatterplot extends MicroEvent
             )
             .style("stroke", (d) =>
                 if @activeNode
-                    if relativePositions[d].distanceDelta < 0 then return "hsl(0, 0%, 100%)"
-                    return "hsl(180, 0%, 82%)"
+                    if relativePositions[d].distanceDelta < 0 then return Utils.cssVar("--near-color")
+                    return Utils.cssVar("--far-color")
                 return ""
             )
             

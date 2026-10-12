@@ -1,5 +1,3 @@
-$heatmapThumbSize: 48px;
-
 .dimensionDisplay {
     color: var(--grey);
     cursor: default;
@@ -12,15 +10,15 @@ $heatmapThumbSize: 48px;
         margin: 0 0 6px 0;
     }
     .quantitative {
-        min-height: $heatmapThumbSize;
+        min-height: var(--heatmap-thumb-size);
         position: relative;
     }
     .innerContainer {
         padding-top: 1px;
-        border-bottom: solid 1px #ddd;
+        border-bottom: solid 1px var(--divider);
         height: 24px;
         overflow: visible;
-        padding-left: $heatmapThumbSize + 12px;
+        padding-left: calc(var(--heatmap-thumb-size) + 12px);
     }
     .label {
         font-weight: normal;
@@ -50,17 +48,17 @@ $heatmapThumbSize: 48px;
         }
     }
     .heatmapContainer {
-        width: $heatmapThumbSize;
-        height: $heatmapThumbSize;
+        width: var(--heatmap-thumb-size);
+        height: var(--heatmap-thumb-size);
         left: 0;
         top: 0;
         position: absolute;
-        background: #ddd;
+        background: var(--heatmap-background);
         
         canvas {
             opacity: 0.5;
-            width: $heatmapThumbSize;
-            height: $heatmapThumbSize;
+            width: var(--heatmap-thumb-size);
+            height: var(--heatmap-thumb-size);
             position: absolute;
             left: 0;
             top: 0;
@@ -83,10 +81,10 @@ $heatmapThumbSize: 48px;
         opacity: 0;
     }
     .dimension:hover {
-        background: hsla(0, 0%, 0%, 0.05);
+        background: var(--row-hover-background);
         
         .innerContainer {
-            border-bottom: solid 1px #ccc;
+            border-bottom: solid 1px var(--divider-strong);
         }
         .scaleAction {
             opacity: 0.25;

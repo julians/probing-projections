@@ -12,6 +12,11 @@ class Utils
     # on touch devices the scatterplot doesn't react to hovering
     @isTouchDevice: "ontouchstart" of window
     
+    # the current value of a CSS custom property, e.g. Utils.cssVar("--ink"),
+    # for colours that are drawn from JavaScript and follow the theme
+    @cssVar: (name) ->
+        getComputedStyle(document.documentElement).getPropertyValue(name).trim()
+    
     @difference: (a, b) ->
         Math.abs(a - b)
     

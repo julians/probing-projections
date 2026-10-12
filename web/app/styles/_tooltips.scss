@@ -94,10 +94,10 @@
                 
                 .basePath {
                     stroke: none;
-                    fill: hsla(0, 0%, 0%, 0.15);
+                    fill: var(--tooltip-density-fill);
                 }
                 .quantileLine {
-                    stroke: white;
+                    stroke: var(--tooltip-quantile-line);
                 }
                 .subPlotLayer {
                     .subPlot {
@@ -148,7 +148,7 @@
         min-height: 1.5em;
     }
     .fakePlot {
-        background: hsl(0, 0%, 94%);
+        background: var(--legend-plot-background);
         width: 1.5em;
         height: 1.5em;
         position: absolute;
