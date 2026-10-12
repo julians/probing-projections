@@ -13,11 +13,14 @@ Everything runs in the browser: the projection (metric or non-metric MDS, comput
 
 ## Building
 
-You need a current [node.js](https://nodejs.org). Then, in `./web`:
+You need a current [node.js](https://nodejs.org) and [pnpm](https://pnpm.io). Then, in `./web`:
 
-    ./build.sh
+    pnpm install
+    pnpm dev
 
-This fetches the frontend dependencies (via bower), compiles the CoffeeScript and Sass sources, and puts a ready-to-host version into `./web/dist`. The result has to be served over http, e.g. with `./build.sh serve` (starts a local server on [localhost:9000](http://localhost:9000/)), or by uploading `./web/dist` to any static web host.
+This starts a development server on [localhost:9000](http://localhost:9000/) that recompiles the CoffeeScript and Sass sources as you edit them.
+
+`pnpm build` puts a ready-to-host version into `./web/dist` (with relative paths, so it can live in any subdirectory). It has to be served over http, e.g. with `pnpm preview`, or by uploading `./web/dist` to any static web host.
 
 
 ## Attribution

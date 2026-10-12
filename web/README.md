@@ -6,28 +6,19 @@ This thing generates an MDS visualisation for you. Just paste your spreadsheet d
 How to set up
 -------------
 
-### What you need:
-
-* [node.js](http://nodejs.org)
-* [grunt](http://gruntjs.com)
-
-It’s easiest to install node with [homebrew](http://brew.sh).
-
-To install grunt (you need to have node installed): `npm install -g grunt-cli`
-
-
-### Set-up instructions
+You need [node.js](https://nodejs.org) and [pnpm](https://pnpm.io).
 
 1. open `web` directory in Terminal
-2. `npm install`
-3. `bower install`
-4. install [compass](http://compass-style.org)
+2. `pnpm install`
+3. `pnpm dev`
 
-`grunt server` then watches the files for changes and compiles them for you. It’ll also serve them up on [localhost:9000](http://localhost:9000/).
+This serves the app on [localhost:9000](http://localhost:9000/) and recompiles the CoffeeScript, Sass and Handlebars sources whenever they change.
 
-You may need to quit and restart `grunt server` occasionally if something in `Gruntfile.js` or `package.json` changes.
+The build is set up with [Vite](https://vite.dev), see `vite.config.js`. Two small plugins in there compile `.coffee` files (CoffeeScript 2) and precompile Handlebars templates imported with `?hbs`, e.g. `import Template from "./templates/App.html?hbs"`.
+
+A few old libraries that only work as global scripts (Modernizr, science.js, Sylvester) live in `app/public/vendor` and are loaded with plain `<script>` tags in `index.html`. d3 v3 gets a small patch (`patches/`) so it works as a module.
 
 
 ### Distributing
 
-`grunt staticbuild` builds the project with absolute paths for deployment, `grunt` builds it with relative paths if you want that for whatever reason.
+`pnpm build` builds the project into `dist/` with relative paths, so it can be uploaded anywhere. `pnpm preview` serves the build locally.
