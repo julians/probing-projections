@@ -1,5 +1,11 @@
 # Agent log
 
+## 2026-10-12 — No vendor prefixes in the source
+
+- None left: the build adds `-webkit-` for `backdrop-filter`, `mask-image`/`mask-size` and `user-select`
+  (Safari 16 in Vite's default targets). The tooltip's `@supports` fallback went too; every target
+  browser supports `backdrop-filter`.
+
 ## 2026-10-12 — Tooltip blur
 
 - [026](issues/done/026-tooltip-blur-chrome.md): unprefixed `backdrop-filter`. The Vite build adds vendor
