@@ -1,12 +1,10 @@
-@use "vars";
-
 html {
     font-size: 10px;
     line-height: 1.3;
     font-family: "adelle-sans", "Adelle Sans", sans-serif;
 }
 body {
-    background: vars.$bodyBackground;
+    background: var(--body-background);
     margin: 0;
     padding: 0;
 }

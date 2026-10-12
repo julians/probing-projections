@@ -1,9 +1,7 @@
-@use "vars";
-
 $thumbSize: 48px;
 
 .selectionListDisplay {
-    color: vars.$grey;
+    color: var(--grey);
     position: relative;
     transition: height 0.5s;
 
@@ -16,11 +14,11 @@ $thumbSize: 48px;
         cursor: pointer;
         
         &:hover .thumbnailContainer {
-            background-color: vars.$thumbnailBackgroundHover;
-            border-color: vars.$thumbnailBackgroundHover;
+            background-color: var(--thumbnail-background-hover);
+            border-color: var(--thumbnail-background-hover);
         }
         &.active .thumbnailContainer {
-            border-color: vars.$faintGrey;
+            border-color: var(--faint-grey);
         }
         &.inserted {
             transform: scale(0.5);
@@ -40,28 +38,28 @@ $thumbSize: 48px;
             }
         }
         .details {
-            color: vars.$lightGrey;
+            color: var(--light-grey);
             font-size: 1.3rem;
             display: block;
         }
         &.temp .label {
-            color: vars.$actionColour;
+            color: var(--action-colour);
         }
         &.temp.empty {
             .label {
-                color: vars.$lightGrey;
+                color: var(--light-grey);
             }
             .details {
-                color: vars.$veryLightGrey;
+                color: var(--very-light-grey);
             }
         }
         .thumbnailContainer,
         .tempAddButton {
-            border: solid 1px vars.$thumbnailBackground;
+            border: solid 1px var(--thumbnail-background);
             position: absolute;
             left: 0;
             top: 0;
-            background-color: vars.$thumbnailBackground;
+            background-color: var(--thumbnail-background);
             width: $thumbSize;
             height: $thumbSize;
             border-radius: 2px;
@@ -99,13 +97,13 @@ $thumbSize: 48px;
                 opacity: 0.2;
             }
             .tempAddButton {
-                color: vars.$lightGrey;
+                color: var(--light-grey);
             }
         }
         .tempAddButton {
             opacity: 0;
             font-size: $thumbSize;
-            color: vars.$faintGrey;
+            color: var(--faint-grey);
             line-height: $thumbSize * 0.9;
             text-align: center;
             z-index: 1;

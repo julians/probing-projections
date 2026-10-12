@@ -1,9 +1,7 @@
-@use "vars";
-
 $heatmapThumbSize: 48px;
 
 .dimensionDisplay {
-    color: vars.$grey;
+    color: var(--grey);
     cursor: default;
     
     ul {
@@ -35,7 +33,7 @@ $heatmapThumbSize: 48px;
         display: inline-block;
         
         .range {
-            color: vars.$lightGrey;
+            color: var(--light-grey);
             font-size: 1.3rem;
             display: inline-block;
             

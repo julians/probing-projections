@@ -1,4 +1,3 @@
-@use "vars";
 @use "components/tooltip";
 @use "base";
 @use "flip";
@@ -9,6 +8,20 @@
 @use "selectionListDisplay";
 @use "dimensions";
 @use "tooltips";
+
+:root {
+    --body-background: hsl(0, 0%, 92%);
+    --thumbnail-background: hsla(0, 0%, 0%, 0.05);
+    --thumbnail-background-hover: hsla(0, 0%, 0%, 0.075);
+    --grey: hsla(0, 0%, 0%, 0.6);
+    --light-grey: hsla(0, 0%, 0%, 0.4);
+    --very-light-grey: hsla(0, 0%, 0%, 0.3);
+    --faint-grey: hsla(0, 0%, 0%, 0.15);
+    --action-colour: #F5A623;
+    --default-color: #888;
+    --near-color: hsl(0, 0%, 100%);
+    --far-color: hsl(0, 0%, 82%);
+}
 
 ul, li {
     margin: 0;
@@ -40,18 +53,18 @@ ul, li {
         }
         .dataEntry {
             background: hsl(0, 0%, 88%);
-            color: vars.$grey;
+            color: var(--grey);
             
             .action {
-                color: vars.$actionColour;
+                color: var(--action-colour);
             }
             h3 {
                 @extend .listTitle;
                 margin: 0 0 1rem 0;
-                color: vars.$lightGrey;
+                color: var(--light-grey);
                 
                 small {
-                    color: vars.$faintGrey;
+                    color: var(--faint-grey);
                     font-size: 1em;
                 }
             }
@@ -73,7 +86,7 @@ ul, li {
                 font-family: monospace;
                 font-size: 1.5rem;
                 line-height: 1.3;
-                color: vars.$grey;
+                color: var(--grey);
             }
             .top {
                 overflow: hidden;
@@ -86,7 +99,7 @@ ul, li {
                 float: right;
             }
             a {
-                color: vars.$faintGrey;
+                color: var(--faint-grey);
             }
         } 
         .exportArea {
@@ -105,8 +118,8 @@ ul, li {
         display: inline-block;
         width: 1.35em;
         height: 1.35em;
-        background: vars.$faintGrey;
-        color: vars.$bodyBackground;
+        background: var(--faint-grey);
+        color: var(--body-background);
         text-align: center;
         font-size: 0.75em;
         font-weight: normal;
@@ -115,7 +128,7 @@ ul, li {
         cursor: default;
         
         &:hover {
-            background: vars.$lightGrey;
+            background: var(--light-grey);
         }
     }
 }

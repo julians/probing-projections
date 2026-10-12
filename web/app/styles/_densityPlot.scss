@@ -1,5 +1,3 @@
-@use "vars";
-
 .densityPlot {
     .basePath {
         stroke: none;
@@ -17,7 +15,7 @@
         }
     }
     .quantileLine {
-        stroke: vars.$bodyBackground;
+        stroke: var(--body-background);
         stroke-weight: 1px;
         stroke-dasharray: 1,1;
         fill: none;
