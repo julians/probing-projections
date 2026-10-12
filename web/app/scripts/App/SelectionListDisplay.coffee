@@ -7,6 +7,7 @@ import SelectionDisplayTemplate from "./templates/SelectionDisplay.html?hbs"
 import MicroEvent from "../components/MicroEvent.coffee"
 import $ from "jquery"
 import * as d3 from "d3"
+import { uniqBy } from "es-toolkit"
 
 class SelectionListDisplay extends MicroEvent
     constructor: (options) ->
@@ -104,6 +105,11 @@ class SelectionListDisplay extends MicroEvent
             keyFunction = (d) ->
                 return d.id
           
+        # d3 v3 dropped data with duplicate keys, v4+ enters them again.
+        # The temp selection is briefly listed twice while it is being
+        # made permanent.
+        if keyFunction
+            selections = uniqBy(selections, keyFunction)
         items = container.selectAll(".selection")
             .data(selections, keyFunction)
         

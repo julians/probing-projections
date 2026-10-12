@@ -6,6 +6,7 @@ import Heatmap from "./Heatmap.coffee"
 import MicroEvent from "../components/MicroEvent.coffee"
 import * as d3 from "d3"
 import $ from "jquery"
+import { uniqBy } from "es-toolkit"
 
 class Scatterplot extends MicroEvent
     constructor: (options) ->
@@ -297,6 +298,9 @@ class Scatterplot extends MicroEvent
                     hullSelections.push(selection)
             if DataWrapper.brushedSelection
                 hullSelections.push(DataWrapper.brushedSelection)
+            # the brushed selection can also be an active one; d3 v3
+            # dropped such duplicate keys, v4+ would draw the hull twice
+            hullSelections = uniqBy(hullSelections, (d) -> d.id)
             
         hulls = @hullLayer.selectAll(".hull")
             .data(hullSelections.filter((d) -> d.samples.length > 2), (d) -> d.id)
