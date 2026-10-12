@@ -1,5 +1,15 @@
 # Agent log
 
+## 2026-10-12 — “Edit projection” flip regression
+
+- User report: “Edit projection” emptied the panel. `_flip.scss` depended on Modernizr's
+  `.csstransforms3d` class, which was removed in [017](issues/done/017-replace-global-vendor-scripts.md).
+  The flip is now unconditional.
+- Second regression from today's library work that was found by the user, not by me. Neither the
+  flip nor making selections permanent was in my comparison scripts. Before removing a library
+  that adds global state (classes, globals), grep for *everything* it provides, not just the names
+  I expect. [012](issues/open/012-e2e-smoke-test.md) should click through every control once.
+
 ## 2026-10-12 — Bugs 019–022, d3 duplicate-key regression
 
 - User report: selections could no longer be made permanent or renamed. A regression from d3 v7:

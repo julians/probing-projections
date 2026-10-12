@@ -24,3 +24,9 @@ Commit “Replace science.js, Sylvester and Modernizr with own code”.
 - No styles used Modernizr's classes; the `supportsFeature` helper was never imported. Removed both,
   plus the IE conditional comments on `<html>`.
 - `web/app/public` is gone entirely (vendor was all it held).
+
+Regression found later (fixed in “Flip to the data entry without Modernizr's csstransforms3d class”):
+`_flip.scss` used Modernizr's `.csstransforms3d` class, so “Edit projection” showed an empty
+panel. My check had only grepped for `.touch`/`.no-js`-style names. A grep over all Modernizr
+feature class names found no other uses.
+
