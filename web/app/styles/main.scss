@@ -60,6 +60,13 @@
     --tooltip-background-blurred: hsla(0, 0%, 100%, 0.7);
     --tooltip-border-colour: hsla(0, 0%, 0%, 0.15);
     
+    // scale symbol (three circles, largest first)
+    --scale-symbol-fill-1: #9B9B9B;
+    --scale-symbol-stroke-1: #525252;
+    --scale-symbol-fill-2: #6E6E6E;
+    --scale-symbol-stroke-2: #353535;
+    --scale-symbol-fill-3: #5E5E5E;
+    --scale-symbol-stroke-3: #000000;
     
     // sizes
     --thumb-size: 48px;
@@ -121,6 +128,12 @@
         --tooltip-border-colour: hsla(0, 0%, 100%, 0.15);
         
         // ink: the front circle has the darkest outline in light mode
+        --scale-symbol-fill-1: #646464;
+        --scale-symbol-stroke-1: #ADADAD;
+        --scale-symbol-fill-2: #919191;
+        --scale-symbol-stroke-2: #CACACA;
+        --scale-symbol-fill-3: #A1A1A1;
+        --scale-symbol-stroke-3: #FFFFFF;
     }
 }
 

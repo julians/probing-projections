@@ -75,10 +75,27 @@
         //margin-left: 5px;
         width: 15px;
         height: 15px;
-        background-image: url("/images/scalesymbol.png");
-        background-size: cover;
         cursor: pointer;
         opacity: 0;
+        
+        // inline SVG, see DimensionDisplay.html
+        svg {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+        .circle-1 {
+            fill: var(--scale-symbol-fill-1);
+            stroke: var(--scale-symbol-stroke-1);
+        }
+        .circle-2 {
+            fill: var(--scale-symbol-fill-2);
+            stroke: var(--scale-symbol-stroke-2);
+        }
+        .circle-3 {
+            fill: var(--scale-symbol-fill-3);
+            stroke: var(--scale-symbol-stroke-3);
+        }
     }
     .dimension:hover {
         background: var(--row-hover-background);

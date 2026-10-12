@@ -18,8 +18,10 @@
             width: 20px;
             height: 12px;
             margin-left: 0.7rem;
-            background-image: url("/images/eyeicon.png");
-            background-size: cover;
+            // the SVG only provides the shape, the colour comes from --ink
+            background-color: var(--ink);
+            mask-image: url("/images/eyeicon.svg");
+            mask-size: cover;
             cursor: pointer;
             position: relative;
             top: 1px;
