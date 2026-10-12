@@ -1,15 +1,7 @@
-# global define
-# global Modernizr
+import Handlebars from "handlebars/runtime"
 
-define([
-    "Handlebars"
-], (
-    
-) ->
-    'use strict'
-    multiply = (a, b, options) ->
-        a * b
-            
-    Handlebars.registerHelper "multiply", multiply
-    return multiply
-)
+multiply = (a, b, options) ->
+    a * b
+        
+Handlebars.registerHelper "multiply", multiply
+export default multiply

@@ -1,18 +1,10 @@
-# global define
-# global Modernizr
+import Handlebars from "handlebars/runtime"
 
-define([
-    "Handlebars"
-], (
-    
-) ->
-    'use strict'
-    supportsFeature = (feature, options) ->
-        if Modernizr[feature]
-            options.fn(this)
-        else
-            options.inverse(this)
-            
-    Handlebars.registerHelper "supportsFeature", supportsFeature
-    return supportsFeature
-)
+supportsFeature = (feature, options) ->
+    if Modernizr[feature]
+        options.fn(this)
+    else
+        options.inverse(this)
+        
+Handlebars.registerHelper "supportsFeature", supportsFeature
+export default supportsFeature

@@ -1,16 +1,8 @@
-# global define
-# global Modernizr
+import Config from "../../Config.coffee"
+import Handlebars from "handlebars/runtime"
 
-define([
-    "Config"
-    "Handlebars"
-], (
-    Config
-) ->
-    "use strict"
-    imagePath = () ->
-        Config.imagePath
-            
-    Handlebars.registerHelper "imagePath", imagePath
-    return imagePath
-)
+imagePath = () ->
+    Config.imagePath
+        
+Handlebars.registerHelper "imagePath", imagePath
+export default imagePath

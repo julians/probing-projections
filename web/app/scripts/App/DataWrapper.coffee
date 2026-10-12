@@ -1,120 +1,106 @@
-# global define
-# global Modernizr
-# global Papa
+import Config from "../Config.coffee"
+import Utils from "../Utils.coffee"
+import Selection from "./Selection.coffee"
+import MicroEvent from "../components/MicroEvent.coffee"
+import _ from "underscore"
+import d3 from "d3"
 
-define([
-    "Config"
-    "Utils"
-    "./Selection"
-    "components/MicroEvent"
-    "underscore"
-    "d3"
-], (
-    Config
-    Utils
-    Selection
-    MicroEvent
-    _
-    d3
-) ->
-    'use strict'
-    class DataWrapper extends MicroEvent
-        constructor: () ->
-            super()
-            @sampleList = null
-            @activeSelections = null
-            @selectionLists = {}
-            @brushedSelection = null
-            @tempSelection = new Selection(
-                colour: Config.tempSelectionColour
-                label: "temporary selection"
-            )
-            
+class DataWrapper extends MicroEvent
+    constructor: () ->
+        super()
+        @sampleList = null
+        @activeSelections = null
+        @selectionLists = {}
+        @brushedSelection = null
+        @tempSelection = new Selection(
+            colour: Config.tempSelectionColour
+            label: "temporary selection"
+        )
         
-        setSampleList: (sampleList) =>
-            @sampleList = sampleList
+    
+    setSampleList: (sampleList) =>
+        @sampleList = sampleList
+    
+    
+    getSampleList: =>
+        return @sampleList
+    
+    
+    getSelectionList: (key) =>
+        return @selectionLists[key] 
         
         
-        getSampleList: =>
-            return @sampleList
+    addSelectionList: (selection, key) =>
+        @selectionLists[key] = selection
         
         
-        getSelectionList: (key) =>
-            return @selectionLists[key] 
-            
-            
-        addSelectionList: (selection, key) =>
-            @selectionLists[key] = selection
-            
-            
-        clearAllSelectionLists: (exceptions = null) =>
-            for key, selectionList of @selectionLists
-                unless exceptions and _.contains(exceptions, key)
-                    selectionList.clear()
-            @tempSelection.setSamples([])
-            
+    clearAllSelectionLists: (exceptions = null) =>
+        for key, selectionList of @selectionLists
+            unless exceptions and _.contains(exceptions, key)
+                selectionList.clear()
+        @tempSelection.setSamples([])
         
-        setBrushedSelection: (selection) =>
-            @brushedSelection = selection
-            @trigger("brushed:selection", selection)
+    
+    setBrushedSelection: (selection) =>
+        @brushedSelection = selection
+        @trigger("brushed:selection", selection)
+    
+    
+    addToTemp: (samples) =>
+        @tempSelection.add(samples)
+        @trigger("tempSelection:change", @tempSelection)
+    
+        
+    removeFromTemp: (samples) =>
+        @tempSelection.remove(samples)
+        @trigger("tempSelection:change", @tempSelection)
+    
+        
+    setTemp: (samples) =>
+        @tempSelection.setSamples(samples)
+        @trigger("tempSelection:change", @tempSelection)
+    
+        
+    toggleTemp: (samples) =>
+        @tempSelection.toggle(samples)
+        @trigger("tempSelection:change", @tempSelection)
+    
+    
+    makeTempPermanent: =>
+        numberOfSelections = @selectionLists["user"].selections.length
+        @tempSelection.setLabel("Selection #{numberOfSelections+1}")
+        
+        @createUserSelectionFrom(@tempSelection)
+        
+        @tempSelection = new Selection(
+            colour: Config.tempSelectionColour
+        )
+        @trigger("tempSelection:change")
+    
+    
+    createUserSelectionFrom: (newSelection) =>
+        for selection in @selectionLists["user"].selections
+            selection.remove(newSelection.samples)
+        @selectionLists["user"].add(newSelection)
+        @selectionLists["user"].autoColour(Config.userSelectionColourOffset)
         
         
-        addToTemp: (samples) =>
-            @tempSelection.add(samples)
-            @trigger("tempSelection:change", @tempSelection)
+    removeUserSelection: (selection) =>
+        @selectionLists["user"].remove(selection)
+        @selectionLists["user"].autoColour(Config.userSelectionColourOffset)
+    
         
-            
-        removeFromTemp: (samples) =>
-            @tempSelection.remove(samples)
-            @trigger("tempSelection:change", @tempSelection)
-        
-            
-        setTemp: (samples) =>
-            @tempSelection.setSamples(samples)
-            @trigger("tempSelection:change", @tempSelection)
-        
-            
-        toggleTemp: (samples) =>
-            @tempSelection.toggle(samples)
-            @trigger("tempSelection:change", @tempSelection)
-        
-        
-        makeTempPermanent: =>
-            numberOfSelections = @selectionLists["user"].selections.length
-            @tempSelection.setLabel("Selection #{numberOfSelections+1}")
-            
-            @createUserSelectionFrom(@tempSelection)
-            
-            @tempSelection = new Selection(
-                colour: Config.tempSelectionColour
-            )
-            @trigger("tempSelection:change")
-        
-        
-        createUserSelectionFrom: (newSelection) =>
-            for selection in @selectionLists["user"].selections
-                selection.remove(newSelection.samples)
-            @selectionLists["user"].add(newSelection)
-            @selectionLists["user"].autoColour(Config.userSelectionColourOffset)
-            
-            
-        removeUserSelection: (selection) =>
-            @selectionLists["user"].remove(selection)
-            @selectionLists["user"].autoColour(Config.userSelectionColourOffset)
-        
-            
-        setActiveSelections: (key) =>
-            if @activeSelections != @selectionLists[key] and @selectionLists[key]
-                @activeSelections = @selectionLists[key]
+    setActiveSelections: (key) =>
+        if @activeSelections != @selectionLists[key] and @selectionLists[key]
+            @activeSelections = @selectionLists[key]
 
-                for selectionList in @selectionLists
-                    @stopListening(selectionList)
+            for selectionList in @selectionLists
+                @stopListening(selectionList)
 
-                @listenTo(@activeSelections, "all", (eventName, args...) =>
-                    @trigger("activeSelections:#{eventName}", args...)
-                )    
-                @trigger("activeSelections:change", key)
-            
+            @listenTo(@activeSelections, "all", (eventName, args...) =>
+                @trigger("activeSelections:#{eventName}", args...)
+            )    
+            @trigger("activeSelections:change", key)
         
-    return new DataWrapper()
-)
+    
+export default new DataWrapper()

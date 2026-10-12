@@ -1,4 +1,4 @@
-define(
+export default {
     imagePath: "images"
     distanceErrorColours:
         tooClose: "#109AAF"
@@ -8,4 +8,4 @@ define(
     actionColour: "#F5A623"
     tempSelectionColour: "#F5A623"
     baseColour: "black"
-)
+}
