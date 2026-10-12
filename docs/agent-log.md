@@ -1,5 +1,14 @@
 # Agent log
 
+## 2026-10-12 — kNN benchmark, quantiles as numbers
+
+- Benchmarked the old quadtree k-nearest search against the new loop (table in [016](issues/done/016-d3-v7.md)):
+  the old search was inexact from ~1000 samples on, and the loop is faster up to ~5000.
+- Voronoi layer: never enabled anywhere in the history, probably a predecessor of `Heatmap`.
+- [024](issues/done/024-quantiles-as-arrays.md): quantiles are now numbers. Also fixed a 0-valued cache
+  miss and renamed `mean` → `median`. A before/after digest via `git stash` was identical.
+- For small before/after checks, `git stash` in the same tab is enough; a worktree isn't needed.
+
 ## 2026-10-12 — d3 v7, global vendor scripts removed
 
 - d3 v3 → v7 ([016](issues/done/016-d3-v7.md)), then science.js/Sylvester/Modernizr → own code

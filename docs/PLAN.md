@@ -53,4 +53,4 @@ bus). The d3 visualisations stay imperative, wrapped in components.
 - [ ] [021](issues/open/021-active-selections-listening.md) `setActiveSelections` never stops listening
 - [ ] [022](issues/open/022-stale-elements-after-reload.md) Old dots and clusters stay in the DOM after loading new data
 - [x] [023](issues/done/023-smacof-classical-init.md) Idea: start SMACOF from classical MDS
-- [ ] [024](issues/open/024-quantiles-as-arrays.md) Quantiles are one-element arrays
+- [x] [024](issues/done/024-quantiles-as-arrays.md) Quantiles are one-element arrays
