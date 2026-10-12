@@ -57,8 +57,8 @@ class QuantitativeDimension
     getQuantiles: (quantiles = [0.25, 0.5, 0.75]) =>
         returnQuantiles = []
         for quantile in quantiles
-            unless @quantileMap[quantile]
-                @quantileMap[quantile] = Stats.quantiles(@getAllValues(), [quantile])
+            unless quantile of @quantileMap
+                @quantileMap[quantile] = Stats.quantiles(@getAllValues(), [quantile])[0]
             returnQuantiles.push(@quantileMap[quantile])
         return returnQuantiles
         

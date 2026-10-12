@@ -89,9 +89,9 @@ class DensityDisplay extends MicroEvent
     
     getOffsetForQuantile: (quantile) =>
         if @baseValues
-            quantile = Stats.quantiles(@baseValues, [quantile])
+            value = Stats.quantiles(@baseValues, [quantile])[0]
             width = @x.range()[1] - @x.range()[0]
-            return @x(quantile) - width/2
+            return @x(value) - width/2
         else
             return null
     
@@ -210,13 +210,13 @@ class DensityDisplay extends MicroEvent
         h = 0
         c = 0
         if @diffBarValue
-            mean = @dimension.getQuantiles([0.5])
-            normalizedMean = @dimension.normalizeValue(mean)
+            [median] = @dimension.getQuantiles([0.5])
+            normalizedMedian = @dimension.normalizeValue(median)
             normalizedValue = @dimension.normalizeValue(@diffBarValue)
             h = 235
-            if normalizedMean > normalizedValue
+            if normalizedMedian > normalizedValue
                 h = 10
-            c = @diffBarScale(Math.abs(normalizedMean - normalizedValue))*90
+            c = @diffBarScale(Math.abs(normalizedMedian - normalizedValue))*90
         return Utils.hcl(h, c, l)
     
     
@@ -339,11 +339,11 @@ class DensityDisplay extends MicroEvent
         if @diffBarValue != null
             availableHeight = @y.range()[0] - @y.range()[1]
             height = availableHeight * 0.5
-            mean = @dimension.getQuantiles([0.5])
-            meanPos = @x(mean)
+            [median] = @dimension.getQuantiles([0.5])
+            medianPos = @x(median)
             valuePos = @x(@diffBarValue)
-            x = Math.min(meanPos, valuePos)
-            width = Math.max(meanPos, valuePos) - Math.min(meanPos, valuePos)
+            x = Math.min(medianPos, valuePos)
+            width = Math.max(medianPos, valuePos) - Math.min(medianPos, valuePos)
             @diffBar
                 .attr("y", (availableHeight-height)/2 + @y.range()[1])
                 .attr("height", height)
