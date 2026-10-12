@@ -482,7 +482,9 @@ class Scatterplot extends MicroEvent
         halosEnter = halos.enter()
             .append("circle")
             .attr("class", "halo")
-            .attr("r", @visualVariableDefaults.haloSize[0])
+            .attr("cx", (d) => @getDotX(d, relativePositions))
+            .attr("cy", (d) => @getDotY(d, relativePositions))
+            .attr("r", 0)
             .style("opacity", 0)
             #.attr("filter", "url(#blurFilter)")
               
@@ -513,16 +515,8 @@ class Scatterplot extends MicroEvent
                             value = @maxHaloRadius
                     return value
                 )
-                .attr("cx", (d, index) =>
-                    if @activeNode and d != @activeNode.id
-                        return @x(relativePositions[d.id].pos[0])
-                    return @x(d.mdsPosition[0])
-                )
-                .attr("cy", (d, index) =>
-                    if @activeNode and d != @activeNode.id
-                        return @y(relativePositions[d.id].pos[1])
-                    return @y(d.mdsPosition[1])
-                )
+                .attr("cx", (d) => @getDotX(d, relativePositions))
+                .attr("cy", (d) => @getDotY(d, relativePositions))
                 .style("opacity", (d) =>
                     if (@hoveredNode and d.id == @hoveredNode.id) or (@activeNode and d.id == @activeNode.id)
                         return 0
@@ -643,7 +637,9 @@ class Scatterplot extends MicroEvent
         dotsEnter = dots.enter()
             .append("circle")
             .attr("class", "dot")
-            .attr("r", 5.5)
+            .attr("cx", (d) => @getDotX(d, relativePositions))
+            .attr("cy", (d) => @getDotY(d, relativePositions))
+            .attr("r", 0)
             .style("opacity", 0)
             .on("click", (event, d) =>
                 @trigger("selection", {
@@ -696,25 +692,9 @@ class Scatterplot extends MicroEvent
             )
             .transition()
                 .duration(@transitionDuration)
-                .attr("r", (d) =>
-                    value = 1
-                    if @visualVariables.size
-                        value = d.getValueForDimension(@visualVariables.size)
-                        value /= @visualVariables.size.multiplier
-                    return @visualScales.size(value)
-                )
-                .attr("cx", (d, index) =>
-                    if @activeNode and d != @activeNode
-                        @x(relativePositions[d.id].pos[0])
-                    else
-                        @x(d.mdsPosition[0])
-                )
-                .attr("cy", (d, index) =>
-                    if @activeNode and d != @activeNode
-                        @y(relativePositions[d.id].pos[1])
-                    else
-                        @y(d.mdsPosition[1])
-                )
+                .attr("r", @getDotRadius)
+                .attr("cx", (d) => @getDotX(d, relativePositions))
+                .attr("cy", (d) => @getDotY(d, relativePositions))
                 .style("opacity", 1)
                 .style("fill", @getFillStyleForSample)
             
@@ -731,6 +711,24 @@ class Scatterplot extends MicroEvent
         @drawLabels(@labelLayer, labelList, relativePositions)
         
     
+    # screen position of a sample: relative to the active node if there is one
+    getDotX: (d, relativePositions) =>
+        if @activeNode and d != @activeNode
+            return @x(relativePositions[d.id].pos[0])
+        return @x(d.mdsPosition[0])
+
+    getDotY: (d, relativePositions) =>
+        if @activeNode and d != @activeNode
+            return @y(relativePositions[d.id].pos[1])
+        return @y(d.mdsPosition[1])
+
+    getDotRadius: (d) =>
+        value = 1
+        if @visualVariables.size
+            value = d.getValueForDimension(@visualVariables.size)
+            value /= @visualVariables.size.multiplier
+        return @visualScales.size(value)
+
     drawLabels: (layer, labelList, relativePositions) =>
         that = @
         
@@ -740,6 +738,8 @@ class Scatterplot extends MicroEvent
         labelsEnter = labels.enter()
             .append("text")
             .attr("class", "dotLabel")
+            .attr("x", (d) => @getDotX(d, relativePositions) + @getDotRadius(d) + 3)
+            .attr("y", (d) => @getDotY(d, relativePositions) + 5)
             .style("opacity", 0)
             .text((d) ->
                 d.getLabel()
@@ -782,24 +782,8 @@ class Scatterplot extends MicroEvent
         
         labelsEnter.merge(labels).transition()
             .duration(@transitionDuration)
-            .attr("x", (d, index) =>
-                value = 1
-                if @visualVariables.size
-                    value = d.getValueForDimension(@visualVariables.size)
-                    value /= @visualVariables.size.multiplier
-                offset = @visualScales.size(value) + 3
-                
-                if @activeNode and d != @activeNode
-                    return @x(relativePositions[d.id].pos[0]) + offset
-                else
-                    return @x(d.mdsPosition[0]) + offset
-            )
-            .attr("y", (d, index) =>
-                if @activeNode and d != @activeNode
-                    return @y(relativePositions[d.id].pos[1]) + 5
-                else
-                    return @y(d.mdsPosition[1]) + 5
-            )
+            .attr("x", (d) => @getDotX(d, relativePositions) + @getDotRadius(d) + 3)
+            .attr("y", (d) => @getDotY(d, relativePositions) + 5)
             .style("opacity", 1)
             .style("fill", @getFillStyleForSample)
         
