@@ -7,9 +7,11 @@ Phase: bug
 or defined (found by `no-undef` linting). Looks like dead code, but it would throw if reached.
 
 ## Tasks
-- [ ] Find out whether the method is reachable; delete it or fix it
+- [x] Find out whether the method is reachable; delete it or fix it
 
 ## Notes
 Present since the first commit.
 
 ## Done
+Unreachable: nothing calls `SelectionListDisplay.renderContent` (DimensionDisplay has its own) and
+no class extends it. Deleted in “Remove the unused SelectionListDisplay.renderContent”.

@@ -48,9 +48,9 @@ bus). The d3 visualisations stay imperative, wrapped in components.
 
 ## Bugs and ideas (any time)
 
-- [ ] [019](issues/open/019-recompute-race.md) Recompute race in the deferred computation
-- [ ] [020](issues/open/020-class-display-template.md) `ClassDisplayTemplate` is undefined
-- [ ] [021](issues/open/021-active-selections-listening.md) `setActiveSelections` never stops listening
-- [ ] [022](issues/open/022-stale-elements-after-reload.md) Old dots and clusters stay in the DOM after loading new data
+- [ ] [019](issues/open/019-recompute-race.md) Recompute race in the deferred computation (short-term fix done, Web Worker open)
+- [x] [020](issues/done/020-class-display-template.md) `ClassDisplayTemplate` is undefined
+- [x] [021](issues/done/021-active-selections-listening.md) `setActiveSelections` never stops listening
+- [x] [022](issues/done/022-stale-elements-after-reload.md) Old dots and clusters stay in the DOM after loading new data
 - [x] [023](issues/done/023-smacof-classical-init.md) Idea: start SMACOF from classical MDS
 - [x] [024](issues/done/024-quantiles-as-arrays.md) Quantiles are one-element arrays

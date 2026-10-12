@@ -1,5 +1,17 @@
 # Agent log
 
+## 2026-10-12 — Bugs 019–022, d3 duplicate-key regression
+
+- User report: selections could no longer be made permanent or renamed. A regression from d3 v7:
+  v3 dropped data with duplicate keys, v7 enters it. Fixed with `uniqBy` before the two affected joins.
+- 021 fixed; the app relied on it in one place (density plot of a made-permanent temp selection).
+- 019 short-term fix (cancel + capture + no drawing without positions); Web Worker still open.
+- 022 was mostly the hidden-pane rAF artefact plus aborted draws, and one real bug (`transitionend`
+  never fires in a hidden list). 020 was dead code.
+- Verified with scripted scenarios against a v3 worktree (`web-old`) with a temporary rAF shim in both.
+- Lesson: my 016 probe only covered the paths I thought of. Making selections permanent and switching
+  lists were missing. The Playwright smoke test ([012](issues/open/012-e2e-smoke-test.md)) should cover them.
+
 ## 2026-10-12 — kNN benchmark, quantiles as numbers
 
 - Benchmarked the old quadtree k-nearest search against the new loop (table in [016](issues/done/016-d3-v7.md)):
